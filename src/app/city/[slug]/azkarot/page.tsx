@@ -43,13 +43,13 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
     "name": `קייטרינג לאזכרה ב${city.name} - טעם מהודר`,
     "image": "https://aaasada.com/wp-content/uploads/2022/02/AnyConv.com__774aa9ca-0cae-4218-a91b-15307e737b79.jpg",
     "description": `קייטרינג לסעודת אבלים, שבעה ואזכרות ב${city.name} בהשגחת בד"ץ הרב מחפוד. אוכל בשרי מבושל חם ומנחם בשירות עצמי מכובד וזול.`,
-    "telephone": "072-393-9710",
+    "telephone": "052-609-0930",
     "url": `https://aaasada.com/city/${city.slug}/azkarot`,
     "priceRange": "$$",
     "provider": {
       "@type": "LocalBusiness",
       "name": "קייטרינג טעם מהודר",
-      "telephone": "072-393-9710",
+      "telephone": "052-609-0930",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": city.name,
@@ -116,7 +116,7 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט לאזכרה</span>
             </a>
-            <a href="tel:072-393-9710" className="btn btn-outline" style={{
+            <a href="tel:052-609-0930" className="btn btn-outline" style={{
               color: "#ffffff",
               borderColor: "#ffffff",
               backgroundColor: "rgba(255,255,255,0.05)",
@@ -125,7 +125,7 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
               gap: "8px"
             }}>
               <PhoneIcon size={18} />
-              <span>072-393-9710</span>
+              <span>052-609-0930</span>
             </a>
           </div>
         </div>
@@ -190,8 +190,8 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
                 </li>
               </ul>
               <div style={{ marginTop: "10px" }}>
-                <a href="tel:072-393-9710" className="btn btn-secondary" style={{ width: "100%" }}>
-                  📞 שיחה מהירה להזמנה: 072-393-9710
+                <a href="tel:052-609-0930" className="btn btn-secondary" style={{ width: "100%" }}>
+                  📞 שיחה מהירה להזמנה: 052-609-0930
                 </a>
               </div>
             </div>

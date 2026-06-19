@@ -169,7 +169,7 @@ export default function MenuBuilder() {
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
-    const url = `https://wa.me/972523939710?text=${generateWhatsAppMessage()}`;
+    const url = `https://wa.me/972526090930?text=${generateWhatsAppMessage()}`;
     window.open(url, "_blank");
   };
 

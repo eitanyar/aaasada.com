@@ -248,7 +248,7 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
           <a href="#menu-section" className="btn btn-primary" style={{ padding: "12px 30px", fontSize: "1.1rem" }}>
             <span>להרכבת תפריט ב-₪58</span>
           </a>
-          <a href="tel:072-393-9710" className="btn btn-outline" style={{
+          <a href="tel:052-609-0930" className="btn btn-outline" style={{
             color: "#ffffff",
             borderColor: "#ffffff",
             padding: "12px 30px",
@@ -259,7 +259,7 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
             gap: "8px"
           }}>
             <PhoneIcon size={18} />
-            <span>072-393-9710</span>
+            <span>052-609-0930</span>
           </a>
         </div>
       </div>

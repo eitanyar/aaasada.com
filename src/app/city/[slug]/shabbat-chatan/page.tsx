@@ -43,13 +43,13 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
     "name": `קייטרינג לשבת חתן ב${city.name} - טעם מהודר`,
     "image": "https://aaasada.com/wp-content/uploads/2022/02/AnyConv.com__774aa9ca-0cae-4218-a91b-15307e737b79.jpg",
     "description": `קייטרינג לשבת חתן ב${city.name} בהשגחת בד"ץ הרב מחפוד. אוכל מוכן בשרי מקורר ועשיר לסעודות ליל שבת, בוקר וסעודה שלישית.`,
-    "telephone": "072-393-9710",
+    "telephone": "052-609-0930",
     "url": `https://aaasada.com/city/${city.slug}/shabbat-chatan`,
     "priceRange": "$$",
     "provider": {
       "@type": "LocalBusiness",
       "name": "קייטרינג טעם מהודר",
-      "telephone": "072-393-9710",
+      "telephone": "052-609-0930",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": city.name,
@@ -117,7 +117,7 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט שבת חתן</span>
             </a>
-            <a href="tel:072-393-9710" className="btn btn-outline" style={{
+            <a href="tel:052-609-0930" className="btn btn-outline" style={{
               color: "#ffffff",
               borderColor: "#ffffff",
               backgroundColor: "rgba(255,255,255,0.05)",
@@ -126,7 +126,7 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
               gap: "8px"
             }}>
               <PhoneIcon size={18} />
-              <span>072-393-9710</span>
+              <span>052-609-0930</span>
             </a>
           </div>
         </div>
@@ -191,7 +191,7 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
                 </li>
               </ul>
               <div style={{ marginTop: "10px" }}>
-                <a href="tel:072-393-9710" className="btn btn-secondary" style={{ width: "100%" }}>
+                <a href="tel:052-609-0930" className="btn btn-secondary" style={{ width: "100%" }}>
                   📞 התקשרו לתיאום שבת חתן
                 </a>
               </div>
@@ -321,12 +321,12 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
               <div style={{ fontSize: "1.2rem", fontWeight: "700", color: "var(--secondary-green)" }}>
                 🥗 כל 3 הסעודות • 🥩 כשרות בד"ץ הרב מחפוד • 🚚 משלוח מקורר בשישי ל{city.name}
               </div>
-              <a href="tel:072-393-9710" className="btn btn-secondary" style={{
+              <a href="tel:052-609-0930" className="btn btn-secondary" style={{
                 padding: "12px 28px",
                 fontSize: "1.1rem",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
               }}>
-                📞 לפרטים והזמנה טלפונית: 072-393-9710
+                📞 לפרטים והזמנה טלפונית: 052-609-0930
               </a>
             </div>
           </div>

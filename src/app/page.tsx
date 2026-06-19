@@ -25,13 +25,13 @@ export default function Home() {
         "name": "קייטרינג טעם מהודר",
         "image": "https://aaasada.com/images/assado_763x447_webp.webp",
         "description": "שירותי קייטרינג ביתי ואוכל מוכן לאירועים קטנים, שבתות חתן, אזכרות ובריתות. תפריט בשרי עשיר ושופע ב-58 ש\"ח בלבד למנה בכשרות המהודרת של בד\"ץ הרב מחפוד.",
-        "telephone": "072-393-9710",
+        "telephone": "052-609-0930",
         "url": "https://aaasada.com/",
         "priceRange": "$$",
         "provider": {
           "@type": "LocalBusiness",
           "name": "קייטרינג טעם מהודר",
-          "telephone": "072-393-9710",
+          "telephone": "052-609-0930",
           "priceRange": "$$",
           "image": "https://aaasada.com/images/assado_763x447_webp.webp",
           "address": {
@@ -135,7 +135,7 @@ export default function Home() {
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט ב-₪58</span>
             </a>
-            <a href="tel:072-393-9710" className="btn btn-outline" style={{
+            <a href="tel:052-609-0930" className="btn btn-outline" style={{
               color: "#ffffff",
               borderColor: "#ffffff",
               backgroundColor: "rgba(255,255,255,0.05)",
@@ -144,7 +144,7 @@ export default function Home() {
               gap: "8px"
             }}>
               <PhoneIcon size={18} />
-              <span>072-393-9710</span>
+              <span>052-609-0930</span>
             </a>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function Home() {
               <p style={{ fontSize: "0.95rem", color: "var(--text-dark)" }}>
                 כל המזון המוכן בקייטרינג מלווה בפיקוח צמוד ותעודת כשרות רשמית של בד"ץ הרב מחפוד. ניתן לקבל עותק מצולם של התעודה העדכנית בוואטסאפ בעת התיאום.
               </p>
-              <a href="https://wa.me/972523939710?text=שלום, אשמח לקבל צילום של תעודת הכשרות העדכנית שלכם של הרב מחפוד" target="_blank" className="btn btn-secondary" style={{ marginTop: "10px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              <a href="https://wa.me/972526090930?text=שלום, אשמח לקבל צילום של תעודת הכשרות העדכנית שלכם של הרב מחפוד" target="_blank" className="btn btn-secondary" style={{ marginTop: "10px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
                 <WhatsAppIcon size={18} />
                 <span>בקשת תעודה בוואטסאפ</span>
               </a>

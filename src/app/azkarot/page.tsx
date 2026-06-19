@@ -31,13 +31,13 @@ export default function AzkarotGeneralPage() {
         "name": "קייטרינג לאזכרה וסעודות אבלים - טעם מהודר",
         "image": "https://aaasada.com/images/roastbeef_763x447_webp.webp",
         "description": "קייטרינג לאזכרות, שבעה וסעודות אבלים. אוכל מוכן בשרי חם, עשיר וכשר למהדרין בהשגחת בד\"ץ הרב מחפוד ב-58 ש\"ח בלבד למנה.",
-        "telephone": "072-393-9710",
+        "telephone": "052-609-0930",
         "url": "https://aaasada.com/azkarot",
         "priceRange": "$$",
         "provider": {
           "@type": "LocalBusiness",
           "name": "קייטרינג טעם מהודר",
-          "telephone": "072-393-9710"
+          "telephone": "052-609-0930"
         },
         "areaServed": [
           { "@type": "AdministrativeArea", "name": "המרכז" },
@@ -146,7 +146,7 @@ export default function AzkarotGeneralPage() {
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט לאזכרה</span>
             </a>
-            <a href="tel:072-393-9710" className="btn btn-outline" style={{
+            <a href="tel:052-609-0930" className="btn btn-outline" style={{
               color: "#ffffff",
               borderColor: "#ffffff",
               backgroundColor: "rgba(255,255,255,0.05)",
@@ -155,7 +155,7 @@ export default function AzkarotGeneralPage() {
               gap: "8px"
             }}>
               <PhoneIcon size={18} />
-              <span>072-393-9710</span>
+              <span>052-609-0930</span>
             </a>
           </div>
         </div>

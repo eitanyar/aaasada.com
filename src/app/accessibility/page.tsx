@@ -99,7 +99,7 @@ export default function AccessibilityPage() {
               </p>
               <ul style={{ listStyleType: "none", padding: 0, marginTop: "10px", display: "flex", flexDirection: "column", gap: "6px" }}>
                 <li>👤 <strong>שם רכז הנגישות:</strong> אלי גולדמן</li>
-                <li>📞 <strong>טלפון:</strong> <a href="tel:072-393-9710" style={{ color: "var(--accent-terracotta)" }}>072-393-9710</a></li>
+                <li>📞 <strong>טלפון:</strong> <a href="tel:052-609-0930" style={{ color: "var(--accent-terracotta)" }}>052-609-0930</a></li>
                 <li>📧 <strong>דואר אלקטרוני:</strong> <a href="mailto:eliinga1206@gmail.com" style={{ color: "var(--accent-terracotta)" }}>eliinga1206@gmail.com</a></li>
               </ul>
             </section>

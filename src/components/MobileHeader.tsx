@@ -50,7 +50,7 @@ export default function MobileHeader() {
         {/* Left side: Action Buttons and Hamburger */}
         <div className="mobile-header-actions" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           {/* Normal state action: compact phone circle button */}
-          <a href="tel:072-393-9710" className="mobile-action-btn-normal circle-btn circle-phone" aria-label="חיוג טלפוני">
+          <a href="tel:052-609-0930" className="mobile-action-btn-normal circle-btn circle-phone" aria-label="חיוג טלפוני">
             <PhoneIcon size={15} />
           </a>
           
@@ -62,13 +62,13 @@ export default function MobileHeader() {
             </a>
             
             {/* Phone (direct dial) */}
-            <a href="tel:072-393-9710" className="circle-btn circle-phone" aria-label="חיוג טלפוני">
+            <a href="tel:052-609-0930" className="circle-btn circle-phone" aria-label="חיוג טלפוני">
               <PhoneIcon size={15} />
             </a>
             
             {/* WhatsApp (opens chat) */}
             <a 
-              href="https://wa.me/972523939710?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%99%D7%99%D7%98%D7%A8%D7%99%D7%A0%D7%92%20%D7%91%D7%A9%D7%A8%D7%99%20%D7%9כ%D7%A9%D7%A8%20%D7%9l%D7%9e%D7%94%D7%93%D7%A8%D7%99%D7%9f" 
+              href="https://wa.me/972526090930?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%99%D7%99%D7%98%D7%A8%D7%99%D7%A0%D7%92%20%D7%91%D7%A9%D7%A8%D7%99%20%D7%9כ%D7%A9%D7%A8%20%D7%9l%D7%9e%D7%94%D7%93%D7%A8%D7%99%D7%9f" 
               className="circle-btn circle-whatsapp" 
               aria-label="שיחת וואטסאפ"
             >

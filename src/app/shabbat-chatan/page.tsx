@@ -31,13 +31,13 @@ export default function ShabbatChatanGeneralPage() {
         "name": "קייטרינג לשבת חתן - טעם מהודר",
         "image": "https://aaasada.com/images/shabat_hatan.webp",
         "description": "קייטרינג לשבת חתן ועליות לתורה. אוכל מוכן בשרי מקורר לשמירה על הטריות, עשיר וכשר למהדרין בהשגחת בד\"ץ הרב מחפוד ב-58 ש\"ח בלבד למנה.",
-        "telephone": "072-393-9710",
+        "telephone": "052-609-0930",
         "url": "https://aaasada.com/shabbat-chatan",
         "priceRange": "$$",
         "provider": {
           "@type": "LocalBusiness",
           "name": "קייטרינג טעם מהודר",
-          "telephone": "072-393-9710"
+          "telephone": "052-609-0930"
         },
         "areaServed": [
           { "@type": "AdministrativeArea", "name": "המרכז" },
@@ -149,7 +149,7 @@ export default function ShabbatChatanGeneralPage() {
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט שבת חתן</span>
             </a>
-            <a href="tel:072-393-9710" className="btn btn-outline" style={{
+            <a href="tel:052-609-0930" className="btn btn-outline" style={{
               color: "#ffffff",
               borderColor: "#ffffff",
               backgroundColor: "rgba(255,255,255,0.05)",
@@ -158,7 +158,7 @@ export default function ShabbatChatanGeneralPage() {
               gap: "8px"
             }}>
               <PhoneIcon size={18} />
-              <span>072-393-9710</span>
+              <span>052-609-0930</span>
             </a>
           </div>
         </div>
@@ -335,12 +335,12 @@ export default function ShabbatChatanGeneralPage() {
               <div style={{ fontSize: "1.2rem", fontWeight: "700", color: "var(--secondary-green)" }}>
                 🥗 כל 3 הסעודות • 🥩 כשרות בד"ץ הרב מחפוד • 🚚 משלוח מקורר בשישי
               </div>
-              <a href="tel:072-393-9710" className="btn btn-secondary" style={{
+              <a href="tel:052-609-0930" className="btn btn-secondary" style={{
                 padding: "12px 28px",
                 fontSize: "1.1rem",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
               }}>
-                📞 לפרטים והזמנה טלפונית: 072-393-9710
+                📞 לפרטים והזמנה טלפונית: 052-609-0930
               </a>
             </div>
           </div>

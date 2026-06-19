@@ -31,13 +31,13 @@ export default function BarMitzvahGeneralPage() {
         "name": "קייטרינג לבר מצווה - טעם מהודר",
         "image": "https://aaasada.com/images/bar_mitzvah.webp",
         "description": "קייטרינג לבר מצווה ובת מצווה. אוכל מוכן בשרי חם, עשיר וכשר למהדרין בהשגחת בד\"ץ הרב מחפוד ב-58 ש\"ח בלבד למנה.",
-        "telephone": "072-393-9710",
+        "telephone": "052-609-0930",
         "url": "https://aaasada.com/bar-mitzvah",
         "priceRange": "$$",
         "provider": {
           "@type": "LocalBusiness",
           "name": "קייטרינג טעם מהודר",
-          "telephone": "072-393-9710"
+          "telephone": "052-609-0930"
         },
         "areaServed": [
           { "@type": "AdministrativeArea", "name": "המרכז" },
@@ -150,7 +150,7 @@ export default function BarMitzvahGeneralPage() {
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט לבר מצווה</span>
             </a>
-            <a href="tel:072-393-9710" className="btn btn-outline" style={{
+            <a href="tel:052-609-0930" className="btn btn-outline" style={{
               color: "#ffffff",
               borderColor: "#ffffff",
               backgroundColor: "rgba(255,255,255,0.05)",
@@ -159,7 +159,7 @@ export default function BarMitzvahGeneralPage() {
               gap: "8px"
             }}>
               <PhoneIcon size={18} />
-              <span>072-393-9710</span>
+              <span>052-609-0930</span>
             </a>
           </div>
         </div>

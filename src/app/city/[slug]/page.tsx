@@ -55,13 +55,13 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         "name": `קייטרינג טעם מהודר ${city.name}`,
         "image": "https://aaasada.com/images/assado_763x447_webp.webp",
         "description": `אוכל מוכן בשרי כשר למהדרין בהשגחת בד\"ץ הרב מחפוד ב${city.name} לשבת חתן, בריתות ואזכרות.`,
-        "telephone": "072-393-9710",
+        "telephone": "052-609-0930",
         "url": `https://aaasada.com/city/${city.slug}`,
         "priceRange": "$$",
         "provider": {
           "@type": "LocalBusiness",
           "name": "קייטרינג טעם מהודר",
-          "telephone": "072-393-9710",
+          "telephone": "052-609-0930",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": city.name,

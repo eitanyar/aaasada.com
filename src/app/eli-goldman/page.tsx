@@ -104,9 +104,9 @@ export default function EliGoldmanProfilePage() {
                 בקייטרינג 'טעם מהודר', אנו דואגים שכל נתח בשר וכל מגש אוכל מוכן שמגיע ללקוח ייוצר תחת הקפדה הלכתית מחמירה ובפיקוח הסטנדרטים של בד"ץ הרב מחפוד שליט"א, תוך שמירה על טעם ביתי עשיר, טריות ושפע במחיר הוגן לכל נפש."
               </p>
               <div style={{ borderTop: "1px solid var(--border-color)", paddingTop: "15px", marginTop: "15px", textAlign: "center" }}>
-                <a href="tel:072-393-9710" className="btn btn-secondary" style={{ display: "inline-flex", gap: "8px", width: "100%" }}>
+                <a href="tel:052-609-0930" className="btn btn-secondary" style={{ display: "inline-flex", gap: "8px", width: "100%" }}>
                   <PhoneIcon size={16} />
-                  <span>בירורים לגבי כשרות: 072-393-9710</span>
+                  <span>בירורים לגבי כשרות: 052-609-0930</span>
                 </a>
               </div>
             </div>

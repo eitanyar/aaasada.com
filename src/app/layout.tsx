@@ -137,9 +137,9 @@ export default function RootLayout({
               </ul>
             </nav>
             <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-              <a href="tel:072-393-9710" className="btn btn-secondary btn-phone" style={{ padding: "6px 12px", fontSize: "0.9rem", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              <a href="tel:052-609-0930" className="btn btn-secondary btn-phone" style={{ padding: "6px 12px", fontSize: "0.9rem", display: "inline-flex", alignItems: "center", gap: "6px" }}>
                 <PhoneIcon size={14} />
-                <span>072-393-9710</span>
+                <span>052-609-0930</span>
               </a>
             </div>
           </div>
@@ -176,11 +176,11 @@ export default function RootLayout({
                 <h3 style={{ color: "var(--primary-gold)", marginBottom: "var(--spacing-sm)", fontFamily: "sans-serif", fontWeight: "600" }}>פרטי קשר</h3>
                 <p style={{ color: "#aaa", fontSize: "0.95rem", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
                   <PhoneIcon size={16} style={{ color: "var(--primary-gold)" }} />
-                  <span>טלפון להזמנות: <strong><a href="tel:072-393-9710" style={{ color: "#fff" }}>072-393-9710</a></strong></span>
+                  <span>טלפון להזמנות: <strong><a href="tel:052-609-0930" style={{ color: "#fff" }}>052-609-0930</a></strong></span>
                 </p>
                 <p style={{ color: "#aaa", fontSize: "0.95rem", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
                   <WhatsAppIcon size={16} style={{ color: "#25d366" }} />
-                  <span>וואטסאפ: <strong><a href="https://wa.me/972523939710" style={{ color: "#fff" }}>שלחו לנו הודעה</a></strong></span>
+                  <span>וואטסאפ: <strong><a href="https://wa.me/972526090930" style={{ color: "#fff" }}>שלחו לנו הודעה</a></strong></span>
                 </p>
                 <p style={{ color: "#aaa", fontSize: "0.95rem", display: "flex", alignItems: "flex-start", gap: "8px" }}>
                   <LocationPinIcon size={16} style={{ color: "var(--primary-gold)", flexShrink: 0, marginTop: "4px" }} />
@@ -203,12 +203,12 @@ export default function RootLayout({
 
         {/* Floating CTA Mobile Bar */}
         <div className="floating-cta">
-          <a href="tel:072-393-9710" className="btn btn-secondary" style={{ flex: 1, gap: "6px" }}>
+          <a href="tel:052-609-0930" className="btn btn-secondary" style={{ flex: 1, gap: "6px" }}>
             <PhoneIcon size={16} />
             <span>חייגו כעת</span>
           </a>
           <a
-            href="https://wa.me/972523939710?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%99%D7%99%D7%98%D7%A8%D7%99%D7%A0%D7%92%20%D7%91%D7%A9%D7%A8%D7%99%20%D7%9B%D7%A9%D7%A8%20%D7%9C%D7%9e%D7%94%D7%93%D7%A8%D7%99%D7%9F"
+            href="https://wa.me/972526090930?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%99%D7%99%D7%98%D7%A8%D7%99%D7%A0%D7%92%20%D7%91%D7%A9%D7%A8%D7%99%20%D7%9B%D7%A9%D7%A8%20%D7%9C%D7%9e%D7%94%D7%93%D7%A8%D7%99%D7%9F"
             className="btn btn-whatsapp"
             style={{ flex: 1, gap: "6px" }}
           >

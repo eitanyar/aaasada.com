@@ -43,13 +43,13 @@ export default async function BarMitzvahCityPage({ params }: { params: Promise<{
     "name": `קייטרינג לבר מצווה ב${city.name} - טעם מהודר`,
     "image": "https://aaasada.com/wp-content/uploads/2022/02/AnyConv.com__774aa9ca-0cae-4218-a91b-15307e737b79.jpg",
     "description": `קייטרינג לבר מצווה או בת מצווה ב${city.name} בהשגחת בד"ץ הרב מחפוד. מגשי אוכל מוכן בשרי חם ושופע ב-58 ₪ למנה להפקה עצמית קלה וחסכונית.`,
-    "telephone": "072-393-9710",
+    "telephone": "052-609-0930",
     "url": `https://aaasada.com/city/${city.slug}/bar-mitzvah`,
     "priceRange": "$$",
     "provider": {
       "@type": "LocalBusiness",
       "name": "קייטרינג טעם מהודר",
-      "telephone": "072-393-9710",
+      "telephone": "052-609-0930",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": city.name,
@@ -117,7 +117,7 @@ export default async function BarMitzvahCityPage({ params }: { params: Promise<{
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט לבר מצווה</span>
             </a>
-            <a href="tel:072-393-9710" className="btn btn-outline" style={{
+            <a href="tel:052-609-0930" className="btn btn-outline" style={{
               color: "#ffffff",
               borderColor: "#ffffff",
               backgroundColor: "rgba(255,255,255,0.05)",
@@ -126,7 +126,7 @@ export default async function BarMitzvahCityPage({ params }: { params: Promise<{
               gap: "8px"
             }}>
               <PhoneIcon size={18} />
-              <span>072-393-9710</span>
+              <span>052-609-0930</span>
             </a>
           </div>
         </div>
@@ -191,8 +191,8 @@ export default async function BarMitzvahCityPage({ params }: { params: Promise<{
                 </li>
               </ul>
               <div style={{ marginTop: "10px" }}>
-                <a href="tel:072-393-9710" className="btn btn-secondary" style={{ width: "100%" }}>
-                  📞 שיחה מהירה להזמנה: 072-393-9710
+                <a href="tel:052-609-0930" className="btn btn-secondary" style={{ width: "100%" }}>
+                  📞 שיחה מהירה להזמנה: 052-609-0930
                 </a>
               </div>
             </div>

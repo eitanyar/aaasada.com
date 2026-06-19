@@ -72,7 +72,7 @@ export default function LocalDeliveryCard({ cityName }: LocalDeliveryCardProps) 
         </li>
       </ul>
       <div style={{ marginTop: "15px" }}>
-        <a href="tel:072-393-9710" className="btn btn-secondary" style={{ width: "100%", gap: "8px" }}>
+        <a href="tel:052-609-0930" className="btn btn-secondary" style={{ width: "100%", gap: "8px" }}>
           <span>שיחה להזמנה ישירה</span>
         </a>
       </div>
