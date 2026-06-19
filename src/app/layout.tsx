@@ -15,6 +15,10 @@ export const viewport = {
 export const metadata: Metadata = {
   title: "קייטרינג לאירועים | אוכל מוכן בשרי כשר למהדרין - טעם מהודר",
   description: "קייטרינג לאירועים קטנים, שבתות חתן, אזכרות ובריתות. אוכל מוכן בשרי עשיר, חם ושופע ב-58 ש\"ח בלבד למנה בכשרות המהודרת של בד\"ץ הרב מחפוד.",
+  metadataBase: new URL("https://aaasada.com"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
