@@ -34,14 +34,19 @@ export default function RootLayout({
   return (
     <html lang="he-IL" dir="rtl">
       <head>
+        {/* Google Fonts preconnect for faster parallel rendering */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+
         {/* GA4 Script */}
         {gaId && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -56,7 +61,7 @@ export default function RootLayout({
 
         {/* GTM Script */}
         {gtmId && (
-          <Script id="google-tag-manager" strategy="afterInteractive">
+          <Script id="google-tag-manager" strategy="lazyOnload">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -71,7 +76,7 @@ export default function RootLayout({
         {wcKey && (
           <Script
             src={`//www.whatconverts.com/js/wc-client.js?key=${wcKey}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
         )}
       </head>
