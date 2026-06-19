@@ -225,7 +225,7 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
         <h1 style={{ 
           color: "#ffffff", 
           fontSize: "clamp(1.8rem, 5vw, 3.2rem)", 
-          fontFamily: "Frank Ruhl Libre, serif",
+          fontFamily: "var(--font-frank-ruhl)",
           fontWeight: 900,
           lineHeight: 1.2,
           marginBottom: "15px"

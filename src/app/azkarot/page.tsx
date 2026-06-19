@@ -126,7 +126,7 @@ export default function AzkarotGeneralPage() {
             🕯️ קייטרינג לאזכרות וסעודות אבלים • כשר למהדרין בהשגחת בד"ץ הרב שלמה מחפוד
           </div>
           
-          <h1 style={{ color: "#ffffff", fontFamily: "Frank Ruhl Libre, serif", marginBottom: "var(--spacing-sm)" }}>
+          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
             קייטרינג לאזכרה וסעודת אבלים
             <br />
             <span style={{ color: "var(--primary-gold)" }}>אוכל בשרי חם, מכובד ומנחם ללא טרחה</span>
@@ -182,6 +182,8 @@ export default function AzkarotGeneralPage() {
               <img
                 src="/images/roastbeef_763x447_webp.webp"
                 alt="קייטרינג לאזכרה וסעודת אבלים"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "260px",

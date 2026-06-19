@@ -114,7 +114,7 @@ export default function BritGeneralPage() {
             <span>כשרות למהדרין - בד"ץ יורה דעה בהשגחת הרב שלמה מחפוד שליט"א</span>
           </div>
           
-          <h1 style={{ color: "#ffffff", fontFamily: "Frank Ruhl Libre, serif", marginBottom: "var(--spacing-sm)" }}>
+          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
             קייטרינג לברית מילה
             <br />
             <span style={{ color: "var(--primary-gold)" }}>אוכל בשרי חם ושופע ב-₪58 בלבד למנה!</span>
@@ -170,6 +170,8 @@ export default function BritGeneralPage() {
               <img
                 src="/images/brit_at_home-scaled.webp"
                 alt="קייטרינג לברית מילה"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "260px",

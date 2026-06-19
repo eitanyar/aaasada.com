@@ -161,6 +161,8 @@ export default function ImageGallery() {
               <img
                 src={img.src}
                 alt={img.alt}
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "100%",
@@ -176,7 +178,7 @@ export default function ImageGallery() {
                 margin: 0, 
                 fontSize: "1.1rem", 
                 color: "var(--secondary-green)",
-                fontFamily: "Frank Ruhl Libre, serif",
+                fontFamily: "var(--font-frank-ruhl)",
                 fontWeight: "bold"
               }}>
                 {img.title}

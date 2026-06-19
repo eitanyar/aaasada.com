@@ -107,7 +107,7 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
           }}>
             קייטרינג לשבת חתן • כשר בד"ץ יורה דעה (הרב מחפוד) • אזור {regionTitle}
           </div>
-          <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "Frank Ruhl Libre, serif" }}>
+          <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "var(--font-frank-ruhl)" }}>
             קייטרינג לשבת חתן ב{city.name}
           </h1>
           <p style={{ color: "#cbd5e1", fontSize: "1.15rem", maxWidth: "800px", margin: "10px auto 0 auto" }}>
@@ -228,7 +228,7 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
             </span>
             <h3 style={{
               color: "var(--secondary-green)",
-              fontFamily: "Frank Ruhl Libre, serif",
+              fontFamily: "var(--font-frank-ruhl)",
               fontSize: "2rem",
               margin: "0 0 10px 0"
             }}>

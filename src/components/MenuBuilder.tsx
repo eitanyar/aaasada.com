@@ -355,18 +355,46 @@ ${selectionsText}
               <div 
                 style={{
                   height: "80px",
-                  background: `linear-gradient(to left, rgba(30, 45, 20, 0.95) 45%, rgba(30, 45, 20, 0.45) 100%), url(${bannerImg})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
+                  position: "relative",
+                  overflow: "hidden",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
                   padding: "0 var(--spacing-md)",
                   marginBottom: "var(--spacing-md)",
-                  borderBottom: "2px solid var(--primary-gold)"
+                  borderBottom: "2px solid var(--primary-gold)",
+                  zIndex: 1
                 }}
               >
-                <h3 style={{ margin: 0, fontFamily: "sans-serif", fontWeight: "700", color: "#ffffff", fontSize: "1.2rem", textShadow: "1px 1px 3px rgba(0,0,0,0.5)" }}>
+                {/* Lazy Loaded Banner Image */}
+                <img
+                  src={bannerImg}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    zIndex: -2
+                  }}
+                />
+                {/* Gradient Overlay */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    background: "linear-gradient(to left, rgba(30, 45, 20, 0.95) 45%, rgba(30, 45, 20, 0.45) 100%)",
+                    zIndex: -1
+                  }}
+                />
+                <h3 style={{ margin: 0, fontFamily: "sans-serif", fontWeight: "700", color: "#ffffff", fontSize: "1.2rem", textShadow: "1px 1px 3px rgba(0,0,0,0.5)", position: "relative", zIndex: 2 }}>
                   {renderCategoryName(category.name)}
                 </h3>
                 {!isUnlimited && (
@@ -377,7 +405,9 @@ ${selectionsText}
                     color: reachedLimit ? "#ffffff" : "#1e392a",
                     padding: "6px 12px",
                     borderRadius: "20px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.25)"
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
+                    position: "relative",
+                    zIndex: 2
                   }}>
                     נבחרו {currentSelection.length} מתוך {LIMITS[category.id]}
                   </span>

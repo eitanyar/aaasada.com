@@ -129,7 +129,7 @@ export default function ShabbatChatanGeneralPage() {
             <span>⭐️ כשרות למהדרין - בד"ץ יורה דעה בנשיאות הגאון הרב שלמה מחפוד שליט"א</span>
           </div>
           
-          <h1 style={{ color: "#ffffff", fontFamily: "Frank Ruhl Libre, serif", marginBottom: "var(--spacing-sm)" }}>
+          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
             קייטרינג לשבת חתן בשרי ועשיר
             <br />
             <span style={{ color: "var(--primary-gold)" }}>השפע והנדיבות של הבית ב-₪58 בלבד למנה!</span>
@@ -185,6 +185,8 @@ export default function ShabbatChatanGeneralPage() {
               <img
                 src="/images/shabat_hatan-scaled.webp"
                 alt="קייטרינג לשבת חתן"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "260px",
@@ -242,7 +244,7 @@ export default function ShabbatChatanGeneralPage() {
             </span>
             <h3 style={{
               color: "var(--secondary-green)",
-              fontFamily: "Frank Ruhl Libre, serif",
+              fontFamily: "var(--font-frank-ruhl)",
               fontSize: "2rem",
               margin: "0 0 10px 0"
             }}>

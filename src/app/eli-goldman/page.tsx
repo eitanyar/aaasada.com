@@ -32,7 +32,7 @@ export default function EliGoldmanProfilePage() {
             שנה
           </div>
           
-          <h1 style={{ color: "#ffffff", fontFamily: "Frank Ruhl Libre, serif", marginBottom: "var(--spacing-sm)" }}>
+          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
             אלי גולדמן
           </h1>
           <p style={{

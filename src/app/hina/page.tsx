@@ -130,7 +130,7 @@ export default function HinaGeneralPage() {
             <span>כשר למהדרין - בד"ץ יורה דעה בהשגחת הגאון הרב שלמה מחפוד שליט"א</span>
           </div>
           
-          <h1 style={{ color: "#ffffff", fontFamily: "Frank Ruhl Libre, serif", marginBottom: "var(--spacing-sm)" }}>
+          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
             קייטרינג לחינה מסורתית ושופעת
             <br />
             <span style={{ color: "var(--primary-gold)" }}>שמחה של טעמים אותנטיים ב-₪58 בלבד למנה!</span>
@@ -186,6 +186,8 @@ export default function HinaGeneralPage() {
               <img
                 src="/images/home-hina-scaled.webp"
                 alt="קייטרינג לחינה"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "260px",

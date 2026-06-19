@@ -106,7 +106,7 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
           }}>
             קייטרינג לאזכרות, אבלים ושבעה • כשר למהדרין בד"ץ הרב מחפוד • אזור {regionTitle}
           </div>
-          <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "Frank Ruhl Libre, serif" }}>
+          <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "var(--font-frank-ruhl)" }}>
             קייטרינג לאזכרה וסעודת מצווה ב{city.name}
           </h1>
           <p style={{ color: "#cbd5e1", fontSize: "1.15rem", maxWidth: "800px", margin: "10px auto 0 auto" }}>

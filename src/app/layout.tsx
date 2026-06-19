@@ -5,6 +5,21 @@ import MobileHeader from "../components/MobileHeader";
 import "./globals.css";
 import AccessibilityWidget from "../components/AccessibilityWidget";
 import CookieBanner from "../components/CookieBanner";
+import { Assistant, Frank_Ruhl_Libre } from "next/font/google";
+
+const assistant = Assistant({
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-assistant",
+  display: "swap",
+});
+
+const frankRuhl = Frank_Ruhl_Libre({
+  subsets: ["hebrew", "latin"],
+  weight: ["500", "700", "900"],
+  variable: "--font-frank-ruhl",
+  display: "swap",
+});
 
 export const viewport = {
   width: "device-width",
@@ -32,12 +47,8 @@ export default function RootLayout({
   const wcKey = process.env.NEXT_PUBLIC_WHATCONVERTS_KEY || "192348a82b"; // WhatConverts client key
 
   return (
-    <html lang="he-IL" dir="rtl">
+    <html lang="he-IL" dir="rtl" className={`${assistant.variable} ${frankRuhl.variable}`}>
       <head>
-        {/* Google Fonts preconnect for faster parallel rendering */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
 
         {/* GA4 Script */}
         {gaId && (

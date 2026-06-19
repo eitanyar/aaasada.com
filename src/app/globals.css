@@ -5,6 +5,9 @@
 
 
 :root {
+  --font-assistant: 'Assistant', sans-serif;
+  --font-frank-ruhl: 'Frank Ruhl Libre', serif;
+  
   /* Retro Moroccan Color Palette */
   --retro-green: #6b824a;       /* Muted Olive Green */
   --retro-sand: #ecdcb9;        /* Warm Creamy Sand */
@@ -60,7 +63,7 @@
 html, body {
   background-color: var(--bg-warm-sand);
   color: var(--text-dark);
-  font-family: 'Assistant', sans-serif;
+  font-family: var(--font-assistant);
   direction: rtl;
   text-align: right;
   scroll-behavior: smooth;
@@ -70,7 +73,7 @@ html, body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: var(--font-frank-ruhl);
   font-weight: 700;
   line-height: 1.25;
   color: var(--secondary-green);
@@ -170,7 +173,7 @@ a:hover {
   cursor: pointer;
   transition: all var(--transition-normal);
   text-decoration: none;
-  font-family: 'Assistant', sans-serif;
+  font-family: var(--font-assistant);
   position: relative;
   overflow: hidden;
 }
@@ -304,7 +307,7 @@ a:hover {
   border-bottom: 2px solid var(--primary-gold-light);
   padding-bottom: var(--spacing-xs);
   margin-bottom: var(--spacing-sm);
-  font-family: 'Assistant', sans-serif;
+  font-family: var(--font-assistant);
   font-weight: 700;
   font-size: 1.3rem;
   color: var(--secondary-green);
@@ -420,7 +423,7 @@ a:hover {
 }
 
 .header-logo-main {
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: var(--font-frank-ruhl);
   font-size: 1.85rem;
   font-weight: 900;
   color: var(--retro-terracotta);
@@ -430,7 +433,7 @@ a:hover {
 }
 
 .header-logo-sub {
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: var(--font-frank-ruhl);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--secondary-green);
@@ -517,7 +520,7 @@ a:hover {
 }
 
 .mobile-logo-text {
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: var(--font-frank-ruhl);
   font-size: 1.35rem;
   font-weight: 900;
   color: var(--retro-terracotta);
@@ -671,7 +674,7 @@ a:hover {
 
 .mobile-nav-links a {
   color: var(--text-dark);
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: var(--font-frank-ruhl);
   font-size: 1.45rem;
   font-weight: 700;
   padding: 12px;
@@ -866,7 +869,7 @@ a:hover {
 }
 
 .testimonial-info h3 {
-  font-family: 'Assistant', sans-serif;
+  font-family: var(--font-assistant);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-dark);
@@ -919,7 +922,7 @@ a:hover {
 }
 
 .supervision-title {
-  font-family: 'Assistant', sans-serif;
+  font-family: var(--font-assistant);
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-dark);
@@ -1141,7 +1144,7 @@ body.accessibility-high-contrast img {
   justify-content: space-between;
   align-items: center;
   user-select: none;
-  font-family: 'Frank Ruhl Libre', serif;
+  font-family: var(--font-frank-ruhl);
 }
 
 .faq-summary::-webkit-details-marker {
@@ -1191,7 +1194,7 @@ body.accessibility-high-contrast img {
   padding: 14px 18px;
   font-weight: 700;
   font-size: 1.05rem;
-  font-family: 'Assistant', sans-serif;
+  font-family: var(--font-assistant);
 }
 
 .comparison-table td {
@@ -1232,7 +1235,7 @@ body.accessibility-high-contrast img {
   flex-direction: column;
   gap: 12px;
   box-shadow: var(--shadow-medium);
-  font-family: 'Assistant', sans-serif;
+  font-family: var(--font-assistant);
   font-size: 0.92rem;
   direction: rtl;
   text-align: right;

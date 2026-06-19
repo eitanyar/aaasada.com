@@ -20,7 +20,7 @@ export default function AccessibilityPage() {
             <StarIcon size={14} style={{ color: "var(--primary-gold)" }} />
             <span>טעם מהודר • כשר למהדרין</span>
           </div>
-          <h1 style={{ fontFamily: "Frank Ruhl Libre, serif", color: "var(--secondary-green)" }}>
+          <h1 style={{ fontFamily: "var(--font-frank-ruhl)", color: "var(--secondary-green)" }}>
             הצהרת נגישות אתר
           </h1>
           <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>

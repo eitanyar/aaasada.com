@@ -107,7 +107,7 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
           }}>
             קייטרינג לברית מילה ובריתה • כשר למהדרין בד"ץ הרב מחפוד • אזור {regionTitle}
           </div>
-          <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "Frank Ruhl Libre, serif" }}>
+          <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "var(--font-frank-ruhl)" }}>
             קייטרינג לברית מילה ב{city.name}
           </h1>
           <p style={{ color: "#cbd5e1", fontSize: "1.15rem", maxWidth: "800px", margin: "10px auto 0 auto" }}>
