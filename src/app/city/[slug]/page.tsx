@@ -250,9 +250,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 <div className="badge-kosher" style={{ backgroundColor: "var(--primary-gold-light)", color: "var(--primary-gold-hover)", fontSize: "0.8rem", padding: "2px 8px", alignSelf: "flex-start", marginBottom: "8px", display: "inline-block" }}>
                   🔥 מומלץ: חבילת 3 סעודות ב-₪149 לסועד
                 </div>
-                <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
+                <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
                   שבת חתן ב{city.name}
-                </h4>
+                </h3>
                 <p style={{ fontSize: "0.9rem", margin: "0 0 10px 0", lineHeight: "1.5" }}>
                   מתכננים שבת עלייה לתורה ב{city.name}? האוכל הבשרי שלנו מבושל טרי ומגיע במארזים מותאמים להנחה על פלטת שבת בבית או בבית הכנסת, תוך שמירה על עסיסיות הבשרים.
                 </p>
@@ -270,9 +270,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             {/* Azkarot Card */}
             <div className="card" id="azkarot" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div>
-                <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
+                <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
                   אזכרות וסעודות מצווה ב{city.name}
-                </h4>
+                </h3>
                 <p style={{ fontSize: "0.9rem", margin: "0 0 10px 0", lineHeight: "1.5" }}>
                   אנו נספק לכם מגשים חמים של בשר מבושל, אורז וסלטים טריים ישירות לבית האבל או לבית הכנסת ב{city.name}, ברמת כשרות מהודרת של הרב מחפוד שמכבדת כל אורח בשעה הקשה.
                 </p>
@@ -287,9 +287,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             {/* Brit Card */}
             <div className="card" id="brit" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div>
-                <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
+                <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
                   בריתות ואירועים קטנים ב{city.name}
-                </h4>
+                </h3>
                 <p style={{ fontSize: "0.9rem", margin: "0 0 10px 0", lineHeight: "1.5" }}>
                   חוגגים ברית מילה או בריתה ב{city.name}? אנו מספקים מגשי אוכל בשרי חם, עשיר וכשר למהדרין ב-₪58 למנה בלבד להפקה עצמית קלה וחסכונית בבית או באולם.
                 </p>
@@ -304,9 +304,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             {/* Bar Mitzvah Card */}
             <div className="card" id="bar-mitzvah" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div>
-                <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
+                <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
                   בר מצווה ובת מצווה ב{city.name}
-                </h4>
+                </h3>
                 <p style={{ fontSize: "0.9rem", margin: "0 0 10px 0", lineHeight: "1.5" }}>
                   חוגגים בר מצווה ב{city.name} בבית או בבית הכנסת? אנו מספקים מגשי אוכל בשרי חם ושופע ב-₪58 למנה. רמת כשרות מהודרת של הרב מחפוד שמכבדת כל אורח.
                 </p>
@@ -321,9 +321,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             {/* Hina Card */}
             <div className="card" id="hina" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div>
-                <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
+                <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px", fontFamily: "sans-serif" }}>
                   חינה מרוקאית מסורתית ב{city.name}
-                </h4>
+                </h3>
                 <p style={{ fontSize: "0.9rem", margin: "0 0 10px 0", lineHeight: "1.5" }}>
                   מתכננים חגיגת חינה מסורתית ב{city.name}? תיהנו משפע קולינרי בשרי עשיר, מטעמים אותנטיים מכל הלב ומחיר משתלם של ₪58 למנה בלבד, בכשרות מהודרת של הרב מחפוד.
                 </p>

@@ -2,7 +2,7 @@ import React from "react";
 import { StarIcon } from "../../components/icons";
 
 export const metadata = {
-  title: "הצהרת ננגישות | קייטרינג טעם מהודר",
+  title: "הצהרת נגישות | קייטרינג טעם מהודר",
   description: "הצהרת נגישות והתאמות הנגישות שבוצעו באתר קייטרינג טעם מהודר על פי חוק שוויון זכויות לאנשים עם מוגבלות בישראל.",
   alternates: {
     canonical: "https://aaasada.com/accessibility",
@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function AccessibilityPage() {
   return (
-    <div style={{ backgroundColor: "var(--bg-warm-sand)", padding: "var(--spacing-xl) 0" }}>
+    <div className="document-page" style={{ backgroundColor: "var(--bg-warm-sand)", padding: "var(--spacing-xl) 0" }}>
       <div className="container" style={{ maxWidth: "800px" }}>
         
         {/* Document Header */}
@@ -33,14 +33,14 @@ export default function AccessibilityPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "20px", lineHeight: "1.7", fontSize: "1rem", color: "var(--text-dark)" }}>
             
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>1. מבוא ומחויבות לנגישות</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>1. מבוא ומחויבות לנגישות</h2>
               <p>
                 אנו ב<strong>קייטרינג טעם מהודר</strong> רואים חשיבות עליונה במתן שירות שוויוני, מכובד ונגיש לכלל הלקוחות והגולשים באתר. אנו משקיעים משאבים רבים על מנת להפוך את האתר לנגיש וידידותי לאנשים עם מוגבלויות פיזיות, קוגניטיביות וחושיות, מתוך אמונה כי לכל אדם מגיעה הזכות ליהנות מחוויית גלישה עצמאית ושוויונית.
               </p>
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>2. התאמות הנגישות שבוצעו באתר</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>2. התאמות הנגישות שבוצעו באתר</h2>
               <p>
                 אתר זה עומד בדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013. התאמות הנגישות בוצעו על פי המלצות התקן הישראלי (ת"י 5568) לנגישות תכנים באינטרנט ברמת AA ועל פי מסמך ההנחיות הבינלאומי WCAG 2.1.
               </p>
@@ -67,7 +67,7 @@ export default function AccessibilityPage() {
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>3. תוסף נגישות (Accessibility Widget)</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>3. תוסף נגישות (Accessibility Widget)</h2>
               <p>
                 באתר מותקן כפתור נגישות צף (♿) המאפשר לגולשים להתאים אישית את תצוגת האתר לפי צרכיהם.
               </p>
@@ -83,7 +83,7 @@ export default function AccessibilityPage() {
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>4. סייגים לנגישות ופניות בנושא</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>4. סייגים לנגישות ופניות בנושא</h2>
               <p>
                 למרות מאמצינו להפוך את כלל דפי האתר לנגישים, ייתכן שיתגלו חלקים ספציפיים שטרם הונגשו באופן מלא או שאינם תואמים בצורה מיטבית את הטכנולוגיות המסייעות.
               </p>
@@ -93,7 +93,7 @@ export default function AccessibilityPage() {
             </section>
 
             <section style={{ backgroundColor: "var(--secondary-green-light)", padding: "15px", borderRadius: "var(--border-radius-sm)", borderRight: "4px solid var(--primary-gold)" }}>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>5. פרטי רכז הנגישות</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>5. פרטי רכז הנגישות</h2>
               <p>
                 לפניות, הצעות שיפור או דיווח על תקלת נגישות, ניתן ליצור קשר ישיר עם רכז הנגישות של העסק:
               </p>

@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div style={{ backgroundColor: "var(--bg-warm-sand)", padding: "var(--spacing-xl) 0" }}>
+    <div className="document-page" style={{ backgroundColor: "var(--bg-warm-sand)", padding: "var(--spacing-xl) 0" }}>
       <div className="container" style={{ maxWidth: "800px" }}>
         
         {/* Document Header */}
@@ -33,14 +33,14 @@ export default function PrivacyPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "20px", lineHeight: "1.7", fontSize: "1rem", color: "var(--text-dark)" }}>
             
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>1. מבוא</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>1. מבוא</h2>
               <p>
                 ברוכים הבאים לאתר של <strong>קייטרינג טעם מהודר</strong> (להלן: "האתר"). אנו מכבדים את פרטיותכם ומחויבים להגן על המידע האישי שאתם משתפים עמנו. מסמך זה מפרט את מדיניות הגנת הפרטיות, את אופן איסוף הנתונים ואת השימוש בעוגיות (Cookies) באתר.
               </p>
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>2. איזה מידע אנו אוספים?</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>2. איזה מידע אנו אוספים?</h2>
               <p>
                 אנו עשויים לאסוף שני סוגי מידע מהמשתמשים באתר:
               </p>
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>3. שימוש בעוגיות (Cookies)</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>3. שימוש בעוגיות (Cookies)</h2>
               <p>
                 האתר משתמש בקבצי עוגיות (Cookies) על מנת לשפר את חוויית הגלישה, לזכור את הבחירות שלכם בטופס התפריט, ולבצע ניתוח סטטיסטי לשיפור ביצועי האתר.
               </p>
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>4. שימוש במידע והעברתו לצד שלישי</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>4. שימוש במידע והעברתו לצד שלישי</h2>
               <p>
                 המידע שאתם מוסרים לנו משמש אך ורק לצורך תיאום האירוע שלכם, שליחת הצעת מחיר ומתן שירות הלקוחות הטוב ביותר.
               </p>
@@ -75,14 +75,14 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>5. אבטחת מידע</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>5. אבטחת מידע</h2>
               <p>
                 אנו מיישמים באתר מערכות ונהלים מתקדמים לאבטחת מידע (כולל הצפנת SSL/TLS מאובטחת). בעוד שמערכות אלו מצמצמות את הסיכונים לחדירה בלתי-מורשית, אין הן מעניקות חסינות מוחלטת, ואיננו יכולים להבטיח כי האתר יהיה חסין לחלוטין מפני גישה בלתי מורשית לנתונים.
               </p>
             </section>
 
             <section>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>6. יצירת קשר וזכויותיכם</h3>
+              <h2 style={{ color: "var(--secondary-green)", marginBottom: "8px", fontWeight: "bold" }}>6. יצירת קשר וזכויותיכם</h2>
               <p>
                 על פי חוק הגנת הפרטיות, התשמ"א-1981, אתם זכאים לעיין במידע עליכם המוחזק במאגר מידע ואף לבקש מאיתנו לתקן או למחוק מידע זה אם אינו מדויק או אינו רלוונטי.
               </p>

@@ -865,7 +865,7 @@ a:hover {
   font-size: 1.2rem;
 }
 
-.testimonial-info h4 {
+.testimonial-info h3 {
   font-family: 'Assistant', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
@@ -1341,4 +1341,17 @@ body.accessibility-high-contrast img {
     font-size: 0.95rem !important;
   }
 }
+
+/* Document/Legal Pages Heading Reset */
+.document-page h2 {
+  font-size: 1.3rem !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 8px !important;
+  position: static !important;
+  display: block !important;
+}
+.document-page h2::after {
+  display: none !important;
+}
+
 

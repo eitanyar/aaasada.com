@@ -172,7 +172,7 @@ export default function ImageGallery() {
               />
             </div>
             <div style={{ padding: "15px", textAlign: "center" }}>
-              <h4 style={{ 
+              <h3 style={{ 
                 margin: 0, 
                 fontSize: "1.1rem", 
                 color: "var(--secondary-green)",
@@ -180,7 +180,7 @@ export default function ImageGallery() {
                 fontWeight: "bold"
               }}>
                 {img.title}
-              </h4>
+              </h3>
             </div>
           </div>
         ))}

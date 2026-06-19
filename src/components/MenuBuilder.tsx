@@ -308,6 +308,7 @@ ${selectionsText}
               min={30}
               value={guests}
               onChange={(e) => setGuests(parseInt(e.target.value) || 0)}
+              aria-label="כמות אורחים"
               style={{
                 width: "80px",
                 height: "40px",
@@ -625,6 +626,7 @@ ${selectionsText}
                     onChange={handleInputChange}
                     tabIndex={-1}
                     autoComplete="off"
+                    aria-label="אישור אימייל"
                   />
                 </div>
                 <div>
@@ -635,6 +637,7 @@ ${selectionsText}
                     onChange={handleInputChange}
                     placeholder="שם מלא *"
                     required
+                    aria-label="שם מלא"
                     className="builder-form-input"
                   />
                 </div>
@@ -646,6 +649,7 @@ ${selectionsText}
                     onChange={handleInputChange}
                     placeholder="מספר טלפון לתיאום *"
                     required
+                    aria-label="מספר טלפון לתיאום"
                     className="builder-form-input"
                   />
                 </div>
@@ -656,6 +660,7 @@ ${selectionsText}
                     value={formData.eventType}
                     onChange={handleInputChange}
                     placeholder="סוג האירוע (שבת חתן, ברית, חינה...)"
+                    aria-label="סוג האירוע"
                     className="builder-form-input"
                   />
                 </div>
@@ -666,6 +671,7 @@ ${selectionsText}
                     value={formData.eventDate}
                     onChange={handleInputChange}
                     placeholder="תאריך האירוע"
+                    aria-label="תאריך האירוע"
                     style={{ flex: 1 }}
                     className="builder-form-input"
                   />
@@ -675,6 +681,7 @@ ${selectionsText}
                     value={formData.eventTime}
                     onChange={handleInputChange}
                     placeholder="זמן / שעה"
+                    aria-label="זמן או שעת האירוע"
                     style={{ flex: 1 }}
                     className="builder-form-input"
                   />

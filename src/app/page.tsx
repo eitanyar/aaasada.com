@@ -155,7 +155,7 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-2" style={{ alignItems: "center" }}>
             <div>
-              <span style={{ color: "var(--primary-gold)", fontWeight: "bold", fontSize: "1.1rem", textTransform: "uppercase" }}>כשרות בד"ץ יורה דעה</span>
+              <span style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.1rem", textTransform: "uppercase" }}>כשרות בד"ץ יורה דעה</span>
               <h2 style={{ display: "block", marginTop: "5px" }}>אירוח בראש שקט עם הכשרות המהודרת ביותר</h2>
               <p>
                 אנו יודעים כמה חשובה רמת הכשרות לאורחים שלכם. כל המנות בקייטרינג "טעם מהודר" מוכנות תחת השגחתה הקפדנית של בד"ץ יורה דעה, בנשיאות מרן הגאון <strong>הרב שלמה מחפוד שליט"א</strong>.
@@ -300,7 +300,7 @@ export default function Home() {
               <div className="testimonial-header">
                 <div className="testimonial-avatar">א</div>
                 <div className="testimonial-info">
-                  <h4>אלירן כהן</h4>
+                  <h3>אלירן כהן</h3>
                   <span>שבת חתן בפתח תקווה</span>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export default function Home() {
               <div className="testimonial-header">
                 <div className="testimonial-avatar">מ</div>
                 <div className="testimonial-info">
-                  <h4>מיכל אלקבץ</h4>
+                  <h3>מיכל אלקבץ</h3>
                   <span>ברית מילה בראשון לציון</span>
                 </div>
               </div>
@@ -332,7 +332,7 @@ export default function Home() {
               <div className="testimonial-header">
                 <div className="testimonial-avatar">ד</div>
                 <div className="testimonial-info">
-                  <h4>דוד מזרחי</h4>
+                  <h3>דוד מזרחי</h3>
                   <span>אזכרה וסעודת מצווה בבני ברק</span>
                 </div>
               </div>

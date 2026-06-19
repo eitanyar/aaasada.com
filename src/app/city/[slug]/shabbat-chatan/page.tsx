@@ -362,27 +362,27 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
 
           <div className="grid grid-3">
             <div className="card">
-              <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
+              <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
                 חימום נכון על פלטה
-              </h4>
+              </h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 כדי לשמור על עסיסיות הבשרים, מומלץ להניח את המגשים סגורים על גבי פלטת שבת כשהם מוגבהים מעט (למשל, על תבנית הפוכה) או ישירות על פלטה בחום נמוך, כשעתיים לפני הגשת האוכל.
               </p>
             </div>
 
             <div className="card">
-              <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
+              <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
                 סדר הגשת הסלטים
-              </h4>
+              </h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 הסלטים הטריים שלנו מגיעים בקופסאות נפרדות. מומלץ להוציא אותם מהמקרר כחצי שעה לפני הארוחה כדי שיגיעו לטמפרטורת החדר ויפתחו את הטעמים הים-תיכוניים העשירים שלהם.
               </p>
             </div>
 
             <div className="card">
-              <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
+              <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
                 חלוקת מנות חכמה
-              </h4>
+              </h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 תפריט 58 ש"ח של 'טעם מהודר' כולל בחירה של <strong style={{ color: "var(--primary-gold)", fontSize: "1.1rem" }}>3</strong> מנות עיקריות, <strong style={{ color: "var(--primary-gold)", fontSize: "1.1rem" }}>3</strong> תוספות ו-<strong style={{ color: "var(--primary-gold)", fontSize: "1.1rem" }}>7</strong> סלטים. המנות מגיעות בנדיבות רבה כך שאין צורך לחשוש שמישהו יישאר רעב - אצלנו כולם שבעים!
               </p>

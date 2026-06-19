@@ -228,27 +228,27 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
 
           <div className="grid grid-3">
             <div className="card">
-              <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
+              <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
                 טריות ללא פשרות
-              </h4>
+              </h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 כל המזון מבושל ביום האזכרה עצמו, תוך שימוש בחומרי גלם מובחרים וטריים בלבד, כדי להבטיח את הטעם הביתי המצוין והשפע שמאפיינים אותנו.
               </p>
             </div>
 
             <div className="card">
-              <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
+              <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
                 אריזה מבודדת חום
-              </h4>
+              </h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 אנו שולחים את האוכל במארזי קלקר עבים במיוחד השומרים על טמפרטורה גבוהה של המגשים למשך שעות, כך שהאוכל יוגש חם גם אם יחול עיכוב קל בזמנים.
               </p>
             </div>
 
             <div className="card">
-              <h4 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
+              <h3 style={{ color: "var(--secondary-green)", fontWeight: "600", marginBottom: "8px" }}>
                 מענה וליווי אנושי
-              </h4>
+              </h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 נציגי השירות שלנו זמינים ללוות אתכם בסבלנות וברגישות בבחירת המנות, ההתאמות הנדרשות ודמי המשלוח המדויקים ל{city.name}.
               </p>

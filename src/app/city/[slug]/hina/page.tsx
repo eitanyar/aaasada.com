@@ -210,21 +210,21 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
 
           <div className="grid grid-3" style={{ gap: "var(--spacing-md)" }}>
             <div className="card" style={{ backgroundColor: "#ffffff" }}>
-              <h4 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>סלטים מבושלים אותנטיים</h4>
+              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>סלטים מבושלים אותנטיים</h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 תפריט 58 ש"ח מאפשר לכם לבחור **7 סלטים**. לחינה מסורתית אנו ממליצים במיוחד על הסלטים המבושלים שלנו: מטבוחה מרוקאית אסלית בבישול ארוך, גזר מרוקאי פיקנטי, סלק אדום בתיבול כמון, וזעלוק חצילים עשיר.
               </p>
             </div>
 
             <div className="card" style={{ backgroundColor: "#ffffff" }}>
-              <h4 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>בשרים עסיסיים ותבשילי קדרה</h4>
+              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>בשרים עסיסיים ותבשילי קדרה</h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 בחרו **3 מנות עיקריות** חמות. לצד פרגיות על האש ושניצלים פריכים לילדים, תוכלו לבחור במנות קדרה חגיגיות כמו צלי בקר ברוטב פטריות עשיר או קציצות בשר נימוחות, המשתלבות נפלא עם אורז לנטריה או קוסקוס מרוקאי אוורירי.
               </p>
             </div>
 
             <div className="card" style={{ backgroundColor: "#ffffff" }}>
-              <h4 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>מגשי קינוחי פרווה מהודרים</h4>
+              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>מגשי קינוחי פרווה מהודרים</h3>
               <p style={{ fontSize: "0.9rem", margin: 0 }}>
                 חינה אינה שלמה ללא שולחן מתוקים מרהיב. אצלנו תוכלו לשדרג ולהוסיף להזמנה **מגש קינוחים עשיר (60 יחידות)** המכיל לקט עשיר של קינוחי פרווה איכותיים, מעוצבים ואישיים שמשלימים את טקס החינה בתיאום מושלם.
               </p>
