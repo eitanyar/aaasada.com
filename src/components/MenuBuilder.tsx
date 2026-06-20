@@ -434,6 +434,7 @@ ${selectionsText}
                       >
                         <input
                           type="checkbox"
+                          aria-label={dish.name}
                           checked={isChecked}
                           disabled={isDisable}
                           onChange={() => {}} // handled by parent onClick
