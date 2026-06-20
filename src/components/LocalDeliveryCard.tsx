@@ -76,11 +76,11 @@ export default function LocalDeliveryCard({
           <strong style={{ color: "var(--secondary-green)" }}>{cityName} וסביבתה</strong>
         </li>
         <li style={{ display: "flex", justifyContent: "space-between", paddingBottom: "2px" }}>
-          <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>טמפרטורת הגעה:</span>
-          <strong style={{ color: "var(--accent-terracotta)", textAlign: "left", maxWidth: "65%" }}>
+          <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>אופן אספקה:</span>
+          <strong style={{ color: "var(--accent-terracotta)", textAlign: "left", maxWidth: "70%" }}>
             {isShabbatChatan
-              ? "מגיע מקורר בשישי בצהריים לשמירה הלכתית על הטריות וחימום קל על הפלטה"
-              : "מגיע חם במארזי קלקר שומרי חום מוכן להגשה"}
+              ? "מגיע בקירור מבוקר בשישי בצהריים (לחימום על הפלטה)"
+              : "מגיע חם במארזים שומרי חום (או בקירור לשבת חתן)"}
           </strong>
         </li>
       </ul>
