@@ -496,9 +496,9 @@ ${selectionsText}
 
           {!hasSelectedMains && (
             <div style={{
-              backgroundColor: "rgba(220, 38, 38, 0.1)",
-              border: "1px solid var(--accent-terracotta)",
-              color: "var(--accent-terracotta)",
+              backgroundColor: "rgba(252, 165, 165, 0.15)",
+              border: "1px solid #fca5a5",
+              color: "#fca5a5",
               padding: "10px",
               borderRadius: "var(--border-radius-sm)",
               fontSize: "0.9rem",
@@ -583,7 +583,7 @@ ${selectionsText}
                     transition: "all 0.2s ease"
                   }}
                 >
-                  📞 טלפון חוזר (כשר)
+                  📞 טלפון חוזר
                 </button>
               </div>
 
@@ -645,7 +645,7 @@ ${selectionsText}
                   borderRight: "3px solid var(--primary-gold)",
                   textAlign: "right"
                 }}>
-                  💡 <strong>איך זה עובד?</strong> לאחר בחירת המנות, מלאו את פרטיכם בטופס ובקשותיכם יישלחו אלינו מיידית. נציג טלפוני יחזור אליכם בהקדם לתיאום וסגירה (מושלם לבעלי טלפונים כשרים).
+                  💡 <strong>איך זה עובד?</strong> לאחר בחירת המנות, מלאו את פרטיכם בטופס ובקשותיכם יישלחו אלינו מיידית. נציג טלפוני יחזור אליכם בהקדם לתיאום וסגירה.
                 </p>
                 {/* Honeypot field - invisible to users, autocomplete off, tabIndex -1 */}
                 <div style={{ display: "none" }} aria-hidden="true">
