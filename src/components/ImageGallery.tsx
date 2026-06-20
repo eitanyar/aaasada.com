@@ -130,16 +130,12 @@ export default function ImageGallery() {
         ))}
       </div>
 
-      {/* Images Grid */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-        gap: "20px"
-      }}>
+      {/* Images Grid / Mobile Carousel */}
+      <div className="gallery-grid">
         {filteredImages.map((img, idx) => (
           <div 
-            key={idx} 
-            className="card" 
+            key={`${img.category}-${idx}`} 
+            className="card gallery-item" 
             style={{
               padding: 0,
               overflow: "hidden",

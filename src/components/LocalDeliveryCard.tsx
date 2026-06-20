@@ -80,7 +80,7 @@ export default function LocalDeliveryCard({
           <strong style={{ color: "var(--accent-terracotta)", textAlign: "left", maxWidth: "65%" }}>
             {isShabbatChatan
               ? "מגיע מקורר בשישי בצהריים לשמירה הלכתית על הטריות וחימום קל על הפלטה"
-              : "מגיע חם מאוד במארזי קלקר שומרי חום מוכן להגשה"}
+              : "מגיע חם במארזי קלקר שומרי חום מוכן להגשה"}
           </strong>
         </li>
       </ul>
