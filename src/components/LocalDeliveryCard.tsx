@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { PhoneIcon } from "./icons";
 
 interface LocalDeliveryCardProps {
@@ -16,6 +16,7 @@ export default function LocalDeliveryCard({
   priceText = "₪58 בלבד למנה בשרית עשירה"
 }: LocalDeliveryCardProps) {
   const searchParams = useSearchParams();
+  const pathname = usePathname() || "";
   const [hash, setHash] = useState("");
 
   useEffect(() => {
@@ -37,6 +38,12 @@ export default function LocalDeliveryCard({
     eventParam.includes("שבת-חתן") ||
     eventParam.includes("שבת חתן") ||
     eventParam.includes("חתן");
+
+  const isSpecificEvent = 
+    pathname.includes("azkarot") || 
+    pathname.includes("brit") || 
+    pathname.includes("hina") || 
+    pathname.includes("bar-mitzvah");
 
   return (
     <div
@@ -80,7 +87,9 @@ export default function LocalDeliveryCard({
           <strong style={{ color: "var(--accent-terracotta)", textAlign: "left", maxWidth: "70%" }}>
             {isShabbatChatan
               ? "מגיע בקירור מבוקר בשישי בצהריים (לחימום על הפלטה)"
-              : "מגיע חם במארזים שומרי חום (או בקירור לשבת חתן)"}
+              : isSpecificEvent
+                ? "מגיע חם במארזים שומרי חום"
+                : "מגיע חם במארזים שומרי חום (או בקירור לשבת חתן)"}
           </strong>
         </li>
       </ul>
