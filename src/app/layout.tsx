@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Read analytics IDs from environment variables or use fallback placeholders
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-M4EG38FYSW"; // Fallback to a placeholder
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID; // GTM-XXXXXXX
   const wcKey = process.env.NEXT_PUBLIC_WHATCONVERTS_KEY || "192348a82b"; // WhatConverts client key
 
