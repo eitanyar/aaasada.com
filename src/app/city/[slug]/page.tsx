@@ -5,6 +5,7 @@ import MenuBuilder from "../../../components/MenuBuilder";
 import CityHero from "../../../components/CityHero";
 import LocalDeliveryCard from "../../../components/LocalDeliveryCard";
 import LocalIntro from "../../../components/LocalIntro";
+import ImageGallery from "../../../components/ImageGallery";
 
 // Define the static slugs to pre-render during build time (required for output: export)
 export async function generateStaticParams() {
@@ -172,47 +173,23 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         />
       </Suspense>
 
-      {/* Localized Copy Content & Info */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">
-          <div className="grid grid-2" style={{ gap: "var(--spacing-lg)" }}>
-            {/* Custom Description to solve SEO duplicate text issues */}
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <h2>פתרון קייטרינג בשרי מנצח ב{city.name}</h2>
-              <Suspense fallback={<p>{city.customIntro}</p>}>
-                <LocalIntro cityName={city.name} defaultIntro={city.customIntro} />
-              </Suspense>
-              {city.localTrustHook && (
-                <div style={{
-                  backgroundColor: "var(--primary-gold-light)",
-                  borderRight: "4px solid var(--primary-gold)",
-                  padding: "12px 18px",
-                  borderRadius: "4px",
-                  fontWeight: "600",
-                  marginTop: "10px",
-                  color: "var(--primary-gold-hover)"
-                }}>
-                  💡 {city.localTrustHook}
-                </div>
-              )}
+          <Suspense fallback={
+            <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
+              border: "1.5px solid var(--border-color)",
+              boxShadow: "var(--shadow-subtle)"
+            }}>
+              <h3>משלוח אוכל מוכן ל{city.name}</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
-
-            {/* Local delivery configuration details */}
-            <Suspense fallback={
-              <div className="card" style={{
-                background: "#ffffff",
-                padding: "var(--spacing-md)",
-                borderRadius: "var(--border-radius-md)",
-                border: "1.5px solid var(--border-color)",
-                boxShadow: "var(--shadow-subtle)"
-              }}>
-                <h3>משלוח אוכל מוכן ל{city.name}</h3>
-                <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
-              </div>
-            }>
-              <LocalDeliveryCard cityName={city.name} />
-            </Suspense>
-          </div>
+          }>
+            <LocalDeliveryCard cityName={city.name} />
+          </Suspense>
         </div>
       </section>
 
@@ -340,6 +317,44 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             <a href="/" style={{ fontWeight: "bold", textDecoration: "underline", color: "var(--secondary-green)" }}>
               ← חזרה לעמוד הראשי של קייטרינג טעם מהודר
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Gallery Section */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "var(--spacing-md)" }}>
+            <h2>מהמטבח שלנו למשלוח ב{city.name} - גלריית מנות</h2>
+            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
+              צפו במבחר הבשרים הנימוחים, העופות בתנור, הסלטים הטריים המבושלים יום-יום ומגשי האירוח החמים שלנו.
+            </p>
+          </div>
+          <ImageGallery />
+        </div>
+      </section>
+
+      {/* Localized Copy Content & Info (Trust & Long Description Section) */}
+      <section className="section" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container">
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+            <h2>פתרון קייטרינג בשרי מנצח ב{city.name}</h2>
+            <Suspense fallback={<p>{city.customIntro}</p>}>
+              <LocalIntro cityName={city.name} defaultIntro={city.customIntro} />
+            </Suspense>
+            {city.localTrustHook && (
+              <div style={{
+                backgroundColor: "var(--primary-gold-light)",
+                borderRight: "4px solid var(--primary-gold)",
+                padding: "12px 18px",
+                borderRadius: "4px",
+                fontWeight: "600",
+                marginTop: "15px",
+                color: "var(--primary-gold-hover)"
+              }}>
+                💡 {city.localTrustHook}
+              </div>
+            )}
           </div>
         </div>
       </section>

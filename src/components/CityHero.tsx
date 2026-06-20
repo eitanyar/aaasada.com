@@ -120,7 +120,7 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
         return {
           title: `קייטרינג בשרי ואוכל מוכן ב${cityName}`,
           intro: defaultIntro,
-          badge: `בד"ץ יורה דעה הרב מחפוד • אזור שירות ${regionTitle}`
+          badge: `בד"ץ יורה דעה הרב מחפוד`
         };
     }
   };

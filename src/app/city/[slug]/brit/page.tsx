@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
 import { PhoneIcon } from "../../../../components/icons";
+import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
 export async function generateStaticParams() {
@@ -56,10 +57,6 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
         "addressCountry": "IL"
       }
     },
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": city.name
-    },
     "hasMenu": {
       "@type": "FoodMenu",
       "name": "תפריט ברית בשרי כשר למהדרין ב-58 ש\"ח",
@@ -105,7 +102,7 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
             border: "1px solid var(--primary-gold)",
             marginBottom: "15px"
           }}>
-            קייטרינג לברית מילה ובריתה • כשר למהדרין בד"ץ הרב מחפוד • אזור {regionTitle}
+            קייטרינג לברית מילה ובריתה • כשר למהדרין בד"ץ הרב מחפוד
           </div>
           <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "var(--font-frank-ruhl)" }}>
             קייטרינג לברית מילה ב{city.name}
@@ -132,13 +129,86 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* Localized Brit Info */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container">
+          <Suspense fallback={
+            <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
+              border: "1.5px solid var(--border-color)",
+              boxShadow: "var(--shadow-subtle)"
+            }}>
+              <h3>משלוח אוכל מוכן ל{city.name}</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
+            </div>
+          }>
+            <LocalDeliveryCard cityName={city.name} />
+          </Suspense>
+        </div>
+      </section>
+
+      {/* Waiter vs DIY details */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
+            <h2>שירותי הפקה והגשה לברית ב{city.name}</h2>
+            <p>התאימו את אופי השירות לתקציב ולסגנון האירוע שלכם</p>
+          </div>
+
+          <div className="grid grid-2" style={{ gap: "var(--spacing-md)" }}>
+            <div className="card" style={{ backgroundColor: "#ffffff" }}>
+              <h3 style={{ color: "var(--secondary-green)" }}>1. הגשה עצמית חסכונית (מנות אוכל מוכן)</h3>
+              <p>האפשרות המומלצת והמשתלמת ביותר לבריתות ב{city.name}:</p>
+              <ul style={{ paddingRight: "20px", display: "flex", flexDirection: "column", gap: "8px", margin: "10px 0" }}>
+                <li><strong>מחיר</strong>: 58 ₪ בלבד למנה.</li>
+                <li><strong>מה מקבלים</strong>: מגשי אלומיניום שומרי חום עם 3 מנות עיקריות, 3 תוספות חמות ו-7 סלטים לבחירה.</li>
+                <li><strong>לוגיסטיקה</strong>: השליח מגיע כשעה לפני תחילת הארוחה עם המגשים חמים מאוד בתוך מארזי קלקר עבים.</li>
+                <li><strong>חיסכון</strong>: אין צורך בתשלום על מלצרים, עריכה או פינוי - הכל מוגש בצורה פשוטה, נקייה ומכובדת בסגנון בופיי.</li>
+              </ul>
+            </div>
+
+            <div className="card" style={{ backgroundColor: "#ffffff", border: "1.5px solid var(--primary-gold)" }}>
+              <h3 style={{ color: "var(--secondary-green)" }}>2. שירות הגשה ומלצרים מלא (למעל 100 אורחים)</h3>
+              <p>אם ברצונכם להפיק אירוע ב{city.name} ללא מאמץ כלל עם צוות מקצועי:</p>
+              <ul style={{ paddingRight: "20px", display: "flex", flexDirection: "column", gap: "8px", margin: "10px 0" }}>
+                <li><strong>תנאי סף</strong>: מינימום **100 אורחים** להזמנת שירות זה.</li>
+                <li><strong>שירות עריכה והגשה</strong>: צוות המלצרים יגיע למקום האירוע, יערוך את השולחנות במפות ובכלים, יחמם את האוכל, יגיש לאורחים ברווחה ויפנה את השולחנות בסיום.</li>
+                <li><strong>מה כולל השדרוג</strong>: שירות מלצרים מקצועי, מפות, כלים חד-פעמיים מהודרים רויאל, ופלטות חימום.</li>
+                <li><strong>מחיר</strong>: תוספת של 80 ₪ למנה (החל מ-138 ₪ סה"כ למנה כולל האוכל והמלצרים).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Menu Builder Section */}
+      <section className="section" id="menu-section" style={{
+        backgroundColor: "#ffffff",
+        borderTop: "1px solid var(--border-color)",
+        borderBottom: "1px solid var(--border-color)"
+      }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
+            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריט בריתות ₪58 למנה</span>
+            <h2>הרכיבו את התפריט שלכם לברית מילה ב{city.name}</h2>
+            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
+              בחרו 3 מנות עיקריות, 3 תוספות ו-7 סלטים טריים. נציגנו יחזור אליכם בוואטסאפ או בטלפון עם אישור הזמנה מהיר.
+            </p>
+          </div>
+
+          <MenuBuilder />
+        </div>
+      </section>
+
+      {/* Localized Brit Info (Long SEO Copy) */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
         <div className="container">
           <div className="grid grid-2" style={{ gap: "var(--spacing-lg)" }}>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <h2>חוגגים ברית מילה ב{city.name} בשקט נפשי ובשפע רב</h2>
-              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
+              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)", marginTop: "15px" }}>
                 לידת בן או בת מביאה איתה שמחה עצומה, אך גם לוח זמנים צפוף והתרגשות רבה. ארגון סעודת ברית מילה או בריתה ב{city.name} תוך ימים ספורים דורש פתרון קולינרי מהיר, איכותי וכשר למהדרין שיאפשר לכם לארח את המשפחה והחברים ברווחה ובכבוד.
               </p>
               <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
@@ -150,7 +220,7 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
                 padding: "12px 18px",
                 borderRadius: "4px",
                 fontWeight: "600",
-                marginTop: "10px",
+                marginTop: "15px",
                 color: "var(--primary-gold-hover)"
               }}>
                 👶 השגחת בד"ץ יורה דעה של הרב שלמה מחפוד שליט"א (שחיטת חלק) - מעניקה שקט נפשי מלא לאירוח של כל אורח ועדה ב{city.name}.
@@ -159,7 +229,7 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
 
             <div className="card" style={{
               border: "1.5px solid var(--border-color)",
-              backgroundColor: "var(--bg-warm-sand)",
+              backgroundColor: "#ffffff",
               display: "flex",
               flexDirection: "column",
               gap: "15px",
@@ -197,59 +267,6 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Waiter vs DIY details (copy restored) */}
-      <section className="section" style={{ backgroundColor: "#f9fafb", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <h2>שירותי הפקה והגשה לברית ב{city.name}</h2>
-            <p>התאימו את אופי השירות לתקציב ולסגנון האירוע שלכם</p>
-          </div>
-
-          <div className="grid grid-2" style={{ gap: "var(--spacing-md)" }}>
-            <div className="card" style={{ backgroundColor: "#ffffff" }}>
-              <h3 style={{ color: "var(--secondary-green)" }}>1. הגשה עצמית חסכונית (מנות אוכל מוכן)</h3>
-              <p>האפשרות המומלצת והמשתלמת ביותר לבריתות ב{city.name}:</p>
-              <ul style={{ paddingRight: "20px", display: "flex", flexDirection: "column", gap: "8px", margin: "10px 0" }}>
-                <li><strong>מחיר</strong>: 58 ₪ בלבד למנה.</li>
-                <li><strong>מה מקבלים</strong>: מגשי אלומיניום שומרי חום עם 3 מנות עיקריות, 3 תוספות חמות ו-7 סלטים לבחירה.</li>
-                <li><strong>לוגיסטיקה</strong>: השליח מגיע כשעה לפני תחילת הארוחה עם המגשים חמים מאוד בתוך מארזי קלקר עבים.</li>
-                <li><strong>חיסכון</strong>: אין צורך בתשלום על מלצרים, עריכה או פינוי - הכל מוגש בצורה פשוטה, נקייה ומכובדת בסגנון בופיי.</li>
-              </ul>
-            </div>
-
-            <div className="card" style={{ backgroundColor: "#ffffff", border: "1.5px solid var(--primary-gold)" }}>
-              <h3 style={{ color: "var(--secondary-green)" }}>2. שירות הגשה ומלצרים מלא (למעל 100 אורחים)</h3>
-              <p>אם ברצונכם להפיק אירוע ב{city.name} ללא מאמץ כלל עם צוות מקצועי:</p>
-              <ul style={{ paddingRight: "20px", display: "flex", flexDirection: "column", gap: "8px", margin: "10px 0" }}>
-                <li><strong>תנאי סף</strong>: מינימום **100 אורחים** להזמנת שירות זה.</li>
-                <li><strong>שירות עריכה והגשה</strong>: צוות המלצרים יגיע למקום האירוע, יערוך את השולחנות במפות ובכלים, יחמם את האוכל, יגיש לאורחים ברווחה ויפנה את השולחנות בסיום.</li>
-                <li><strong>מה כולל השדרוג</strong>: שירות מלצרים מקצועי, מפות, כלים חד-פעמיים מהודרים רויאל, ופלטות חימום.</li>
-                <li><strong>מחיר</strong>: תוספת של 80 ₪ למנה (החל מ-138 ₪ סה"כ למנה כולל האוכל והמלצרים).</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Menu Builder Section */}
-      <section className="section" id="menu-section" style={{
-        background: "var(--bg-warm-sand)",
-        borderTop: "1px solid var(--border-color)",
-        borderBottom: "1px solid var(--border-color)"
-      }}>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריט בריתות ₪58 למנה</span>
-            <h2>הרכיבו את התפריט שלכם לברית מילה ב{city.name}</h2>
-            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
-              בחרו 3 מנות עיקריות, 3 תוספות ו-7 סלטים טריים. נציגנו יחזור אליכם בוואטסאפ או בטלפון עם אישור הזמנה מהיר.
-            </p>
-          </div>
-
-          <MenuBuilder />
         </div>
       </section>
 

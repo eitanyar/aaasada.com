@@ -133,7 +133,7 @@ export default function BarMitzvahGeneralPage() {
           <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
             קייטרינג לבר מצווה ואירועים משפחתיים
             <br />
-            <span style={{ color: "var(--primary-gold)" }}>אוכל בשרי חם ושופע ב-₪58 בלבד למנה!</span>
+            <span style={{ color: "var(--primary-gold)" }}>מנה עשירה ומפנקת במיוחד ב-₪58 בלבד!</span>
           </h1>
           
           <p style={{

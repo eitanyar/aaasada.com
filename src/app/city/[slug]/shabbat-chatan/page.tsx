@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
+import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
 import { PhoneIcon } from "../../../../components/icons";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
@@ -105,7 +106,7 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
             border: "1px solid var(--primary-gold)",
             marginBottom: "15px"
           }}>
-            קייטרינג לשבת חתן • כשר בד"ץ יורה דעה (הרב מחפוד) • אזור {regionTitle}
+            קייטרינג לשבת חתן • כשר בד"ץ יורה דעה (הרב מחפוד)
           </div>
           <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "var(--font-frank-ruhl)" }}>
             קייטרינג לשבת חתן ב{city.name}
@@ -132,77 +133,25 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
         </div>
       </section>
 
-      {/* Localized Shabbat Chatan Info */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
-        <div className="container">
-          <div className="grid grid-2" style={{ gap: "var(--spacing-lg)" }}>
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <h2>אירוח מכובד ושופע לשבת המרגשת שלכם ב{city.name}</h2>
-              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
-                עלייה לתורה ושבת חתן ב{city.name} הן הזדמנות משמחת לחגוג עם המשפחה והחברים הקרובים. במקום לבלות שעות ארוכות במטבח או לשלם אלפי שקלים נוספים על צוות הפקה ומלצרים, 'טעם מהודר' מציעה לכם פתרון חכם להגשה עצמית קלה ונוחה בסגנון "עשה זאת בעצמך".
-              </p>
-              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
-                אנו נספק לכם מגשים המגיעים מקוררים ומכילים נתחי בשר בבישול ארוך, עופות שחומים, אורז חגיגי, תפוחי אדמה אפויים וסלטים ביתיים טריים. כל האוכל מבושל טרי לקראת שבת ומגיע מקורר בשישי בצהריים כדי להבטיח טריות מקסימלית והתאמה מושלמת לחימום בטוח על פלטת השבת בבית או בבית הכנסת ב{city.name}.
-              </p>
-              <div style={{
-                backgroundColor: "var(--primary-gold-light)",
-                borderRight: "4px solid var(--primary-gold)",
-                padding: "12px 18px",
-                borderRadius: "4px",
-                fontWeight: "600",
-                marginTop: "10px",
-                color: "var(--primary-gold-hover)"
-              }}>
-                👑 כשרות מהודרת בד"ץ הרב שלמה מחפוד (שחיטת חלק) - מעניקה שקט נפשי מלא לאירוח של כל אורח ועדה ב{city.name}.
-              </div>
-            </div>
-
+        <div className="container" style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+          <Suspense fallback={
             <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
               border: "1.5px solid var(--border-color)",
-              backgroundColor: "var(--bg-warm-sand)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "15px",
-              justifyContent: "center"
+              boxShadow: "var(--shadow-subtle)"
             }}>
-              <h3 style={{ fontFamily: "sans-serif", fontWeight: "700", color: "var(--secondary-green)", margin: 0 }}>
-                פרטי אספקה לשבת חתן ב{city.name}
-              </h3>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>📦 סוג התפריט:</span>
-                  <strong>בשרי עשיר, מותאם לפלטת שבת</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>🚚 עלות משלוח ל{city.name}:</span>
-                  <strong>ימסר על ידי הנציג בהתאם למיקום וזמן המסירה</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>👥 מינימום הזמנה:</span>
-                  <strong>30 מנות (אורחים)</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>❄️ אספקה:</span>
-                  <strong>משלוח מגיע מקורר בשישי בצהריים לשמירה על הטריות</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>🥖 לחמים וקינוחים:</span>
-                  <strong>ניתן להוסיף חלות ומנות אחרונות בתיאום</strong>
-                </li>
-              </ul>
-              <div style={{ marginTop: "10px" }}>
-                <a href="tel:052-609-0930" className="btn btn-secondary" style={{ width: "100%" }}>
-                  📞 התקשרו לתיאום שבת חתן
-                </a>
-              </div>
+              <h3>משלוח אוכל מוכן ל{city.name}</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
-          </div>
-        </div>
-      </section>
+          }>
+            <LocalDeliveryCard isShabbatChatanOverride={true} priceText="₪58 למנה / ₪149 לחבילת 3 סעודות" cityName={city.name} />
+          </Suspense>
 
-      {/* 149 NIS Package Callout */}
-      <section className="section" style={{ backgroundColor: "#ffffff", padding: "var(--spacing-md) 0" }}>
-        <div className="container">
+          {/* 149 NIS Package Callout */}
           <div style={{
             background: "linear-gradient(135deg, #fffdf0 0%, #fef9e6 100%)",
             border: "2px solid var(--primary-gold)",
@@ -211,7 +160,7 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
             boxShadow: "0 8px 30px rgba(212, 175, 55, 0.15)",
             textAlign: "center",
             maxWidth: "900px",
-            margin: "0 auto var(--spacing-sm) auto"
+            margin: "0 auto"
           }}>
             <span style={{
               backgroundColor: "var(--accent-terracotta)",
@@ -388,11 +337,37 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div style={{ textAlign: "center", marginTop: "var(--spacing-lg)" }}>
-            <a href={`/city/${city.slug}`} style={{ fontWeight: "bold", textDecoration: "underline", color: "var(--secondary-green)" }}>
-              ← חזרה לעמוד הקייטרינג הכללי של {city.name}
-            </a>
+      {/* Localized Shabbat Chatan Info (Long SEO Copy) */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+            <h2>אירוח מכובד ושופע לשבת המרגשת שלכם ב{city.name}</h2>
+            <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)", marginTop: "15px" }}>
+              עלייה לתורה ושבת חתן ב{city.name} הן הזדמנות משמחת לחגוג עם המשפחה והחברים הקרובים. במקום לבלות שעות ארוכות במטבח או לשלם אלפי שקלים נוספים על צוות הפקה ומלצרים, 'טעם מהודר' מציעה לכם פתרון חכם להגשה עצמית קלה ונוחה בסגנון "עשה זאת בעצמך".
+            </p>
+            <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
+              אנו נספק לכם מגשים המגיעים מקוררים ומכילים נתחי בשר בבישול ארוך, עופות שחומים, אורז חגיגי, תפוחי אדמה אפויים וסלטים ביתיים טריים. כל האוכל מבושל טרי לקראת שבת ומגיע מקורר בשישי בצהריים כדי להבטיח טריות מקסימלית והתאמה מושלמת לחימום בטוח על פלטת השבת בבית או בבית הכנסת ב{city.name}.
+            </p>
+            <div style={{
+              backgroundColor: "var(--primary-gold-light)",
+              borderRight: "4px solid var(--primary-gold)",
+              padding: "12px 18px",
+              borderRadius: "4px",
+              fontWeight: "600",
+              marginTop: "15px",
+              color: "var(--primary-gold-hover)"
+            }}>
+              👑 כשרות מהודרת בד"ץ הרב שלמה מחפוד (שחיטת חלק) - מעניקה שקט נפשי מלא לאירוח של כל אורח ועדה ב{city.name}.
+            </div>
+            
+            <div style={{ textAlign: "center", marginTop: "30px" }}>
+              <a href={`/city/${city.slug}`} style={{ fontWeight: "bold", textDecoration: "underline", color: "var(--secondary-green)" }}>
+                ← חזרה לעמוד הקייטרינג הכללי של {city.name}
+              </a>
+            </div>
           </div>
         </div>
       </section>

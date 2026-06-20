@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import MenuBuilder from "../../components/MenuBuilder";
 import ProfessionalSupervision from "../../components/ProfessionalSupervision";
+import LocalDeliveryCard from "../../components/LocalDeliveryCard";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
 import { CheckIcon, PhoneIcon } from "../../components/icons";
 
@@ -161,61 +162,29 @@ export default function AzkarotGeneralPage() {
         </div>
       </section>
 
-      {/* Comfort and Ease explanation */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">
-          <div className="grid grid-2" style={{ alignItems: "center", gap: "var(--spacing-lg)" }}>
-            <div>
-              <h2>מענה מהיר, רגיש ומכובד לסעודת אבלים או אזכרה</h2>
-              <p>
-                ארגון סעודה במהלך ימי השבעה או לרגל אזכרה שנתית מלווה בקושי לוגיסטי ובצורך להכין אוכל בשרי חם ומכובד שמתאים למגוון רחב של אורחים ומנחמים. בשעות קשות אלו, המטרה העליונה שלנו ב"טעם מהודר" היא להעניק לכם שקט נפשי מלא. אנו מספקים מעטפת מלאה של שירותי קייטרינג ופתרונות הסעדה רגישים, ומסייעים לכם לכבד את זכר יקירכם בצורה הטובה ביותר ללא התעסקות קשה במטבח.
-              </p>
-              <p>
-                האוכל המוכן מבושל טרי יום-יום ומגיע ארוז בתוך חמגשיות אלומיניום קשיחות, נקי, מסודר ומוכן להגשה מיידית על גבי שולחנות האירוח בבית האבלים, בבית הכנסת או בבית המדרש. המגשים מועברים בתוך מארזים מבודדי חום מיוחדים ומגיעים חמים מאוד, דבר החוסך לכם התעסקות מסובכת בחימום האוכל ומאפשר לכם להתרכז בעיקר.
-              </p>
-              <p>
-                כל הבשרים והמנות מוכנים תחת פיקוח צמוד ותעודת כשרות בתוקף של בד"ץ יורה דעה בנשיאות הגאון הרב שלמה מחפוד שליט"א (בשר גלאט חלק בית יוסף, ירקות עלים ללא תולעים והפרשת תרומות ומעשרות כדין). רמת כשרות מהודרת זו מבטיחה שכל המשפחה והמנחמים יוכלו לאכול ולשבוע בלב שקט ובביטחון הלכתי מלא.
-              </p>
+          <Suspense fallback={
+            <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
+              border: "1.5px solid var(--border-color)",
+              boxShadow: "var(--shadow-subtle)"
+            }}>
+              <h3>משלוח אוכל מוכן</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <img
-                src="/images/roastbeef_763x447_webp.webp"
-                alt="קייטרינג לאזכרה וסעודת אבלים"
-                loading="lazy"
-                decoding="async"
-                style={{
-                  width: "100%",
-                  height: "260px",
-                  objectFit: "cover",
-                  borderRadius: "var(--border-radius-lg)",
-                  border: "3px solid var(--primary-gold)",
-                  boxShadow: "0 8px 25px rgba(0,0,0,0.08)"
-                }}
-              />
-              <div style={{
-                background: "var(--bg-warm-sand)",
-                border: "1.5px solid var(--border-color)",
-                borderRadius: "var(--border-radius-lg)",
-                padding: "var(--spacing-lg)"
-              }}>
-                <h3 style={{ color: "var(--secondary-green)", fontFamily: "sans-serif", margin: "0 0 15px 0" }}>השירות שלנו לסעודות אבלים:</h3>
-                <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מענה טלפוני מהיר ורגיש:</strong> אנו מבינים את הדחיפות ומסייעים בבחירה מהירה.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>משלוח חם ישירות אליכם:</strong> האוכל מועבר במארזים מבודדי חום מיוחדים ומגיע חם מאוד.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>תפריט עשיר במחיר 58 ש"ח:</strong> בשרים איכותיים, תוספות חמות וסלטים טריים בנדיבות רבה.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>ללא טרחה:</strong> אין צורך בציוד חימום מורכב או בצוות מלצרים. מניחים ומגישים.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <ProfessionalSupervision />
+          }>
+            <LocalDeliveryCard />
+          </Suspense>
         </div>
       </section>
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{
-        background: "#ffffff",
+        background: "var(--bg-warm-sand)",
         borderTop: "1px solid var(--border-color)",
         borderBottom: "1px solid var(--border-color)"
       }}>
@@ -233,7 +202,7 @@ export default function AzkarotGeneralPage() {
       </section>
 
       {/* Comparison Section & Detailed Copy (BTF) */}
-      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderBottom: "1px solid var(--border-color)" }}>
+      <section className="section" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid var(--border-color)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
             <h2>התאמה מלאה לאירוע אזכרה, שבעה וסעודות אבלים</h2>
@@ -294,6 +263,58 @@ export default function AzkarotGeneralPage() {
         </div>
       </section>
 
+      {/* Comfort and Ease explanation (Long SEO copy) */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderBottom: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div className="grid grid-2" style={{ alignItems: "center", gap: "var(--spacing-lg)" }}>
+            <div>
+              <h2>מענה מהיר, רגיש ומכובד לסעודת אבלים או אזכרה</h2>
+              <p>
+                ארגון סעודה במהלך ימי השבעה או לרגל אזכרה שנתית מלווה בקושי לוגיסטי ובצורך להכין אוכל בשרי חם ומכובד שמתאים למגוון רחב של אורחים ומנחמים. בשעות קשות אלו, המטרה העליונה שלנו ב"טעם מהודר" אנו להעניק לכם שקט נפשי מלא. אנו מספקים מעטפת מלאה של שירותי קייטרינג ופתרונות הסעדה רגישים, ומסייעים לכם לכבד את זכר יקירכם בצורה הטובה ביותר ללא התעסקות קשה במטבח.
+              </p>
+              <p>
+                האוכל המוכן מבושל טרי יום-יום ומגיע ארוז בתוך חמגשיות אלומיניום קשיחות, נקי, מסודר ומוכן להגשה מיידית על גבי שולחנות האירוח בבית האבלים, בבית הכנסת או בבית המדרש. המגשים מועברים בתוך מארזים מבודדי חום מיוחדים ומגיעים חמים מאוד, דבר החוסך לכם התעסקות מסובכת בחימום האוכל ומאפשר לכם להתרכז בעיקר.
+              </p>
+              <p>
+                כל הבשרים והמנות מוכנים תחת פיקוח צמוד ותעודת כשרות בתוקף של בד"ץ יורה דעה בנשיאות הגאון הרב שלמה מחפוד שליט"א (בשר גלאט חלק בית יוסף, ירקות עלים ללא תולעים והפרשת תרומות ומעשרות כדין). רמת כשרות מהודרת זו מבטיחה שכל המשפחה והמנחמים יוכלו לאכול ולשבוע בלב שקט ובביטחון הלכתי מלא.
+              </p>
+            </div>
+            
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <img
+                src="/images/roastbeef_763x447_webp.webp"
+                alt="קייטרינג לאזכרה וסעודת אבלים"
+                loading="lazy"
+                decoding="async"
+                style={{
+                  width: "100%",
+                  height: "260px",
+                  objectFit: "cover",
+                  borderRadius: "var(--border-radius-lg)",
+                  border: "3px solid var(--primary-gold)",
+                  boxShadow: "0 8px 25px rgba(0,0,0,0.08)"
+                }}
+              />
+              <div style={{
+                background: "#ffffff",
+                border: "1.5px solid var(--border-color)",
+                borderRadius: "var(--border-radius-lg)",
+                padding: "var(--spacing-lg)"
+              }}>
+                <h3 style={{ color: "var(--secondary-green)", fontFamily: "sans-serif", margin: "0 0 15px 0" }}>השירות שלנו לסעודות אבלים:</h3>
+                <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מענה טלפוני מהיר ורגיש:</strong> אנו מבינים את הדחיפות ומסייעים בבחירה מהירה.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>משלוח חם ישירות אליכם:</strong> האוכל מועבר במארזים מבודדי חום מיוחדים ומגיע חם מאוד.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>תפריט עשיר במחיר 58 ש"ח:</strong> בשרים איכותיים, תוספות חמות וסלטים טריים בנדיבות רבה.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>ללא טרחה:</strong> אין צורך בציוד חימום מורכב או בצוות מלצרים. מניחים ומגישים.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <ProfessionalSupervision />
+        </div>
+      </section>
+
       {/* Comfort & Service Details (BTF) */}
       <section className="section" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid var(--border-color)" }}>
         <div className="container">
@@ -304,7 +325,7 @@ export default function AzkarotGeneralPage() {
                 אנו מבינים את המורכבות והרגישות בארגון סעודת מצווה בעת ימי האבל. לכן, אנו ערוכים לספק מענה מהיר במיוחד ללוויות ושבעה בהתראות קצרות. האוכל מגיע חם ומוכן להגשה, ארוז באסתטיות ובטריות.
               </p>
               <p style={{ fontSize: "1.05rem", lineHeight: "1.6" }}>
-                בנוסף, אם אתם זקוקים להפקה מלאה הכוללת מלצרים מקצועיים, עריכת שולחנות ופינוי מלא, אנו מציעים פתרון כולל בתיאום מראש (הפקות אירועים שלמות ושירותי מלצרים מלאים החל מ-100 איש ומעלה). אנו נדאג לכל הצד הלוגיסטי כדי להוריד מכם את הדאגות ולאפשר לכם להתייחד עם זכר יקירכם בכבוד הראוי.
+                בנוסף, אם אתם זקוקם להפקה מלאה הכוללת מלצרים מקצועיים, עריכת שולחנות ופינוי מלא, אנו מציעים פתרון כולל בתיאום מראש (הפקות אירועים שלמות ושירותי מלצרים מלאים החל מ-100 איש ומעלה). אנו נדאג לכל הצד הלוגיסטי כדי להוריד מכם את הדאגות ולאפשר לכם להתייחד עם זכר יקירכם בכבוד הראוי.
               </p>
             </div>
 
@@ -327,7 +348,7 @@ export default function AzkarotGeneralPage() {
       </section>
 
       {/* FAQ Accordion Section (BTF) */}
-      <section className="section" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid var(--border-color)" }}>
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderBottom: "1px solid var(--border-color)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
             <h2>שאלות ותשובות נפוצות - קייטרינג לאזכרה</h2>

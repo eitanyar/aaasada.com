@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import MenuBuilder from "../../components/MenuBuilder";
 import ProfessionalSupervision from "../../components/ProfessionalSupervision";
+import LocalDeliveryCard from "../../components/LocalDeliveryCard";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
 import { CheckIcon, PhoneIcon } from "../../components/icons";
 
@@ -113,7 +114,7 @@ export default function ShabbatChatanGeneralPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section shabbat-hero">
         <div className="container">
           <div className="badge-kosher" style={{
             backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -132,7 +133,7 @@ export default function ShabbatChatanGeneralPage() {
           <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
             קייטרינג לשבת חתן בשרי ועשיר
             <br />
-            <span style={{ color: "var(--primary-gold)" }}>השפע והנדיבות של הבית ב-₪58 בלבד למנה!</span>
+            <span style={{ color: "var(--primary-gold)" }}>מנה עשירה ומפנקת במיוחד ב-₪58 בלבד!</span>
           </h1>
           
           <p style={{
@@ -164,61 +165,25 @@ export default function ShabbatChatanGeneralPage() {
         </div>
       </section>
 
-      {/* Main content explaining Shabbat Chatan features */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
-        <div className="container">
-          <div className="grid grid-2" style={{ alignItems: "center", gap: "var(--spacing-lg)" }}>
-            <div>
-              <h2>קייטרינג לשבת חתן – שפע ללא פשרות</h2>
-              <p>
-                שבת עלייה לתורה היא מהשבתות החגיגיות והמרגשות ביותר בחיי המשפחה היהודית. ב"טעם מהודר" אנו מתחייבים להבטחה אחת ברורה: שפע ללא פשרות. אנו מציעים תפריט עשיר, מכבד ומלא בכל טוב לארוחת קידוש או לסעודות השבת, במחיר המשתלם ביותר בשוק של 58 ₪ למנה בלבד.
-              </p>
-              <p>
-                התפריט כולל מבחר מפנק: 3 מנות עיקריות לבחירה מתוך מגוון עשיר של בשרים ועופות, 7 סוגי סלטים טריים בנדיבות רבה, ו-3 תוספות חמות עשירות בניחוח ביתי אמיתי. אצלנו השקיפות היא מתכון מנצח – אתם מקבלים תמורה מלאה לכסף שלכם בלי אותיות קטנות ובלי הפתעות במחיר.
-              </p>
-              <p>
-                האוכל מבושל טרי ומגיע אליכם כשהוא מקורר בבטחה ובטמפרטורה מבוקרת במגשי אלומיניום אטומים ומסודרים, המתאימים בול לחימום הלכתי קל ישירות על גבי פלטת שבת, תוך שמירה על עסיסיות הבשרים והטריות המרבית. כשרות בד"ץ יורה דעה בהשגחת הגאון הרב שלמה מחפוד שליט"א מעניקה לכם ביטחון ושקט נפשי מלא לארח כל אורח ומנחם.
-              </p>
+        <div className="container" style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+          <Suspense fallback={
+            <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
+              border: "1.5px solid var(--border-color)",
+              boxShadow: "var(--shadow-subtle)"
+            }}>
+              <h3>משלוח אוכל מוכן</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <img
-                src="/images/shabat_hatan-scaled.webp"
-                alt="קייטרינג לשבת חתן"
-                loading="lazy"
-                decoding="async"
-                style={{
-                  width: "100%",
-                  height: "260px",
-                  objectFit: "cover",
-                  borderRadius: "var(--border-radius-lg)",
-                  border: "3px solid var(--primary-gold)",
-                  boxShadow: "0 8px 25px rgba(0,0,0,0.08)"
-                }}
-              />
-              <div style={{
-                background: "var(--bg-warm-sand)",
-                border: "1.5px solid var(--border-color)",
-                borderRadius: "var(--border-radius-lg)",
-                padding: "var(--spacing-lg)"
-              }}>
-                <h3 style={{ color: "var(--secondary-green)", fontFamily: "sans-serif", margin: "0 0 15px 0" }}>היתרונות שלנו לשבת חתן:</h3>
-                <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מחיר קבוע והוגן:</strong> ₪58 בלבד למנה (בשרים, תוספות חמות וסלטים).</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מתאים לפלטת שבת:</strong> המגשים מותאמים לחימום איטי מבלי לייבש את האוכל.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מינימום הזמנה נמוך:</strong> החל מ-30 מנות בלבד, מתאים בדיוק לאירועים קטנים בבית או בבית הכנסת.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>משלוח מקורר בבטחה:</strong> מגיע אליכם בשישי בצהריים כשהוא מקורר בטמפרטורה מבוקרת לשמירה על טריות מקסימלית עד כניסת השבת.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <ProfessionalSupervision />
-        </div>
-      </section>
+          }>
+            <LocalDeliveryCard isShabbatChatanOverride={true} priceText="₪58 למנה / ₪149 לחבילת 3 סעודות" />
+          </Suspense>
 
-      {/* 149 NIS Package Callout */}
-      <section className="section" style={{ backgroundColor: "#ffffff", padding: "var(--spacing-md) 0" }}>
-        <div className="container">
+          {/* 149 NIS Package Callout */}
           <div style={{
             background: "linear-gradient(135deg, #fffdf0 0%, #fef9e6 100%)",
             border: "2px solid var(--primary-gold)",
@@ -227,7 +192,7 @@ export default function ShabbatChatanGeneralPage() {
             boxShadow: "0 8px 30px rgba(212, 175, 55, 0.15)",
             textAlign: "center",
             maxWidth: "900px",
-            margin: "0 auto var(--spacing-sm) auto"
+            margin: "0 auto"
           }}>
             <span style={{
               backgroundColor: "var(--accent-terracotta)",
@@ -351,7 +316,7 @@ export default function ShabbatChatanGeneralPage() {
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{
-        background: "#ffffff",
+        background: "var(--bg-warm-sand)",
         borderTop: "1px solid var(--border-color)",
         borderBottom: "1px solid var(--border-color)"
       }}>
@@ -369,7 +334,7 @@ export default function ShabbatChatanGeneralPage() {
       </section>
 
       {/* Types of Shabbat Chatan Catering Services (BTF) */}
-      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderBottom: "1px solid var(--border-color)" }}>
+      <section className="section" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid var(--border-color)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
             <h2>פתרונות אירוח מותאמים לשבת המיוחדת שלכם</h2>
@@ -377,21 +342,21 @@ export default function ShabbatChatanGeneralPage() {
           </div>
 
           <div className="grid grid-3">
-            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "#ffffff", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
+            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "var(--bg-warm-sand)", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
               <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>🕍 שבת חתן בבית הכנסת</h3>
               <p style={{ fontSize: "0.95rem", lineHeight: "1.5" }}>
                 העלייה לתורה בבית הכנסת היא רגע מרגש במיוחד, המצריך התארגנות מדויקת ואווירה מתאימה. אנו מציעים קייטרינג לשבת חתן המותאם במיוחד לסעודות באוֹלם בית הכנסת - כולל מנות אישיות מסודרות או הגשה עצמית בסגנון בופה עשיר וקהילתי.
               </p>
             </div>
 
-            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "#ffffff", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
+            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "var(--bg-warm-sand)", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
               <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>🤵 קייטרינג עם מלצרים והפקה (מ-100 איש)</h3>
               <p style={{ fontSize: "0.95rem", lineHeight: "1.5" }}>
                 מחפשים חוויה יוקרתית אך חמימה? שירות הקייטרינג שלנו עם מלצרים והפקה מלאה מאפשר לכם ולבני המשפחה להתפנות לחלוטין לאירוח ולשמחה ללא כל טרחה. הצוות המנוסה שלנו פועל ברגישות, לבוש ייצוגי ומעניק שירות מקצועי לכל סעודות השבת (הפקות אירועים שלמות החל מ-100 איש ומעלה).
               </p>
             </div>
 
-            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "#ffffff", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
+            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "var(--bg-warm-sand)", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
               <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>🍽️ פתרון אירוח כולל ציוד מלא</h3>
               <p style={{ fontSize: "0.95rem", lineHeight: "1.5" }}>
                 אין לכם מספיק שולחנות, כיסאות או כלי הגשה מתאימים? אנו מציעים מעטפת לוגיסטית מלאה - החל ממפות, כלי אוכל, ציוד שמירה על חום וטריות האוכל, ועד פינוי וניקיון מלא של אולם האירוע. חוסך לכם זמן, כסף וכאבי ראש מיותרים.
@@ -400,20 +365,72 @@ export default function ShabbatChatanGeneralPage() {
           </div>
 
           <div className="grid grid-2" style={{ marginTop: "30px" }}>
-            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "#ffffff", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
+            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "var(--bg-warm-sand)", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
               <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>📖 שבת חתן בר מצווה</h3>
               <p style={{ fontSize: "0.95rem", lineHeight: "1.5" }}>
                 כאשר שבת החתן מציינת גם את בר המצווה, נדרשת התייחסות מיוחדת לתפריט, לעיצוב ולשירות. אנו מתמחים בהפקת שבתות בר מצווה באווירה משפחתית מרוממת, עם תפריט בשרי עשיר ומשובח שמתאים גם לנער החוגג וגם לאורחים המבוגרים.
               </p>
             </div>
 
-            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "#ffffff", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
+            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "var(--bg-warm-sand)", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
               <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>📜 כשרות למהדרין בד"ץ מחפוד</h3>
               <p style={{ fontSize: "0.95rem", lineHeight: "1.5" }}>
                 כל המנות שלנו מוגשות ברמת כשרות קפדנית של בד"ץ יורה דעה. אנו עובדים עם חומרי גלם איכותיים בלבד, ומתחייבים לסטנדרט מוקפד של הכנה הלכתית. אנו מלווים משפחות כבר שנים עם ניסיון עשיר, שירות מכל הלב ואוכל מעולה שכולם מדברים עליו.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Main content explaining Shabbat Chatan features (Long SEO text) */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderBottom: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div className="grid grid-2" style={{ alignItems: "center", gap: "var(--spacing-lg)" }}>
+            <div>
+              <h2>קייטרינג לשבת חתן – שפע ללא פשרות</h2>
+              <p>
+                שבת עלייה לתורה היא מהשבתות החגיגיות והמרגשות ביותר בחיי המשפחה היהודית. ב"טעם מהודר" אנו מתחייבים להבטחה אחת ברורה: שפע ללא פשרות. אנו מציעים תפריט עשיר, מכבד ומלא בכל טוב לארוחת קידוש או לסעודות השבת, במחיר המשתלם ביותר בשוק של 58 ₪ למנה בלבד.
+              </p>
+              <p>
+                התפריט כולל מבחר מפנק: 3 מנות עיקריות לבחירה מתוך מגוון עשיר של בשרים ועופות, 7 סוגי סלטים טריים בנדיבות רבה, ו-3 תוספות חמות עשירות בניחוח ביתי אמיתי. אצלנו השקיפות היא מתכון מנצח – אתם מקבלים תמורה מלאה לכסף שלכם בלי אותיות קטנות ובלי הפתעות במחיר.
+              </p>
+              <p>
+                האוכל מבושל טרי ומגיע אליכם כשהוא מקורר בבטחה ובטמפרטורה מבוקרת במגשי אלומיניום אטומים ומסודרים, המתאימים בול לחימום הלכתי קל ישירות על גבי פלטת שבת, תוך שמירה על עסיסיות הבשרים והטריות המרבית. כשרות בד"ץ יורה דעה בהשגחת הגאון הרב שלמה מחפוד שליט"א מעניקה לכם ביטחון ושקט נפשי מלא לארח כל אורח ומנחם.
+              </p>
+            </div>
+            
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <img
+                src="/images/shabat_hatan-scaled.webp"
+                alt="קייטרינג לשבת חתן"
+                loading="lazy"
+                decoding="async"
+                style={{
+                  width: "100%",
+                  height: "260px",
+                  objectFit: "cover",
+                  borderRadius: "var(--border-radius-lg)",
+                  border: "3px solid var(--primary-gold)",
+                  boxShadow: "0 8px 25px rgba(0,0,0,0.08)"
+                }}
+              />
+              <div style={{
+                background: "#ffffff",
+                border: "1.5px solid var(--border-color)",
+                borderRadius: "var(--border-radius-lg)",
+                padding: "var(--spacing-lg)"
+              }}>
+                <h3 style={{ color: "var(--secondary-green)", fontFamily: "sans-serif", margin: "0 0 15px 0" }}>היתרונות שלנו לשבת חתן:</h3>
+                <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מחיר קבוע והוגן:</strong> ₪58 בלבד למנה (בשרים, תוספות חמות וסלטים).</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מתאים לפלטת שבת:</strong> המגשים מותאמים לחימום איטי מבלי לייבש את האוכל.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מינימום הזמנה נמוך:</strong> החל מ-30 מנות בלבד, מתאים בדיוק לאירועים קטנים בבית או בבית הכנסת.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>משלוח מקורר בבטחה:</strong> מגיע אליכם בשישי בצהריים כשהוא מקורר בטמפרטורה מבוקרת לשמירה על טריות מקסימלית עד כניסת השבת.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <ProfessionalSupervision />
         </div>
       </section>
 
@@ -465,7 +482,7 @@ export default function ShabbatChatanGeneralPage() {
       </section>
 
       {/* Dynamic SEO Cities Directory Section */}
-      <section className="section" style={{ backgroundColor: "#ffffff" }}>
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
             <h2>שירותי קייטרינג שבת חתן לפי ערים וישובים</h2>
@@ -477,7 +494,7 @@ export default function ShabbatChatanGeneralPage() {
               const regionInfo = CATERING_REGIONS[regionKey];
               return (
                 <div key={regionKey} style={{
-                  backgroundColor: "var(--bg-warm-sand)",
+                  backgroundColor: "#ffffff",
                   padding: "20px",
                   borderRadius: "var(--border-radius-md)",
                   border: "1px solid var(--border-color)"

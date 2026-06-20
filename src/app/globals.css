@@ -1317,12 +1317,15 @@ body.accessibility-high-contrast img {
 
 @media (max-width: 768px) {
   h2 {
-    font-size: 1.45rem !important;
+    font-size: 1.28rem !important;
     margin-bottom: var(--spacing-sm) !important;
-    padding-bottom: 8px !important;
+    padding-bottom: 6px !important;
+  }
+  .section {
+    padding: 32px 0 !important; /* Unified responsive spacing between sections on mobile */
   }
   .hero-section {
-    padding: 16px 0 !important; /* Shrunk padding for ATF on mobile */
+    padding: 30px 0 !important; /* Balanced padding for hero layout on mobile */
     border-bottom-width: 4px !important;
   }
   .hero-section h1 {

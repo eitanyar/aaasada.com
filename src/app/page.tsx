@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import MenuBuilder from "../components/MenuBuilder";
 import ImageGallery from "../components/ImageGallery";
 import ProfessionalSupervision from "../components/ProfessionalSupervision";
+import LocalDeliveryCard from "../components/LocalDeliveryCard";
 import { CITY_DATA, CATERING_REGIONS } from "../data/catering-content";
 import { PhoneIcon, WhatsAppIcon, StarIcon, CheckIcon, KosherStampIcon, LocationPinIcon } from "../components/icons";
 
@@ -150,86 +151,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust & Badatz Details Section */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">
-          <div className="grid grid-2" style={{ alignItems: "center" }}>
-            <div>
-              <span style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.1rem", textTransform: "uppercase" }}>כשרות בד"ץ יורה דעה</span>
-              <h2 style={{ display: "block", marginTop: "5px" }}>אירוח בראש שקט עם הכשרות המהודרת ביותר</h2>
-              <p>
-                אנו יודעים כמה חשובה רמת הכשרות לאורחים שלכם. כל המנות בקייטרינג "טעם מהודר" מוכנות תחת השגחתה הקפדנית של בד"ץ יורה דעה, בנשיאות מרן הגאון <strong>הרב שלמה מחפוד שליט"א</strong>.
-              </p>
-              <p>
-                הבשרים והעופות כולם משחיטה מהודרת, ירקות עלים ללא תולעים, והפרשת תרומות ומעשרות כדין. רמת כשרות זו מאפשרת לכם לארח בביטחון מלא בני משפחה וחברים מכל הקהילות והזרמים.
-              </p>
-              <div style={{ display: "flex", gap: "10px", marginTop: "15px", flexWrap: "wrap" }}>
-                <span className="badge-kosher" style={{ gap: "6px" }}><CheckIcon size={14} /> בשר גלאט כשר למהדרין</span>
-                <span className="badge-kosher" style={{ gap: "6px" }}><CheckIcon size={14} /> השגחה צמודה</span>
-                <span className="badge-kosher" style={{ gap: "6px" }}><CheckIcon size={14} /> שחיטה מהודרת מחפוד</span>
-              </div>
-            </div>
-            <div style={{
-              background: "var(--bg-warm-sand)",
+          <Suspense fallback={
+            <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
               border: "1.5px solid var(--border-color)",
-              borderRadius: "var(--border-radius-lg)",
-              padding: "var(--spacing-lg)",
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center"
+              boxShadow: "var(--shadow-subtle)"
             }}>
-              <KosherStampIcon style={{ margin: "0 auto var(--spacing-sm) auto" }} />
-              <h3 style={{ fontFamily: "sans-serif", fontWeight: "700", color: "var(--secondary-green)", marginTop: "10px" }}>תעודת כשרות בתוקף</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-dark)" }}>
-                כל המזון המוכן בקייטרינג מלווה בפיקוח צמוד ותעודת כשרות רשמית של בד"ץ הרב מחפוד. ניתן לקבל עותק מצולם של התעודה העדכנית בוואטסאפ בעת התיאום.
-              </p>
-              <a href="https://wa.me/972526090930?text=שלום, אשמח לקבל צילום של תעודת הכשרות העדכנית שלכם של הרב מחפוד" target="_blank" className="btn btn-secondary" style={{ marginTop: "10px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
-                <WhatsAppIcon size={18} />
-                <span>בקשת תעודה בוואטסאפ</span>
-              </a>
+              <h3>משלוח אוכל מוכן</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
-          </div>
-          <ProfessionalSupervision />
+          }>
+            <LocalDeliveryCard />
+          </Suspense>
         </div>
       </section>
 
-      {/* Value Propositions */}
-      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)" }}>
+      {/* Menu Builder Section */}
+      <section className="section" id="menu-section" style={{
+        background: "var(--bg-warm-sand)",
+        borderTop: "1px solid var(--border-color)",
+        borderBottom: "1px solid var(--border-color)"
+      }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <h2>למה כולם בוחרים בקייטרינג להגשה עצמית בסגנון "עשה זאת בעצמך"?</h2>
-            <p style={{ maxWidth: "600px", margin: "0 auto" }}>חוסכים בעלויות ההפקה והמלצרים ומשקיעים במה שבאמת חשוב לאורחים - בשר איכותי בשפע נדיב.</p>
+            <span className="badge-kosher" style={{ marginBottom: "10px" }}>התפריט הנדיב ב-₪58 למנה</span>
+            <h2>הרכיבו תפריט לאירוע שלכם</h2>
+            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
+              בחרו את המנות העיקריות, התוספות החמות והסלטים האהובים עליכם, הזינו את מספר האורחים ושלחו אלינו ישירות בטופס/ וואטסאפ לקבלת הצעת מחיר מהירה.
+            </p>
           </div>
-
-          <div className="grid grid-3">
-            <div className="card" style={{ textAlign: "center", padding: "var(--spacing-lg)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div style={{ color: "var(--primary-gold)", marginBottom: "15px" }}><StarIcon size={40} /></div>
-              <h3 style={{ marginTop: "10px", fontWeight: "600" }}>שפע ונדיבות של בית</h3>
-              <p style={{ fontSize: "0.95rem" }}>
-                המנות שלנו גדולות, מכובדות ונדיבות במיוחד. המטרה שלנו היא שהאורחים שלכם ייהנו מאוכל מעולה וישבעו מכל הלב, בדיוק כמו בבית.
-              </p>
-            </div>
-            <div className="card" style={{ textAlign: "center", padding: "var(--spacing-lg)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div style={{ color: "var(--primary-gold)", marginBottom: "15px", fontSize: "2.5rem", fontWeight: "bold", lineHeight: "1" }}>₪</div>
-              <h3 style={{ marginTop: "10px", fontWeight: "600" }}>חיסכון כספי עצום</h3>
-              <p style={{ fontSize: "0.95rem" }}>
-                על ידי הימנעות מצוות מלצרים, סבלים ומשגיחים באתר, אנו חוסכים לכם עד 60% מעלות הקייטרינג הרגילה ומביאים לכם תפריט בשרי מלא ב-58 ש"ח בלבד.
-              </p>
-            </div>
-            <div className="card" style={{ textAlign: "center", padding: "var(--spacing-lg)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div style={{ color: "var(--primary-gold)", marginBottom: "15px" }}><LocationPinIcon size={40} /></div>
-              <h3 style={{ marginTop: "10px", fontWeight: "600" }}>משלוח חם לאתר האירוע</h3>
-              <p style={{ fontSize: "0.95rem" }}>
-                האוכל מבושל סמוך לאירוע ונארז במארזי תרמוקן שומרי חום. הוא מגיע אליכם חם, טרי ומוכן ישירות לשולחן או לפלטת השבת שלכם.
-              </p>
-            </div>
-          </div>
+          
+          <MenuBuilder />
         </div>
       </section>
 
-      {/* Core Use Cases (Pillars) */}
-      <section className="section" id="diy-catering" style={{ backgroundColor: "#ffffff" }}>
+      {/* Image Gallery Section */}
+      <section className="section" style={{ backgroundColor: "#ffffff", borderTop: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "var(--spacing-md)" }}>
+            <h2>מהמטבח שלנו לאירוע שלכם - גלריית מנות</h2>
+            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
+              צפו במבחר הבשרים הנימוחים, העופות בתנור, הסלטים הטריים המבושלים יום-יום ומגשי האירוח החמים שלנו.
+            </p>
+          </div>
+          <ImageGallery />
+        </div>
+      </section>
+
+      {/* Core Use Cases (Pillars) Section */}
+      <section className="section" id="diy-catering" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
             <h2>פתרונות קייטרינג מותאמים לאירוע שלכם</h2>
@@ -272,16 +247,87 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Image Gallery Section */}
+      {/* Trust & Badatz Details Section (Long SEO text block) */}
+      <section className="section" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container">
+          <div className="grid grid-2" style={{ alignItems: "center" }}>
+            <div>
+              <span style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.1rem", textTransform: "uppercase" }}>כשרות בד"ץ יורה דעה</span>
+              <h2 style={{ display: "block", marginTop: "5px" }}>אירוח בראש שקט עם הכשרות המהודרת ביותר</h2>
+              <p>
+                אנו יודעים כמה חשובה רמת הכשרות לאורחים שלכם. כל המנות בקייטרינג "טעם מהודר" מוכנות תחת השגחתה הקפדנית של בד"ץ יורה דעה, בנשיאות מרן הגאון <strong>הרב שלמה מחפוד שליט"א</strong>.
+              </p>
+              <p>
+                הבשרים והעופות כולם משחיטה מהודרת, ירקות עלים ללא תולעים, והפרשת תרומות ומעשרות כדין. רמת כשרות זו מאפשרת לכם לארח בביטחון מלא בני משפחה וחברים מכל הקהילות והזרמים.
+              </p>
+              <div style={{ display: "flex", gap: "10px", marginTop: "15px", flexWrap: "wrap" }}>
+                <span className="badge-kosher" style={{ gap: "6px" }}><CheckIcon size={14} /> בשר גלאט כשר למהדרין</span>
+                <span className="badge-kosher" style={{ gap: "6px" }}><CheckIcon size={14} /> השגחה צמודה</span>
+                <span className="badge-kosher" style={{ gap: "6px" }}><CheckIcon size={14} /> שחיטה מהודרת מחפוד</span>
+              </div>
+            </div>
+            <div style={{
+              background: "var(--bg-warm-sand)",
+              border: "1.5px solid var(--border-color)",
+              borderRadius: "var(--border-radius-lg)",
+              padding: "var(--spacing-lg)",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center"
+            }}>
+              <KosherStampIcon style={{ margin: "0 auto var(--spacing-sm) auto" }} />
+              <h3 style={{ fontFamily: "sans-serif", fontWeight: "700", color: "var(--secondary-green)", marginTop: "10px" }}>תעודת כשרות בתוקף</h3>
+              <p style={{ fontSize: "0.95rem", color: "var(--text-dark)" }}>
+                כל המזון המוכן בקייטרינג מלווה בפיקוח צמוד ותעודת כשרות רשמית של בד"ץ הרב מחפוד. ניתן לקבל עותק מצולם של התעודה העדכנית בוואטסאפ בעת התיאום.
+              </p>
+              <a href="https://wa.me/972526090930?text=שלום, אשמח לקבל צילום של תעודת הכשרות העדכנית שלכם של הרב מחפוד" target="_blank" className="btn btn-secondary" style={{ marginTop: "10px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                <WhatsAppIcon size={18} />
+                <span>בקשת תעודה בוואטסאפ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DIY Advantages Section (Value Propositions) */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
+            <h2>למה כולם בוחרים בקייטרינג להגשה עצמית בסגנון "עשה זאת בעצמך"?</h2>
+            <p style={{ maxWidth: "600px", margin: "0 auto" }}>חוסכים בעלויות ההפקה והמלצרים ומשקיעים במה שבאמת חשוב לאורחים - בשר איכותי בשפע נדיב.</p>
+          </div>
+
+          <div className="grid grid-3">
+            <div className="card" style={{ textAlign: "center", padding: "var(--spacing-lg)", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ color: "var(--primary-gold)", marginBottom: "15px" }}><StarIcon size={40} /></div>
+              <h3 style={{ marginTop: "10px", fontWeight: "600" }}>שפע ונדיבות של בית</h3>
+              <p style={{ fontSize: "0.95rem" }}>
+                המנות שלנו גדולות, מכובדות ונדיבות במיוחד. המטרה שלנו היא שהאורחים שלכם ייהנו מאוכל מעולה וישבעו מכל הלב, בדיוק כמו בבית.
+              </p>
+            </div>
+            <div className="card" style={{ textAlign: "center", padding: "var(--spacing-lg)", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ color: "var(--primary-gold)", marginBottom: "15px", fontSize: "2.5rem", fontWeight: "bold", lineHeight: "1" }}>₪</div>
+              <h3 style={{ marginTop: "10px", fontWeight: "600" }}>חיסכון כספי עצום</h3>
+              <p style={{ fontSize: "0.95rem" }}>
+                על ידי הימנעות מצוות מלצרים, סבלים ומשגיחים באתר, אנו חוסכים לכם עד 60% מעלות הקייטרינג הרגילה ומביאים לכם תפריט בשרי מלא ב-58 ש"ח בלבד.
+              </p>
+            </div>
+            <div className="card" style={{ textAlign: "center", padding: "var(--spacing-lg)", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ color: "var(--primary-gold)", marginBottom: "15px" }}><LocationPinIcon size={40} /></div>
+              <h3 style={{ marginTop: "10px", fontWeight: "600" }}>משלוח חם לאתר האירוע</h3>
+              <p style={{ fontSize: "0.95rem" }}>
+                האוכל מבושל סמוך לאירוע ונארז במארזי תרמוקן שומרי חום. הוא מגיע אליכם חם, טרי ומוכן ישירות לשולחן או לפלטת השבת שלכם.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Professional Supervision (Eli Goldman block) */}
       <section className="section" style={{ backgroundColor: "#ffffff", borderTop: "1px solid var(--border-color)" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "var(--spacing-md)" }}>
-            <h2>מהמטבח שלנו לאירוע שלכם - גלריית מנות</h2>
-            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
-              צפו במבחר הבשרים הנימוחים, העופות בתנור, הסלטים הטריים המבושלים יום-יום ומגשי האירוח החמים שלנו.
-            </p>
-          </div>
-          <ImageGallery />
+          <ProfessionalSupervision />
         </div>
       </section>
 
@@ -344,25 +390,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Menu Builder Section */}
-      <section className="section" id="menu-section" style={{
-        background: "#ffffff",
-        borderTop: "1px solid var(--border-color)",
-        borderBottom: "1px solid var(--border-color)"
-      }}>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <span className="badge-kosher" style={{ marginBottom: "10px" }}>התפריט הנדיב ב-₪58 למנה</span>
-            <h2>הרכיבו תפריט לאירוע שלכם</h2>
-            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
-              בחרו את המנות העיקריות, התוספות החמות והסלטים האהובים עליכם, הזינו את מספר האורחים ושלחו אלינו ישירות בטופס/ וואטסאפ לקבלת הצעת מחיר מהירה.
-            </p>
-          </div>
-          
-          <MenuBuilder />
         </div>
       </section>
 

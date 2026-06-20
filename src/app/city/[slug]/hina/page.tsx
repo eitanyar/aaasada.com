@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
 import { PhoneIcon } from "../../../../components/icons";
+import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
 export async function generateStaticParams() {
@@ -56,10 +57,6 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
         "addressCountry": "IL"
       }
     },
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": city.name
-    },
     "hasMenu": {
       "@type": "FoodMenu",
       "name": "תפריט חינה בשרי כשר למהדרין ב-58 ש\"ח",
@@ -105,7 +102,7 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
             border: "1px solid var(--primary-gold)",
             marginBottom: "15px"
           }}>
-            קייטרינג לחינה מסורתית • כשר למהדרין בד"ץ הרב מחפוד • אזור {regionTitle}
+            קייטרינג לחינה מסורתית • כשר למהדרין בד"ץ הרב מחפוד
           </div>
           <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "var(--font-frank-ruhl)" }}>
             קייטרינג לחינה ב{city.name}
@@ -132,13 +129,85 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* Localized Hina Info */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
+        <div className="container">
+          <Suspense fallback={
+            <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
+              border: "1.5px solid var(--border-color)",
+              boxShadow: "var(--shadow-subtle)"
+            }}>
+              <h3>משלוח אוכל מוכן ל{city.name}</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
+            </div>
+          }>
+            <LocalDeliveryCard cityName={city.name} />
+          </Suspense>
+        </div>
+      </section>
+
+      {/* Moroccan style and sweet trays details */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
+            <h2>אירוח חינה מושלם ב{city.name} עם "טעם מהודר"</h2>
+            <p>שילוב מנצח של בשרים עסיסיים, סלטים מבושלים וקינוחים מתוקים</p>
+          </div>
+
+          <div className="grid grid-3" style={{ gap: "var(--spacing-md)" }}>
+            <div className="card" style={{ backgroundColor: "#ffffff" }}>
+              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>סלטים מבושלים אותנטיים</h3>
+              <p style={{ fontSize: "0.9rem", margin: 0 }}>
+                תפריט 58 ש"ח מאפשר לכם לבחור **7 סלטים**. לחינה מסורתית אנו ממליצים במיוחד על הסלטים המבושלים שלנו: מטבוחה מרוקאית אסלית בבישול ארוך, גזר מרוקאי פיקנטי, סלק אדום בתיבול כמון, וזעלוק חצילים עשיר.
+              </p>
+            </div>
+
+            <div className="card" style={{ backgroundColor: "#ffffff" }}>
+              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>בשרים עסיסיים ותבשילי קדרה</h3>
+              <p style={{ fontSize: "0.9rem", margin: 0 }}>
+                בחרו **3 מנות עיקריות** חמות. לצד פרגיות על האש ושניצלים פריכים לילדים, תוכלו לבחור במנות קדרה חגיגיות כמו צלי בקר ברוטב פטריות עשיר או קציצות בשר נימוחות, המשתלבות נפלא עם אורז לנטריה או קוסקוס מרוקאי אוורירי.
+              </p>
+            </div>
+
+            <div className="card" style={{ backgroundColor: "#ffffff" }}>
+              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>מגשי קינוחי פרווה מהודרים</h3>
+              <p style={{ fontSize: "0.9rem", margin: 0 }}>
+                חינה אינה שלמה ללא שולחן מתוקים מרהיב. אצלנו תוכלו לשדרג ולהוסיף להזמנה **מגש קינוחים עשיר (60 יחידות)** המכיל לקט עשיר של קינוחי פרווה איכותיים, מעוצבים ואישיים שמשלימים את טקס החינה בתיאום מושלם.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Menu Builder Section */}
+      <section className="section" id="menu-section" style={{
+        backgroundColor: "#ffffff",
+        borderTop: "1px solid var(--border-color)",
+        borderBottom: "1px solid var(--border-color)"
+      }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
+            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריט חינה ₪58 למנה</span>
+            <h2>הרכיבו את התפריט שלכם לחינה ב{city.name}</h2>
+            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
+              בחרו 3 מנות עיקריות, 3 תוספות ו-7 סלטים טריים. נציגנו יחזור אליכם בוואטסאפ או בטלפון עם אישור הזמנה מהיר.
+            </p>
+          </div>
+
+          <MenuBuilder />
+        </div>
+      </section>
+
+      {/* Localized Hina Info (Long SEO Copy) */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
         <div className="container">
           <div className="grid grid-2" style={{ gap: "var(--spacing-lg)" }}>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <h2>חוגגים חינה מרוקאית אותנטית ושופעת ב{city.name}</h2>
-              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
+              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)", marginTop: "15px" }}>
                 חגיגת החינה היא אחד האירועים המשפחתיים השמחים, הצבעוניים והמרגשים ביותר במסורת היהודית. כדי להבטיח שהאורחים שלכם ב{city.name} ייהנו מחוויה קולינרית עשירה שתשלים את התלבושות, השירים והשמחה, אתם זקוקים לתפריט בשרי עשיר ושופע מכל הלב.
               </p>
               <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
@@ -150,7 +219,7 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
                 padding: "12px 18px",
                 borderRadius: "4px",
                 fontWeight: "600",
-                marginTop: "10px",
+                marginTop: "15px",
                 color: "var(--primary-gold-hover)"
               }}>
                 👑 כשרות מהודרת של בד"ץ הרב שלמה מחפוד שליט"א - מעניקה שקט נפשי מלא לאירוח של כל האורחים ובני המשפחה המגיעים לשמוח איתכם ב{city.name}.
@@ -159,7 +228,7 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
 
             <div className="card" style={{
               border: "1.5px solid var(--border-color)",
-              backgroundColor: "var(--bg-warm-sand)",
+              backgroundColor: "#ffffff",
               display: "flex",
               flexDirection: "column",
               gap: "15px",
@@ -197,58 +266,6 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Moroccan style and sweet trays details */}
-      <section className="section" style={{ backgroundColor: "#f9fafb", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <h2>אירוח חינה מושלם ב{city.name} עם "טעם מהודר"</h2>
-            <p>שילוב מנצח של בשרים עסיסיים, סלטים מבושלים וקינוחים מתוקים</p>
-          </div>
-
-          <div className="grid grid-3" style={{ gap: "var(--spacing-md)" }}>
-            <div className="card" style={{ backgroundColor: "#ffffff" }}>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>סלטים מבושלים אותנטיים</h3>
-              <p style={{ fontSize: "0.9rem", margin: 0 }}>
-                תפריט 58 ש"ח מאפשר לכם לבחור **7 סלטים**. לחינה מסורתית אנו ממליצים במיוחד על הסלטים המבושלים שלנו: מטבוחה מרוקאית אסלית בבישול ארוך, גזר מרוקאי פיקנטי, סלק אדום בתיבול כמון, וזעלוק חצילים עשיר.
-              </p>
-            </div>
-
-            <div className="card" style={{ backgroundColor: "#ffffff" }}>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>בשרים עסיסיים ותבשילי קדרה</h3>
-              <p style={{ fontSize: "0.9rem", margin: 0 }}>
-                בחרו **3 מנות עיקריות** חמות. לצד פרגיות על האש ושניצלים פריכים לילדים, תוכלו לבחור במנות קדרה חגיגיות כמו צלי בקר ברוטב פטריות עשיר או קציצות בשר נימוחות, המשתלבות נפלא עם אורז לנטריה או קוסקוס מרוקאי אוורירי.
-              </p>
-            </div>
-
-            <div className="card" style={{ backgroundColor: "#ffffff" }}>
-              <h3 style={{ color: "var(--secondary-green)", marginBottom: "8px" }}>מגשי קינוחי פרווה מהודרים</h3>
-              <p style={{ fontSize: "0.9rem", margin: 0 }}>
-                חינה אינה שלמה ללא שולחן מתוקים מרהיב. אצלנו תוכלו לשדרג ולהוסיף להזמנה **מגש קינוחים עשיר (60 יחידות)** המכיל לקט עשיר של קינוחי פרווה איכותיים, מעוצבים ואישיים שמשלימים את טקס החינה בתיאום מושלם.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Menu Builder Section */}
-      <section className="section" id="menu-section" style={{
-        background: "var(--bg-warm-sand)",
-        borderTop: "1px solid var(--border-color)",
-        borderBottom: "1px solid var(--border-color)"
-      }}>
-        <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריט חינה ₪58 למנה</span>
-            <h2>הרכיבו את התפריט שלכם לחינה ב{city.name}</h2>
-            <p style={{ maxWidth: "600px", margin: "0 auto" }}>
-              בחרו 3 מנות עיקריות, 3 תוספות ו-7 סלטים טריים. נציגנו יחזור אליכם בוואטסאפ או בטלפון עם אישור הזמנה מהיר.
-            </p>
-          </div>
-
-          <MenuBuilder />
         </div>
       </section>
 

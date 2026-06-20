@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
+import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
 import { PhoneIcon } from "../../../../components/icons";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `קייטרינג לאזכרה ב${city.name} - אוכל מוכן לאזכרות ושבעה | טעם מהודר`,
-    description: `שירותי קייטרינג לאזכרה ב${city.name} ולסעודת מצווה/אבלים. אוכל בשרי חם וכשר למהדרין (בד"ץ מחפוד) במשלוח מהיר עד אליכם. ללא דאגות בימים קשים.`,
+    description: `שירותי קייטרינג לאזכרה ב${city.name} ולסעודת מצווה/אבלים. אוכל בשרי חם וכשר למהדרין (בד"ץ מחפוד) במשלוח מהר עד אליכם. ללא דאגות בימים קשים.`,
     alternates: {
       canonical: `https://aaasada.com/city/${city.slug}/azkarot`,
     },
@@ -104,7 +105,7 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
             border: "1px solid var(--primary-gold)",
             marginBottom: "15px"
           }}>
-            קייטרינג לאזכרות, אבלים ושבעה • כשר למהדרין בד"ץ הרב מחפוד • אזור {regionTitle}
+            קייטרינג לאזכרות, אבלים ושבעה • כשר למהדרין בד"ץ הרב מחפוד
           </div>
           <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 4.5vw, 2.8rem)", fontFamily: "var(--font-frank-ruhl)" }}>
             קייטרינג לאזכרה וסעודת מצווה ב{city.name}
@@ -131,71 +132,23 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
         </div>
       </section>
 
-      {/* Localized Azkarot Info */}
+      {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">
-          <div className="grid grid-2" style={{ gap: "var(--spacing-lg)" }}>
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <h2>סעודה מכובדת ומנחמת ללא דאגות לוגיסטיות ב{city.name}</h2>
-              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
-                ארגון סעודת אבלים או אזכרה ב{city.name} דורש היערכות מהירה ואוכל כשר למהדרין שיכבד את המעמד ואת האורחים המגיעים לחלוק כבוד. בימים אלו, העומס הרגשי והלוגיסטי הוא רב, ואתם זקוקים למענה אמין, מהיר וישר.
-              </p>
-              <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
-                קייטרינג 'טעם מהודר' מספק לכם מגשים חמים של אוכל בשרי ביתי חם (בשר בקר ברוטב, פרגיות, עופות בתנור, אורז, תפוחי אדמה וסלטים טריים). האוכל מגיע ארוז היטב במגשי אלומיניום השומרים על החום, ומוכן להנחה מיידית על שולחנות האירוח בבית הכנסת או בבית האבל ב{city.name}.
-              </p>
-              <div style={{
-                backgroundColor: "#f1f5f9",
-                borderRight: "4px solid #64748b",
-                padding: "12px 18px",
-                borderRadius: "4px",
-                fontWeight: "600",
-                marginTop: "10px",
-                color: "#334155"
-              }}>
-                📌 השגחת בד"ץ יורה דעה של הרב שלמה מחפוד שליט"א - מעניקה שקט נפשי מלא לאירוח של כל קרובי המשפחה והמבקרים המקפידים על רמת כשרות מהודרת.
-              </div>
-            </div>
-
+          <Suspense fallback={
             <div className="card" style={{
+              background: "#ffffff",
+              padding: "var(--spacing-md)",
+              borderRadius: "var(--border-radius-md)",
               border: "1.5px solid var(--border-color)",
-              backgroundColor: "var(--bg-warm-sand)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "15px",
-              justifyContent: "center"
+              boxShadow: "var(--shadow-subtle)"
             }}>
-              <h3 style={{ fontFamily: "sans-serif", fontWeight: "700", color: "var(--secondary-green)", margin: 0 }}>
-                פרטי אספקה לאזכרות ב{city.name}
-              </h3>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>📦 סוג המנות:</span>
-                  <strong>תבשילים בשריים חמים וסלטים טריים</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>🚚 עלות משלוח ל{city.name}:</span>
-                  <strong>ימסר על ידי הנציג בהתאם למיקום וזמן המסירה</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>👥 מינימום הזמנה:</span>
-                  <strong>30 מנות (אורחים)</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>🔥 אספקה:</span>
-                  <strong>משלוח מגיע חם ומוכן במארזים מבודדי חום</strong>
-                </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
-                  <span>⚡ הזמנות דחופות:</span>
-                  <strong>מענה מהיר בשיחת טלפון לבית האבל</strong>
-                </li>
-              </ul>
-              <div style={{ marginTop: "10px" }}>
-                <a href="tel:052-609-0930" className="btn btn-secondary" style={{ width: "100%" }}>
-                  📞 שיחה מהירה להזמנה: 052-609-0930
-                </a>
-              </div>
+              <h3>משלוח אוכל מוכן ל{city.name}</h3>
+              <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
-          </div>
+          }>
+            <LocalDeliveryCard cityName={city.name} />
+          </Suspense>
         </div>
       </section>
 
@@ -254,11 +207,37 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div style={{ textAlign: "center", marginTop: "var(--spacing-lg)" }}>
-            <a href={`/city/${city.slug}`} style={{ fontWeight: "bold", textDecoration: "underline", color: "var(--secondary-green)" }}>
-              ← חזרה לעמוד הקייטרינג הכללי של {city.name}
-            </a>
+      {/* Localized Azkarot Info (Long SEO Copy) */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)", borderBottom: "1px solid var(--border-color)" }}>
+        <div className="container">
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+            <h2>סעודה מכובדת ומנחמת ללא דאגות לוגיסטיות ב{city.name}</h2>
+            <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)", marginTop: "15px" }}>
+              ארגון סעודת אבלים או אזכרה ב{city.name} דורש היערכות מהירה ואוכל כשר למהדרין שיכבד את המעמד ואת האורחים המגיעים לחלוק כבוד. בימים אלו, העומס הרגשי והלוגיסטי הוא רב, ואתם זקוקים למענה אמין, מהיר וישר.
+            </p>
+            <p style={{ fontSize: "1.1rem", lineHeight: "1.7", color: "var(--text-dark)" }}>
+              קייטרינג 'טעם מהודר' מספק לכם מגשים חמים של אוכל בשרי ביתי חם (בשר בקר ברוטב, פרגיות, עופות בתנור, אורז, תפוחי אדמה וסלטים טריים). האוכל מגיע ארוז היטב במגשי אלומיניום השומרים על החום, ומוכן להנחה מיידית על שולחנות האירוח בבית הכנסת או בבית האבל ב{city.name}.
+            </p>
+            <div style={{
+              backgroundColor: "#f1f5f9",
+              borderRight: "4px solid #64748b",
+              padding: "12px 18px",
+              borderRadius: "4px",
+              fontWeight: "600",
+              marginTop: "15px",
+              color: "#334155"
+            }}>
+              📌 השגחת בד"ץ יורה דעה של הרב שלמה מחפוד שליט"א - מעניקה שקט נפשי מלא לאירוח של כל קרובי המשפחה והמבקרים המקפידים על רמת כשרות מהודרת.
+            </div>
+
+            <div style={{ textAlign: "center", marginTop: "30px" }}>
+              <a href={`/city/${city.slug}`} style={{ fontWeight: "bold", textDecoration: "underline", color: "var(--secondary-green)" }}>
+                ← חזרה לעמוד הקייטרינג הכללי של {city.name}
+              </a>
+            </div>
           </div>
         </div>
       </section>
