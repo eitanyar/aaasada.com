@@ -500,13 +500,40 @@ ${selectionsText}
               </div>
             )}
 
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "1.3rem", padding: "10px 0", color: "var(--primary-gold)" }}>
-              <span>סה"כ משוער להזמנה * :</span>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "1.3rem", padding: "10px 0", color: "var(--primary-gold)" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <span>סה"כ משוער להזמנה:</span>
+                <span style={{
+                  fontSize: "0.72rem",
+                  fontWeight: "600",
+                  color: "#f59e0b",
+                  backgroundColor: "rgba(245,158,11,0.12)",
+                  border: "1px solid rgba(245,158,11,0.35)",
+                  borderRadius: "4px",
+                  padding: "2px 7px",
+                  letterSpacing: "0.02em",
+                  display: "inline-block",
+                  width: "fit-content"
+                }}>🚚 ללא עלות משלוח</span>
+              </div>
               <strong>₪{totalPrice.toLocaleString()}</strong>
             </div>
-            <p style={{ fontSize: "0.85rem", color: "#ccc", margin: 0 }}>
-              * המחיר המופיע אינו כולל דמי משלוח. דמי המשלוח יחושבו בנפרד בהתאם לזמן ההגעה הנדרש והמקום בעיר.
-            </p>
+            <div style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "8px",
+              backgroundColor: "rgba(245,158,11,0.07)",
+              border: "1px solid rgba(245,158,11,0.25)",
+              borderRight: "3px solid #f59e0b",
+              borderRadius: "4px",
+              padding: "9px 12px",
+              margin: "0"
+            }}>
+              <span style={{ fontSize: "1rem", marginTop: "1px" }}>ℹ️</span>
+              <p style={{ fontSize: "0.82rem", color: "#d4b97a", margin: 0, lineHeight: "1.55" }}>
+                <strong>עלות משלוח תיקבע בשיחת ההזמנה</strong> בהתאם לאזור ושעת ההגעה הנדרשת.
+              </p>
+            </div>
           </div>
 
           {!hasSelectedMains && (
@@ -660,7 +687,7 @@ ${selectionsText}
                   borderRight: "3px solid var(--primary-gold)",
                   textAlign: "right"
                 }}>
-                  💡 <strong>איך זה עובד?</strong> לאחר בחירת המנות, מלאו את פרטיכם בטופס ובקשותיכם יישלחו אלינו מיידית. נציג טלפוני יחזור אליכם בהקדם לתיאום וסגירה.
+                  💡 <strong>איך זה עובד?</strong> לאחר בחירת המנות, מלאו את פרטיכם בטופס ובקשותיכם יישלחו אלינו מיידית. נציג טלפוני יחזור אליכם בהקדם לתיאום וסגירת ההזמנה, לרבות פרטי המשלוח.
                 </p>
                 {/* Honeypot field - invisible to users, autocomplete off, tabIndex -1 */}
                 <div style={{ display: "none" }} aria-hidden="true">

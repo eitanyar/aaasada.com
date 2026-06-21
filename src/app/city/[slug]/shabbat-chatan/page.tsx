@@ -302,6 +302,21 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
         </div>
       </section>
 
+      {/* Waiter Service Callout — Shabbat Chatan only */}
+      <section className="section" style={{ backgroundColor: "var(--bg-warm-sand)", borderTop: "1px solid var(--border-color)" }}>
+        <div className="container" style={{ maxWidth: "700px", margin: "0 auto" }}>
+          <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "#ffffff", borderRadius: "var(--border-radius-md)", border: "2px solid var(--primary-gold)" }}>
+            <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>🤵 קייטרינג שבת חתן ב{city.name} עם שירות מלצרים</h3>
+            <p style={{ fontSize: "0.95rem", lineHeight: "1.6" }}>
+              שירות מלצרים לשבת חתן הוא אפשרי לחלוטין — וכמובן בתנאי כשרות מחמירים. מכיוון שהמלצרים שוהים את כל השבת במקום האירוח, <strong>בעל השמחה אחראי לתיאום סידורי הלינה</strong> עבורם. כתוצאה מכך, צוות המלצרים נוכח ומגיש <strong>בכל 3 סעודות השבת</strong> — מה שמעלה את עלות השירות בהתאם.
+            </p>
+            <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginTop: "10px", marginBottom: 0, borderTop: "1px solid var(--border-color)", paddingTop: "10px" }}>
+              📞 <strong>לפרטים נוספים ותיאום</strong> — צרו קשר ישירות עמנו: <a href="tel:052-609-0930" style={{ color: "var(--secondary-green)", fontWeight: "bold" }}>052-609-0930</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Shabbat Chatan Tips & Context */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">

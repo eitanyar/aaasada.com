@@ -350,10 +350,13 @@ export default function ShabbatChatanGeneralPage() {
               </p>
             </div>
 
-            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "var(--bg-warm-sand)", borderRadius: "var(--border-radius-md)", border: "1px solid var(--border-color)" }}>
-              <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>🤵 קייטרינג עם מלצרים והפקה (מ-100 איש)</h3>
-              <p style={{ fontSize: "0.95rem", lineHeight: "1.5" }}>
-                מחפשים חוויה יוקרתית אך חמימה? שירות הקייטרינג שלנו עם מלצרים והפקה מלאה מאפשר לכם ולבני המשפחה להתפנות לחלוטין לאירוח ולשמחה ללא כל טרחה. הצוות המנוסה שלנו פועל ברגישות, לבוש ייצוגי ומעניק שירות מקצועי לכל סעודות השבת (הפקות אירועים שלמות החל מ-100 איש ומעלה).
+            <div className="card" style={{ padding: "var(--spacing-md)", backgroundColor: "var(--bg-warm-sand)", borderRadius: "var(--border-radius-md)", border: "2px solid var(--primary-gold)" }}>
+              <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem" }}>🤵 קייטרינג שבת חתן עם שירות מלצרים</h3>
+              <p style={{ fontSize: "0.95rem", lineHeight: "1.6" }}>
+                שירות מלצרים לשבת חתן הוא אפשרי לחלוטין — וכמובן בתנאי כשרות מחמירים. מכיוון שהמלצרים שוהים את כל השבת במקום האירוח, <strong>בעל השמחה אחראי לתיאום סידורי הלינה</strong> עבורם. כתוצאה מכך, צוות המלצרים נוכח ומגיש <strong>בכל 3 סעודות השבת</strong> — מה שמעלה את עלות השירות בהתאם.
+              </p>
+              <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginTop: "10px", marginBottom: 0, borderTop: "1px solid var(--border-color)", paddingTop: "10px" }}>
+                📞 <strong>לפרטים נוספים ותיאום</strong> — צרו קשר ישירות עמנו: <a href="tel:052-609-0930" style={{ color: "var(--secondary-green)", fontWeight: "bold" }}>052-609-0930</a>
               </p>
             </div>
 

@@ -270,6 +270,20 @@ export default async function HinaCityPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* Waiter & Full Service Option — Hina */}
+      <section className="section" style={{ backgroundColor: "#ffffff", borderTop: "1px solid var(--border-color)" }}>
+        <div className="container" style={{ maxWidth: "700px", margin: "0 auto" }}>
+          <span className="badge-kosher" style={{ backgroundColor: "var(--secondary-green-light)", color: "var(--secondary-green)", marginBottom: "15px", display: "inline-block" }}>שירות מלצרים ל{city.name}</span>
+          <h3 style={{ color: "var(--secondary-green)", fontWeight: "bold", fontSize: "1.2rem", marginBottom: "12px" }}>🤵 קייטרינג לחינה ב{city.name} עם הגשת מלצרים</h3>
+          <p style={{ fontSize: "0.95rem", lineHeight: "1.6", color: "var(--text-dark)" }}>
+            מחפשים ראש שקט מוחלט לחינה? מעבר לאספקת מגשי אוכל מוכן להגשה עצמית, אנו מציעים שירות מלצרים מקצועי לחינות ב{city.name} — הצוות שלנו יגיע לאתר האירוע, יערוך שולחנות הגשה מהודרים, יגיש את המאכלים החמים ויטפל בפינוי מלא בסוף הערב.
+          </p>
+          <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginTop: "10px", borderTop: "1px solid var(--border-color)", paddingTop: "10px" }}>
+            📞 <strong>לפרטים ותיאום שירות מלצרים לחינה ב{city.name}</strong> — <a href="tel:052-609-0930" style={{ color: "var(--secondary-green)", fontWeight: "bold" }}>052-609-0930</a>
+          </p>
+        </div>
+      </section>
+
       {/* Bottom links */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container" style={{ textAlign: "center" }}>
