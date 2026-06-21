@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
 import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
+import VideoTestimonial from "../../../../components/VideoTestimonial";
 import { PhoneIcon } from "../../../../components/icons";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
@@ -117,16 +118,13 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט לאזכרה</span>
             </a>
-            <a href="tel:052-609-0930" className="btn btn-outline" style={{
+            <a href="#video-testimonials" className="btn btn-outline" style={{
               color: "#ffffff",
-              borderColor: "#ffffff",
-              backgroundColor: "rgba(255,255,255,0.05)",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px"
+              borderColor: "rgba(255,255,255,0.4)",
+              padding: "12px 30px",
+              fontSize: "1.1rem"
             }}>
-              <PhoneIcon size={18} />
-              <span>052-609-0930</span>
+              <span>▶ צפו בהמלצות וידאו</span>
             </a>
           </div>
         </div>
@@ -149,6 +147,9 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
           }>
             <LocalDeliveryCard cityName={city.name} />
           </Suspense>
+
+      {/* Video Testimonial Section */}
+      <VideoTestimonial videoId="gYsjvm6XgSQ" />
         </div>
       </section>
 
