@@ -101,7 +101,7 @@ export const CATERING_MENU: MenuCategory[] = [
   },
   {
     id: "intermediates",
-    name: "מנות ביניים (שדרוג בתוספת ₪15 למנה - אופציונלי)",
+    name: "מנות ביניים (בתוספת ₪15 – אופציונלי, ניתן לפצל בעת אישור ההזמנה)",
     limit: 99,
     options: [
       { id: "i1", name: "פילה מושט מרוקאי", description: "פילה דג מושט מבושל ברוטב פיקנטי עשיר עם גזר, שום וכוסברה", isPremium: true, premiumPrice: 15, pricePerGuest: true },
@@ -118,7 +118,7 @@ export const CATERING_MENU: MenuCategory[] = [
   },
   {
     id: "premiumIntermediates",
-    name: "מנות ביניים פרימיום (שדרוג בתוספת ₪25 למנה - אופציונלי)",
+    name: "מנות ביניים פרימיום (בתוספת ₪25 – אופציונלי, ניתן לפצל בעת אישור ההזמנה)",
     limit: 99,
     options: [
       { id: "pi1", name: "פילה סלמון נורבגי", description: "פילה סלמון אפוי בתנור בתיבול עשבי תיבול, שמן זית ולימון", isPremium: true, premiumPrice: 25, pricePerGuest: true },
