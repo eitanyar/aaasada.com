@@ -121,18 +121,32 @@ export default function MenuBuilder() {
   const basePrice = guests * basePricePerGuest;
   
   let extraPrice = 0;
+  let maxIntermediatePrice = 0;
+  let maxMainPrice = 0;
+
   Object.entries(selections).forEach(([catId, ids]) => {
     ids.forEach((id) => {
       const dish = findDish(id);
       if (dish && dish.premiumPrice) {
         if (dish.pricePerGuest) {
-          extraPrice += dish.premiumPrice * guests;
+          if (catId === "intermediates" || catId === "premiumIntermediates") {
+            if (dish.premiumPrice > maxIntermediatePrice) maxIntermediatePrice = dish.premiumPrice;
+          } else if (catId === "mains") {
+            if (dish.premiumPrice > maxMainPrice) maxMainPrice = dish.premiumPrice;
+          } else {
+            // Desserts / other stackable
+            extraPrice += dish.premiumPrice * guests;
+          }
         } else {
+          // Flat rate items
           extraPrice += dish.premiumPrice;
         }
       }
     });
   });
+
+  extraPrice += maxIntermediatePrice * guests;
+  extraPrice += maxMainPrice * guests;
 
   const totalPrice = basePrice + extraPrice;
   const hasSelectedMains = (selections.mains || []).length > 0;
@@ -160,7 +174,7 @@ export default function MenuBuilder() {
       }
     });
 
-    text += `💰 סה"כ משוער לתשלום: ₪${totalPrice.toLocaleString()} (לא כולל דמי משלוח).\n`;
+    text += `💰 סה"כ משוער להזמנה: ₪${totalPrice.toLocaleString()} (לא כולל דמי משלוח שיחושבו בנפרד).\n`;
     text += "נשמח אם תחזרו אליי בהקדם לצורך תיאום וסגירה!";
 
     return encodeURIComponent(text);
@@ -487,11 +501,11 @@ ${selectionsText}
             )}
 
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "1.3rem", padding: "10px 0", color: "var(--primary-gold)" }}>
-              <span>סה"כ לתשלום:</span>
+              <span>סה"כ משוער להזמנה * :</span>
               <strong>₪{totalPrice.toLocaleString()}</strong>
             </div>
             <p style={{ fontSize: "0.85rem", color: "#ccc", margin: 0 }}>
-              * המחיר המופיע הנו משוער ואינו כולל דמי משלוח. עלות המשלוח תיקבע על ידי הנציג בהתאם למיקום וזמן המסירה הנדרש.
+              * המחיר המופיע אינו כולל דמי משלוח. דמי המשלוח יחושבו בנפרד בהתאם לזמן ההגעה הנדרש והמקום בעיר.
             </p>
           </div>
 
