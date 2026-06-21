@@ -19,7 +19,7 @@ export default function VideoTestimonial({
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
-    <section className="section" style={{ padding: "var(--spacing-md) 0", marginTop: "15px" }}>
+    <section id="video-testimonials" className="section" style={{ padding: "var(--spacing-md) 0", marginTop: "15px" }}>
       <div className="container" style={{ maxWidth: "800px", textAlign: "center" }}>
         <h2 style={{ fontSize: "clamp(1.6rem, 4vw, 2.2rem)", marginBottom: "5px" }}>{title}</h2>
         <p style={{ fontSize: "1.1rem", color: "var(--text-muted)", marginBottom: "20px" }}>{subTitle}</p>
