@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import MenuBuilder from "../../components/MenuBuilder";
 import ProfessionalSupervision from "../../components/ProfessionalSupervision";
 import LocalDeliveryCard from "../../components/LocalDeliveryCard";
+import VideoTestimonial from "../../components/VideoTestimonial";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
 import { CheckIcon, PhoneIcon } from "../../components/icons";
 
@@ -181,6 +182,9 @@ export default function AzkarotGeneralPage() {
           </Suspense>
         </div>
       </section>
+
+      {/* Video Testimonial Section */}
+      <VideoTestimonial videoId="gYsjvm6XgSQ" />
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{

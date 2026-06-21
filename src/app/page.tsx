@@ -3,6 +3,7 @@ import MenuBuilder from "../components/MenuBuilder";
 import ImageGallery from "../components/ImageGallery";
 import ProfessionalSupervision from "../components/ProfessionalSupervision";
 import LocalDeliveryCard from "../components/LocalDeliveryCard";
+import VideoTestimonial from "../components/VideoTestimonial";
 import { CITY_DATA, CATERING_REGIONS } from "../data/catering-content";
 import { PhoneIcon, WhatsAppIcon, StarIcon, CheckIcon, KosherStampIcon, LocationPinIcon } from "../components/icons";
 
@@ -170,6 +171,9 @@ export default function Home() {
           </Suspense>
         </div>
       </section>
+
+      {/* Video Testimonial Section */}
+      <VideoTestimonial videoId="gYsjvm6XgSQ" />
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{

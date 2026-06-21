@@ -4,6 +4,7 @@ import { CITY_DATA, CATERING_REGIONS, CityConfig } from "../../../data/catering-
 import MenuBuilder from "../../../components/MenuBuilder";
 import CityHero from "../../../components/CityHero";
 import LocalDeliveryCard from "../../../components/LocalDeliveryCard";
+import VideoTestimonial from "../../../components/VideoTestimonial";
 import LocalIntro from "../../../components/LocalIntro";
 import ImageGallery from "../../../components/ImageGallery";
 
@@ -192,6 +193,9 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           </Suspense>
         </div>
       </section>
+
+      {/* Video Testimonial Section */}
+      <VideoTestimonial videoId="gYsjvm6XgSQ" />
 
       {/* Reusable Menu Builder section locally for this city */}
       <section className="section" id="menu-section" style={{
