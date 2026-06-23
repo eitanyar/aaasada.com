@@ -7,6 +7,8 @@ interface MenuBuilderProps {
   menuData?: MenuCategory[];
   initialBasePrice?: number;
   initialGuests?: number;
+  minGuests?: number;
+  eventTypesPlaceholder?: string;
 }
 
 const getCategoryImageUrl = (categoryId: string): string => {
@@ -28,7 +30,13 @@ const getCategoryImageUrl = (categoryId: string): string => {
   }
 };
 
-export default function MenuBuilder({ menuData = CATERING_MENU, initialBasePrice = 58, initialGuests = 30 }: MenuBuilderProps) {
+export default function MenuBuilder({ 
+  menuData = CATERING_MENU, 
+  initialBasePrice = 58, 
+  initialGuests = 30,
+  minGuests = 30,
+  eventTypesPlaceholder = "סוג האירוע (שבת חתן, ברית, חינה...)"
+}: MenuBuilderProps) {
   const [guests, setGuests] = useState<number>(initialGuests);
   const [selections, setSelections] = useState<Record<string, string[]>>({
     salads: [],
@@ -119,7 +127,7 @@ export default function MenuBuilder({ menuData = CATERING_MENU, initialBasePrice
   };
 
   // Calculations
-  const isGuestCountValid = guests >= 30;
+  const isGuestCountValid = guests >= minGuests;
   const basePrice = guests * basePricePerGuest;
   
   let extraPrice = 0;
@@ -308,20 +316,20 @@ ${selectionsText}
             1. כמות האורחים שלכם
           </h3>
           <p style={{ fontSize: "0.95rem", marginBottom: "12px" }}>
-            מינימום הזמנה למשלוח אוכל מוכן: <strong>30 איש</strong>
+            מינימום הזמנה למשלוח אוכל מוכן: <strong>{minGuests} איש</strong>
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <button
               type="button"
               className="btn btn-outline"
               style={{ width: "40px", height: "40px", padding: 0 }}
-              onClick={() => setGuests((g) => Math.max(30, g - 5))}
+              onClick={() => setGuests((g) => Math.max(minGuests, g - 5))}
             >
               -
             </button>
             <input
               type="number"
-              min={30}
+              min={minGuests}
               value={guests}
               onChange={(e) => setGuests(parseInt(e.target.value) || 0)}
               aria-label="כמות אורחים"
@@ -346,7 +354,7 @@ ${selectionsText}
           </div>
           {!isGuestCountValid && (
             <div style={{ color: "var(--accent-terracotta)", marginTop: "10px", fontWeight: "600", fontSize: "0.9rem" }}>
-              ⚠️ לתשומת לבכם: מינימום הזמנה לקייטרינג מוכן הוא 30 אורחים.
+              ⚠️ לתשומת לבכם: מינימום הזמנה לקייטרינג מוכן הוא {minGuests} אורחים.
             </div>
           )}
         </div>
@@ -733,7 +741,7 @@ ${selectionsText}
                     name="eventType"
                     value={formData.eventType}
                     onChange={handleInputChange}
-                    placeholder="סוג האירוע (שבת חתן, ברית, חינה...)"
+                    placeholder={eventTypesPlaceholder}
                     aria-label="סוג האירוע"
                     className="builder-form-input"
                   />

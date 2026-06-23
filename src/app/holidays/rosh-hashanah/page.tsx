@@ -25,7 +25,13 @@ export default function RoshHashanahPage() {
               מי שכבר ניסה יודע, טעם מהודר מכין אוכל מוכן לראש השנה וזוכה מחדש לתשבחות, הלקוחות שמזמינים קייטרינג מאיתנו ממשיכים להזמין מאיתנו גם קייטרינג בראש השנה הבאה
             </p>
           </div>
-          <MenuBuilder menuData={ROSH_HASHANAH_MENU} initialBasePrice={185} initialGuests={15} />
+          <MenuBuilder 
+            menuData={ROSH_HASHANAH_MENU} 
+            initialBasePrice={185} 
+            initialGuests={15} 
+            minGuests={15} 
+            eventTypesPlaceholder="לאיזה חג (ערב חג, חג שני...)" 
+          />
         </div>
       </section>
     </div>

@@ -31,7 +31,13 @@ export default function PassoverPage() {
               הכשרות: כשר למהדרין בפיקוח הרב יגאל בן עזרא
             </p>
           </div>
-          <MenuBuilder menuData={PASSOVER_MENU} initialBasePrice={115} initialGuests={10} />
+          <MenuBuilder 
+            menuData={PASSOVER_MENU} 
+            initialBasePrice={115} 
+            initialGuests={10} 
+            minGuests={10} 
+            eventTypesPlaceholder="לאיזה חג (פסח, חול המועד...)" 
+          />
         </div>
       </section>
     </div>
