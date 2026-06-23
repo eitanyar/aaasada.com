@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { CATERING_MENU, MenuCategory, Dish } from "../data/catering-content";
@@ -156,9 +156,9 @@ export default function MenuBuilder({ menuData = CATERING_MENU, initialBasePrice
 
   // Build the WhatsApp message content
   const generateWhatsAppMessage = () => {
-    let text = "×©×œ×•×! ×¨×¦×™×ª×™ ×œ×§×‘×œ ×”×¦×¢×ª ×ž×—×™×¨ ×œ×§×™×™×˜×¨×™× ×’ ×‘×©×¨×™ ×˜×¢× ×ž×”×•×“×¨.\n";
-    text += `×›×ž×•×ª ××•×¨×—×™×: ${guests} ××™×©\n`;
-    text += "×¡×•×’ ×ª×¤×¨×™×˜: ×ª×¤×¨×™×˜ ×‘×¡×™×¡ â‚ª58 ×œ×ž× ×”\n\n";
+    let text = "שלום! רציתי לקבל הצעת מחיר לקייטרינג בשרי טעם מהודר.\n";
+    text += `כמות אורחים: ${guests} איש\n`;
+    text += "סוג תפריט: תפריט בסיס ₪58 למנה\n\n";
 
     menuData.forEach((category) => {
       const chosenIds = selections[category.id] || [];
@@ -167,7 +167,7 @@ export default function MenuBuilder({ menuData = CATERING_MENU, initialBasePrice
         text += `${category.name.split(" (")[0]}:\n`;
         chosenDishes.forEach((dish) => {
           if (dish.premiumPrice) {
-            text += `- ${dish.name} (×©×“×¨×•×’ +â‚ª${dish.premiumPrice}${dish.pricePerGuest ? " ×œ×ž× ×”" : ""})\n`;
+            text += `- ${dish.name} (שדרוג +₪${dish.premiumPrice}${dish.pricePerGuest ? " למנה" : ""})\n`;
           } else {
             text += `- ${dish.name}\n`;
           }
@@ -176,8 +176,8 @@ export default function MenuBuilder({ menuData = CATERING_MENU, initialBasePrice
       }
     });
 
-    text += `ðŸ’° ×¡×”"×› ×ž×©×•×¢×¨ ×œ×”×–×ž× ×”: â‚ª${totalPrice.toLocaleString()} (×œ× ×›×•×œ×œ ×“×ž×™ ×ž×©×œ×•×— ×©×™×—×•×©×‘×• ×‘× ×¤×¨×“).\n`;
-    text += "× ×©×ž×— ×× ×ª×—×–×¨×• ××œ×™×™ ×‘×”×§×“× ×œ×¦×•×¨×š ×ª×™××•× ×•×¡×’×™×¨×”!";
+    text += `💰 סה"כ משוער להזמנה: ₪${totalPrice.toLocaleString()} (לא כולל דמי משלוח שיחושבו בנפרד).\n`;
+    text += "נשמח אם תחזרו אליי בהקדם לצורך תיאום וסגירה!";
 
     return encodeURIComponent(text);
   };
@@ -217,7 +217,7 @@ export default function MenuBuilder({ menuData = CATERING_MENU, initialBasePrice
         selectionsText += `${category.name.split(" (")[0]}:\n`;
         chosenDishes.forEach((dish) => {
           if (dish.premiumPrice) {
-            selectionsText += `- ${dish.name} (×©×“×¨×•×’ +â‚ª${dish.premiumPrice}${dish.pricePerGuest ? " ×œ×ž× ×”" : ""})\n`;
+            selectionsText += `- ${dish.name} (שדרוג +₪${dish.premiumPrice}${dish.pricePerGuest ? " למנה" : ""})\n`;
           } else {
             selectionsText += `- ${dish.name}\n`;
           }
@@ -227,19 +227,19 @@ export default function MenuBuilder({ menuData = CATERING_MENU, initialBasePrice
     });
 
     const fullMessage = `
-×¤× ×™×™×” ×—×“×©×” ×œ×”×¦×¢×ª ×ž×—×™×¨ ×¢×‘×•×¨ ×ª×¤×¨×™×˜ ×ž×•×¨×›×‘:
+פנייה חדשה להצעת מחיר עבור תפריט מורכב:
 
-ðŸ‘¤ ×©× ×ž×œ×: ${formData.name}
-ðŸ“ž ×˜×œ×¤×•×Ÿ: ${formData.phone}
-ðŸŽ‰ ×¡×•×’ ×”××™×¨×•×¢: ${formData.eventType || "×œ× ×¦×•×™×Ÿ"}
-ðŸ“… ×ª××¨×™×š: ${formData.eventDate || "×œ× ×¦×•×™×Ÿ"}
-â° ×©×¢×”: ${formData.eventTime || "×œ× ×¦×•×™×Ÿ"}
-ðŸ‘¥ ×›×ž×•×ª ××•×¨×—×™×: ${guests} ××™×©
+👤 שם מלא: ${formData.name}
+📞 טלפון: ${formData.phone}
+🎉 סוג האירוע: ${formData.eventType || "לא צוין"}
+📅 תאריך: ${formData.eventDate || "לא צוין"}
+⏰ שעה: ${formData.eventTime || "לא צוין"}
+👥 כמות אורחים: ${guests} איש
 
-ðŸ½ï¸ ×¤×™×¨×•×˜ ×”×ž× ×•×ª ×©× ×‘×—×¨×•:
+🍽️ פירוט המנות שנבחרו:
 ${selectionsText}
 
-ðŸ’° ×¡×›×•× ×ž×©×•×¢×¨ ×œ×ª×©×œ×•×: â‚ª${totalPrice.toLocaleString()} (×œ× ×›×•×œ×œ ×“×ž×™ ×ž×©×œ×•×—)
+💰 סכום משוער לתשלום: ₪${totalPrice.toLocaleString()} (לא כולל דמי משלוח)
     `;
 
     try {
@@ -251,7 +251,7 @@ ${selectionsText}
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
-          subject: `×”×¦×¢×ª ×ž×—×™×¨ ×—×“×©×” ×œ×§×™×™×˜×¨×™× ×’ - ${formData.name}`,
+          subject: `הצעת מחיר חדשה לקייטרינג - ${formData.name}`,
           message: fullMessage,
           email_confirm: formData.email_confirm,
         }),
@@ -261,7 +261,7 @@ ${selectionsText}
       if (response.ok && result.success) {
         setIsSubmitted(true);
       } else {
-        setSubmitError(result.message || "×©×’×™××” ×‘×©×œ×™×—×ª ×”×˜×•×¤×¡. ×× × × ×¡×• ×©×•×‘ ××• ×”×ª×§×©×¨×• ×™×©×™×¨×•×ª.");
+        setSubmitError(result.message || "שגיאה בשליחת הטופס. אנא נסו שוב או התקשרו ישירות.");
       }
     } catch (err) {
       console.error("Error submitting lead:", err);
@@ -280,7 +280,7 @@ ${selectionsText}
         }, 800);
         return;
       }
-      setSubmitError("×©×’×™××ª ×ª×§×©×•×¨×ª ×¢× ×”×©×¨×ª. ×× × ×•×“××• ×©××ª× ×ž×—×•×‘×¨×™× ×œ××™× ×˜×¨× ×˜ ×•× ×¡×• ×©×•×‘.");
+      setSubmitError("שגיאת תקשורת עם השרת. אנא ודאו שאתם מחוברים לאינטרנט ונסו שוב.");
     } finally {
       setIsSubmitting(false);
     }
@@ -305,10 +305,10 @@ ${selectionsText}
         {/* Step 1: Guest Counter */}
         <div className="card" style={{ borderRight: "4px solid var(--primary-gold)" }}>
           <h3 style={{ fontFamily: "sans-serif", fontWeight: "600", color: "var(--secondary-green)", marginBottom: "10px" }}>
-            1. ×›×ž×•×ª ×”××•×¨×—×™× ×©×œ×›×
+            1. כמות האורחים שלכם
           </h3>
           <p style={{ fontSize: "0.95rem", marginBottom: "12px" }}>
-            ×ž×™× ×™×ž×•× ×”×–×ž× ×” ×œ×ž×©×œ×•×— ××•×›×œ ×ž×•×›×Ÿ: <strong>30 ××™×©</strong>
+            מינימום הזמנה למשלוח אוכל מוכן: <strong>30 איש</strong>
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <button
@@ -324,7 +324,7 @@ ${selectionsText}
               min={30}
               value={guests}
               onChange={(e) => setGuests(parseInt(e.target.value) || 0)}
-              aria-label="×›×ž×•×ª ××•×¨×—×™×"
+              aria-label="כמות אורחים"
               style={{
                 width: "80px",
                 height: "40px",
@@ -346,7 +346,7 @@ ${selectionsText}
           </div>
           {!isGuestCountValid && (
             <div style={{ color: "var(--accent-terracotta)", marginTop: "10px", fontWeight: "600", fontSize: "0.9rem" }}>
-              âš ï¸ ×œ×ª×©×•×ž×ª ×œ×‘×›×: ×ž×™× ×™×ž×•× ×”×–×ž× ×” ×œ×§×™×™×˜×¨×™× ×’ ×ž×•×›×Ÿ ×”×•× 30 ××•×¨×—×™×.
+              ⚠️ לתשומת לבכם: מינימום הזמנה לקייטרינג מוכן הוא 30 אורחים.
             </div>
           )}
         </div>
@@ -425,7 +425,7 @@ ${selectionsText}
                     position: "relative",
                     zIndex: 2
                   }}>
-                    × ×‘×—×¨×• {currentSelection.length} ×ž×ª×•×š {LIMITS[category.id]}
+                    נבחרו {currentSelection.length} מתוך {LIMITS[category.id]}
                   </span>
                 )}
               </div>
@@ -460,7 +460,7 @@ ${selectionsText}
                             {dish.name}
                             {dish.isPremium && (
                               <strong style={{ color: "var(--accent-terracotta)", marginRight: "6px" }}>
-                                (+â‚ª{dish.premiumPrice}{dish.pricePerGuest ? " ×œ×ž× ×”" : ""})
+                                (+₪{dish.premiumPrice}{dish.pricePerGuest ? " למנה" : ""})
                               </strong>
                             )}
                           </span>
@@ -479,32 +479,32 @@ ${selectionsText}
       {/* Summary Sidebar */}
       <div>
         <div className="summary-sidebar">
-          <h3 style={{ fontSize: "1.4rem", marginBottom: "15px", fontFamily: "sans-serif" }}>×¡×™×›×•× ×”×”×–×ž× ×” ×©×œ×›×</h3>
+          <h3 style={{ fontSize: "1.4rem", marginBottom: "15px", fontFamily: "sans-serif" }}>סיכום ההזמנה שלכם</h3>
           
           <div style={{ display: "flex", flexDirection: "column", gap: "12px", margin: "15px 0" }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>×›×ž×•×ª ×ž× ×•×ª:</span>
-              <strong>{guests} ××•×¨×—×™×</strong>
+              <span>כמות מנות:</span>
+              <strong>{guests} אורחים</strong>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>×ž×—×™×¨ ×‘×¡×™×¡ ×œ×ž× ×”:</span>
-              <strong>â‚ª{basePricePerGuest}</strong>
+              <span>מחיר בסיס למנה:</span>
+              <strong>₪{basePricePerGuest}</strong>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "10px" }}>
-              <span>××•×›×œ ×ž×•×›×Ÿ (×‘×¡×™×¡):</span>
-              <strong>â‚ª{basePrice.toLocaleString()}</strong>
+              <span>אוכל מוכן (בסיס):</span>
+              <strong>₪{basePrice.toLocaleString()}</strong>
             </div>
 
             {extraPrice > 0 && (
               <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "10px" }}>
-                <span>×©×“×¨×•×’×™× ×•×ª×•×¡×¤×•×ª:</span>
-                <strong>â‚ª{extraPrice.toLocaleString()}</strong>
+                <span>שדרוגים ותוספות:</span>
+                <strong>₪{extraPrice.toLocaleString()}</strong>
               </div>
             )}
 
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "1.3rem", padding: "10px 0", color: "var(--primary-gold)" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                <span>×¡×”"×› ×ž×©×•×¢×¨ ×œ×”×–×ž× ×”:</span>
+                <span>סה"כ משוער להזמנה:</span>
                 <span style={{
                   fontSize: "0.72rem",
                   fontWeight: "600",
@@ -516,9 +516,9 @@ ${selectionsText}
                   letterSpacing: "0.02em",
                   display: "inline-block",
                   width: "fit-content"
-                }}>ðŸšš ×œ×œ× ×¢×œ×•×ª ×ž×©×œ×•×—</span>
+                }}>🚚 ללא עלות משלוח</span>
               </div>
-              <strong>â‚ª{totalPrice.toLocaleString()}</strong>
+              <strong>₪{totalPrice.toLocaleString()}</strong>
             </div>
             <div style={{
               display: "flex",
@@ -531,9 +531,9 @@ ${selectionsText}
               padding: "9px 12px",
               margin: "0"
             }}>
-              <span style={{ fontSize: "1rem", marginTop: "1px" }}>â„¹ï¸</span>
+              <span style={{ fontSize: "1rem", marginTop: "1px" }}>ℹ️</span>
               <p style={{ fontSize: "0.82rem", color: "#d4b97a", margin: 0, lineHeight: "1.55" }}>
-                <strong>×¢×œ×•×ª ×ž×©×œ×•×— ×ª×™×§×‘×¢ ×‘×©×™×—×ª ×”×”×–×ž× ×”</strong> ×‘×”×ª×× ×œ××–×•×¨ ×•×©×¢×ª ×”×”×’×¢×” ×”× ×“×¨×©×ª.
+                <strong>עלות משלוח תיקבע בשיחת ההזמנה</strong> בהתאם לאזור ושעת ההגעה הנדרשת.
               </p>
             </div>
           </div>
@@ -549,7 +549,7 @@ ${selectionsText}
               marginBottom: "15px",
               textAlign: "center"
             }}>
-              âš ï¸ ×™×© ×œ×‘×—×•×¨ ×œ×¤×—×•×ª ×ž× ×” ×¢×™×§×¨×™×ª ××—×ª ×œ×”×ž×©×š ×ª×™××•× ×”×”×–×ž× ×”.
+              ⚠️ יש לבחור לפחות מנה עיקרית אחת להמשך תיאום ההזמנה.
             </div>
           )}
 
@@ -563,10 +563,10 @@ ${selectionsText}
               textAlign: "center",
               animation: "fadeIn 0.3s ease-in-out"
             }}>
-              <div style={{ fontSize: "2rem", marginBottom: "8px" }}>âœ…</div>
-              <h4 style={{ margin: "0 0 10px 0", color: "var(--secondary-green)", fontWeight: "bold" }}>×”×‘×§×©×” × ×©×œ×—×” ×‘×”×¦×œ×—×”!</h4>
+              <div style={{ fontSize: "2rem", marginBottom: "8px" }}>✅</div>
+              <h4 style={{ margin: "0 0 10px 0", color: "var(--secondary-green)", fontWeight: "bold" }}>הבקשה נשלחה בהצלחה!</h4>
               <p style={{ fontSize: "0.9rem", margin: "0 0 12px 0", lineHeight: "1.5" }}>
-                ×ª×•×“×”, <strong>{formData.name}</strong>. ×¤×¨×˜×™ ×”×”×–×ž× ×” ×©×œ×š × ×§×œ×˜×• ×‘×ž×¢×¨×›×ª. × ×¦×™×’ ×˜×œ×¤×•× ×™ ×ž×˜×¢× "×˜×¢× ×ž×”×•×“×¨" ×™×—×–×•×¨ ××œ×™×š ×‘×”×§×“× ×œ×ž×¡×¤×¨ <strong>{formData.phone}</strong> ×œ×¦×•×¨×š ×ª×™××•× ×•×¡×’×™×¨×ª ×”××™×¨×•×¢.
+                תודה, <strong>{formData.name}</strong>. פרטי ההזמנה שלך נקלטו במערכת. נציג טלפוני מטעם "טעם מהודר" יחזור אליך בהקדם למספר <strong>{formData.phone}</strong> לצורך תיאום וסגירת האירוע.
               </p>
               <button
                 type="button"
@@ -574,7 +574,7 @@ ${selectionsText}
                 style={{ width: "100%", padding: "8px", borderColor: "var(--secondary-green)", color: "var(--secondary-green)" }}
                 onClick={handleResetForm}
               >
-                ×¢×“×›×•×Ÿ ×¤×¨×˜×™× / ×©×œ×™×—×” ×—×•×–×¨×ª
+                עדכון פרטים / שליחה חוזרת
               </button>
             </div>
           ) : (
@@ -609,7 +609,7 @@ ${selectionsText}
                     gap: "6px"
                   }}
                 >
-                  ðŸ’¬ ×•×•××˜×¡××¤ <span style={{ fontSize: "0.7rem", backgroundColor: checkoutMethod === "whatsapp" ? "rgba(255, 255, 255, 0.2)" : "rgba(37, 211, 102, 0.15)", padding: "2px 6px", borderRadius: "10px", fontWeight: "bold" }}>×ž×”×™×¨ ×‘×§×œ×™×§!</span>
+                  💬 וואטסאפ <span style={{ fontSize: "0.7rem", backgroundColor: checkoutMethod === "whatsapp" ? "rgba(255, 255, 255, 0.2)" : "rgba(37, 211, 102, 0.15)", padding: "2px 6px", borderRadius: "10px", fontWeight: "bold" }}>מהיר בקליק!</span>
                 </button>
                 <button
                   type="button"
@@ -627,7 +627,7 @@ ${selectionsText}
                     transition: "all 0.2s ease"
                   }}
                 >
-                  ðŸ“ž ×˜×œ×¤×•×Ÿ ×—×•×–×¨
+                  📞 טלפון חוזר
                 </button>
               </div>
 
@@ -650,7 +650,7 @@ ${selectionsText}
                   borderRight: "3px solid #25D366",
                   textAlign: "right"
                 }}>
-                  ðŸ’¡ <strong>××™×š ×–×” ×¢×•×‘×“?</strong> ×›×œ ×”×ž× ×•×ª ×•×”×‘×—×™×¨×•×ª ×©×œ×›× ×™×™×©×œ×—×• ××œ×™× ×• ×‘×§×œ×™×§ ××—×“ ×œ× ×™×™×“ ×ž×™×“ ×¢× ×”×ž×¢×‘×¨ ×œ××¤×œ×™×§×¦×™×™×ª ×•×•××˜×¡××¤ (×œ×œ× ×¦×•×¨×š ×‘×”×§×œ×“×” ×™×“× ×™×ª ×©×œ ×”×ª×¤×¨×™×˜).
+                  💡 <strong>איך זה עובד?</strong> כל המנות והבחירות שלכם יישלחו אלינו בקליק אחד לנייד מיד עם המעבר לאפליקציית וואטסאפ (ללא צורך בהקלדה ידנית של התפריט).
                 </p>
                 <button
                   onClick={handleWhatsAppSubmit}
@@ -664,7 +664,7 @@ ${selectionsText}
                     cursor: !canSubmit ? "not-allowed" : "pointer"
                   }}
                 >
-                  ðŸ’¬ ×©×œ×—×• ×ª×¤×¨×™×˜ ×‘×•×•××˜×¡××¤ ×œ×ª×™××•×
+                  💬 שלחו תפריט בוואטסאפ לתיאום
                 </button>
               </div>
 
@@ -689,7 +689,7 @@ ${selectionsText}
                   borderRight: "3px solid var(--primary-gold)",
                   textAlign: "right"
                 }}>
-                  ðŸ’¡ <strong>××™×š ×–×” ×¢×•×‘×“?</strong> ×œ××—×¨ ×‘×—×™×¨×ª ×”×ž× ×•×ª, ×ž×œ××• ××ª ×¤×¨×˜×™×›× ×‘×˜×•×¤×¡ ×•×‘×§×©×•×ª×™×›× ×™×™×©×œ×—×• ××œ×™× ×• ×ž×™×™×“×™×ª. × ×¦×™×’ ×˜×œ×¤×•× ×™ ×™×—×–×•×¨ ××œ×™×›× ×‘×”×§×“× ×œ×ª×™××•× ×•×¡×’×™×¨×ª ×”×”×–×ž× ×”, ×œ×¨×‘×•×ª ×¤×¨×˜×™ ×”×ž×©×œ×•×—.
+                  💡 <strong>איך זה עובד?</strong> לאחר בחירת המנות, מלאו את פרטיכם בטופס ובקשותיכם יישלחו אלינו מיידית. נציג טלפוני יחזור אליכם בהקדם לתיאום וסגירת ההזמנה, לרבות פרטי המשלוח.
                 </p>
                 {/* Honeypot field - invisible to users, autocomplete off, tabIndex -1 */}
                 <div style={{ display: "none" }} aria-hidden="true">
@@ -700,7 +700,7 @@ ${selectionsText}
                     onChange={handleInputChange}
                     tabIndex={-1}
                     autoComplete="off"
-                    aria-label="××™×©×•×¨ ××™×ž×™×™×œ"
+                    aria-label="אישור אימייל"
                   />
                 </div>
                 <div>
@@ -709,9 +709,9 @@ ${selectionsText}
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    placeholder="×©× ×ž×œ× *"
+                    placeholder="שם מלא *"
                     required
-                    aria-label="×©× ×ž×œ×"
+                    aria-label="שם מלא"
                     className="builder-form-input"
                   />
                 </div>
@@ -721,9 +721,9 @@ ${selectionsText}
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="×ž×¡×¤×¨ ×˜×œ×¤×•×Ÿ ×œ×ª×™××•× *"
+                    placeholder="מספר טלפון לתיאום *"
                     required
-                    aria-label="×ž×¡×¤×¨ ×˜×œ×¤×•×Ÿ ×œ×ª×™××•×"
+                    aria-label="מספר טלפון לתיאום"
                     className="builder-form-input"
                   />
                 </div>
@@ -733,8 +733,8 @@ ${selectionsText}
                     name="eventType"
                     value={formData.eventType}
                     onChange={handleInputChange}
-                    placeholder="×¡×•×’ ×”××™×¨×•×¢ (×©×‘×ª ×—×ª×Ÿ, ×‘×¨×™×ª, ×—×™× ×”...)"
-                    aria-label="×¡×•×’ ×”××™×¨×•×¢"
+                    placeholder="סוג האירוע (שבת חתן, ברית, חינה...)"
+                    aria-label="סוג האירוע"
                     className="builder-form-input"
                   />
                 </div>
@@ -744,8 +744,8 @@ ${selectionsText}
                     name="eventDate"
                     value={formData.eventDate}
                     onChange={handleInputChange}
-                    placeholder="×ª××¨×™×š ×”××™×¨×•×¢"
-                    aria-label="×ª××¨×™×š ×”××™×¨×•×¢"
+                    placeholder="תאריך האירוע"
+                    aria-label="תאריך האירוע"
                     style={{ flex: 1 }}
                     className="builder-form-input"
                   />
@@ -754,8 +754,8 @@ ${selectionsText}
                     name="eventTime"
                     value={formData.eventTime}
                     onChange={handleInputChange}
-                    placeholder="×–×ž×Ÿ / ×©×¢×”"
-                    aria-label="×–×ž×Ÿ ××• ×©×¢×ª ×”××™×¨×•×¢"
+                    placeholder="זמן / שעה"
+                    aria-label="זמן או שעת האירוע"
                     style={{ flex: 1 }}
                     className="builder-form-input"
                   />
@@ -771,7 +771,7 @@ ${selectionsText}
                     style={{ marginTop: "4px", width: "16px", height: "16px", cursor: "pointer", accentColor: "var(--primary-gold)" }}
                   />
                   <label htmlFor="privacy-consent" style={{ fontSize: "0.88rem", color: "#e2e8f0", cursor: "pointer", lineHeight: "1.4" }}>
-                    ×× ×™ ×ž×¡×›×™×/×” ×œ<a href="/privacy" target="_blank" style={{ color: "var(--primary-gold)", textDecoration: "underline" }}>×ž×“×™× ×™×•×ª ×”×¤×¨×˜×™×•×ª ×•×ª× ××™ ×”×©×™×ž×•×©</a> ×•×ž××©×¨/×ª ×™×¦×™×¨×ª ×§×©×¨ ×œ×¦×•×¨×š ×”×¦×¢×ª ×ž×—×™×¨. *
+                    אני מסכים/ה ל<a href="/privacy" target="_blank" style={{ color: "var(--primary-gold)", textDecoration: "underline" }}>מדיניות הפרטיות ותנאי השימוש</a> ומאשר/ת יצירת קשר לצורך הצעת מחיר. *
                   </label>
                 </div>
 
@@ -782,7 +782,7 @@ ${selectionsText}
                     fontWeight: "bold",
                     textAlign: "center"
                   }}>
-                    âš ï¸ {submitError}
+                    ⚠️ {submitError}
                   </div>
                 )}
                 <button
@@ -800,7 +800,7 @@ ${selectionsText}
                     cursor: (!canSubmit || !formData.name || !formData.phone || !privacyAccepted || isSubmitting) ? "not-allowed" : "pointer"
                   }}
                 >
-                  {isSubmitting ? "âŒ› ×©×•×œ×— ×¤×¨×˜×™×..." : "ðŸ“ž ×©×œ×— ×¤×¨×˜×™× ×•× ×¦×™×’ ×™×—×–×•×¨ ××œ×™×š"}
+                  {isSubmitting ? "⌛ שולח פרטים..." : "📞 שלח פרטים ונציג יחזור אליך"}
                 </button>
               </form>
 
@@ -817,7 +817,7 @@ ${selectionsText}
                   marginTop: "10px"
                 }}
               >
-                ðŸ–¨ï¸ ×”×“×¤×¡×” ×©×œ ×”×ª×¤×¨×™×˜ / ×©×ž×™×¨×” ×›-PDF
+                🖨️ הדפסה של התפריט / שמירה כ-PDF
               </button>
             </div>
           )}
@@ -825,9 +825,9 @@ ${selectionsText}
 
         {/* Offline Print Layout Overlay (Hidden in screen media, shown only in print) */}
         <div className="print-only" style={{ display: "none" }}>
-          <h2>×˜×•×¤×¡ ×¡×™×›×•× ×”×–×ž× ×” - ×§×™×™×˜×¨×™× ×’ ×˜×¢× ×ž×”×•×“×¨</h2>
-          <p>×›×ž×•×ª ××•×¨×—×™×: {guests}</p>
-          <p>×ž×—×™×¨ ×ž×ª×•×›× ×Ÿ: â‚ª{totalPrice.toLocaleString()}</p>
+          <h2>טופס סיכום הזמנה - קייטרינג טעם מהודר</h2>
+          <p>כמות אורחים: {guests}</p>
+          <p>מחיר מתוכנן: ₪{totalPrice.toLocaleString()}</p>
           <hr />
           {menuData.map((category) => {
             const chosenIds = selections[category.id] || [];
@@ -848,4 +848,3 @@ ${selectionsText}
     </div>
   );
 }
-

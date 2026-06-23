@@ -19,11 +19,19 @@ export default function PassoverPage() {
             <h1 className="color-primary" style={{ fontSize: "2.5rem", marginBottom: "15px", paddingTop: "40px" }}>אוכל מוכן לפסח - קייטרינג טעם מהודר</h1>
             <div className="title-underline"></div>
             <p style={{ maxWidth: "800px", margin: "0 auto", fontSize: "1.1rem", lineHeight: "1.6", marginBottom: "40px" }}>
-              פסח שמח מקייטרינג טעם מהודר! גם בפסח הזה, אנו מזמינים אתכם לחגיגה של טעם, ריח וצבע עם קייטרינג לפסח ברמה אחרת, אצלכם, מוכן על השולחן. ללא צורך בטרחה הכרוכה בהכנה!
-              התפריט כשר לפסח בהשגחת בד"ץ.
+              פסח שמח מקייטרינג טעם מהודר.<br />
+              גם בפסח הזה, אנו מזמינים אתכם לחגיגה של טעם, ריח וצבע עם קייטרינג לפסח ברמה אחרת, אצלכם, מוכן על השולחן. ללא צורך בטרחה הכרוכה בהכנה!<br />
+              <br />
+              מחיר למנה: 115 ש”ח, מינימום להזמנה – 10 מנות בלבד!!<br />
+              <br />
+              <strong>
+                שימו לב!! בהתאם לתקנות משרד הבריאות, ניתן לבצע הזמנות אונליין וישלחו אליכם עד הבית (בתוספת דמי משלוח) ובאופן מבוקר. לא תתאפשר איסוף עצמי כלל וכלל. בתקווה לימים טובים יותר, בשורות טובות לכל בית ישראל אמן!!
+              </strong><br />
+              <br />
+              הכשרות: כשר למהדרין בפיקוח הרב יגאל בן עזרא
             </p>
           </div>
-          <MenuBuilder menuData={PASSOVER_MENU} initialBasePrice={149} initialGuests={10} />
+          <MenuBuilder menuData={PASSOVER_MENU} initialBasePrice={115} initialGuests={10} />
         </div>
       </section>
     </div>
