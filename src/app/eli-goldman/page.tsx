@@ -108,6 +108,10 @@ export default function EliGoldmanProfilePage() {
                   <PhoneIcon size={16} />
                   <span>בירורים לגבי כשרות: 052-609-0930</span>
                 </a>
+
+                <a href="/holidays" className="btn" style={{ display: "inline-flex", gap: "8px", width: "100%", marginTop: "15px", backgroundColor: "#fff", color: "var(--secondary-green)", border: "1.5px solid var(--secondary-green)", justifyContent: "center" }}>
+                  <span>לקבלת תפריטי קייטרינג לחגים &gt;</span>
+                </a>
               </div>
             </div>
           </div>

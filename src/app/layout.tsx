@@ -186,6 +186,7 @@ export default function RootLayout({
                   <li><a href="/bar-mitzvah" style={{ color: "#aaa" }}>קייטרינג לבר מצווה</a></li>
                   <li><a href="/azkarot" style={{ color: "#aaa" }}>קייטרינג לאזכרות</a></li>
                   <li><a href="/hina" style={{ color: "#aaa" }}>קייטרינג לחינה</a></li>
+                  <li><a href="/holidays" style={{ color: "#aaa" }}>קייטרינג לחגים וחול המועד</a></li>
                 </ul>
               </div>
               <div>
