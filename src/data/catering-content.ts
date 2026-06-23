@@ -583,3 +583,124 @@ export const CITY_DATA: CityConfig[] = [
     customIntro: "שירותי אוכל מוכן במעלה אדומים והסביבה. אנו מתמחים באספקת קייטרינג בשרי חם לשבתות חתן, בריתות ואזכרות במעלה אדומים בכשרות המהודרת של בד\"ץ הרב מחפוד."
   }
 ];
+
+export const PASSOVER_MENU: MenuCategory[] = [
+  {
+    id: "salads",
+    name: "סלטים לבחירה",
+    limit: 7,
+    options: [
+      { id: "p_sl1", name: "מטבוחה מרוקאית", description: "" },
+      { id: "p_sl2", name: "זעלוק (חציל מבושל)", description: "" },
+      { id: "p_sl3", name: "סלק אדום", description: "" },
+      { id: "p_sl4", name: "סלט ישראלי", description: "" },
+      { id: "p_sl5", name: "גזר חי בלימון", description: "" },
+      { id: "p_sl6", name: "חציל מיונז", description: "" },
+      { id: "p_sl7", name: "קולסלאו", description: "" },
+      { id: "p_sl8", name: "כרוב חמוציות", description: "" },
+      { id: "p_sl9", name: "פלפל חריף מטוגן", description: "" },
+      { id: "p_sl10", name: "תירס צ'יליאני", description: "" }
+    ]
+  },
+  {
+    id: "sides",
+    name: "תוספות חמות",
+    limit: 3,
+    options: [
+      { id: "p_s1", name: "תפו\"א זעירים אפויים בתנור", description: "" },
+      { id: "p_s2", name: "ארטישוק בפטריות", description: "" },
+      { id: "p_s3", name: "אפונה וגזר", description: "" },
+      { id: "p_s4", name: "שעועית ירוקה", description: "" },
+      { id: "p_s5", name: "ירקות מוקפצים", description: "" }
+    ]
+  },
+  {
+    id: "intermediates",
+    name: "מנות ביניים",
+    limit: 2,
+    options: [
+      { id: "p_in1", name: "מושט ברוטב מרוקאי חריף", description: "" },
+      { id: "p_in2", name: "נסיכת הנילוס מרוקאי", description: "" },
+      { id: "p_in3", name: "טונה בנוסח מרוקאי", description: "" },
+      { id: "p_in4", name: "דג סול מטוגן מרוקאי", description: "" },
+      { id: "p_in5", name: "קציצות דגים ברוטב", description: "" }
+    ]
+  },
+  {
+    id: "mains",
+    name: "מנות עיקריות",
+    limit: 2,
+    options: [
+      { id: "p_m1", name: "צלי בקר ברוטב פטריות", description: "" },
+      { id: "p_m2", name: "בקר בנוסח מרוקאי", description: "" },
+      { id: "p_m3", name: "פרגיות על האש", description: "" },
+      { id: "p_m4", name: "קבב על האש / מטוגן", description: "" },
+      { id: "p_m5", name: "חזה עוף על האש", description: "" },
+      { id: "p_m6", name: "שניצל עוף פריך", description: "" },
+      { id: "p_m7", name: "שוקיים עוף ברוטב / אפוי", description: "" },
+      { id: "p_m8", name: "עוף בגריל אפוי (כרעיים)", description: "" }
+    ]
+  }
+];
+
+export const ROSH_HASHANAH_MENU: MenuCategory[] = [
+  {
+    id: "salads",
+    name: "סלטים טריים",
+    limit: 7,
+    options: [
+      { id: "r_sl1", name: "סלק אדום", description: "לסימן סלקא" },
+      { id: "r_sl2", name: "גזר חריף בלימון", description: "לסימן קרא" },
+      { id: "r_sl3", name: "מטבוחה ביתית", description: "" },
+      { id: "r_sl4", name: "חציל פרוס מצופה פנקו", description: "" },
+      { id: "r_sl5", name: "חציל מטוגן בויניגרט", description: "" },
+      { id: "r_sl6", name: "תפוח אדמה במיונז", description: "" },
+      { id: "r_sl7", name: "טחינה לבנונית", description: "" },
+      { id: "r_sl8", name: "חומוס הבית", description: "" },
+      { id: "r_sl9", name: "קולסלאו", description: "" },
+      { id: "r_sl10", name: "סלט השוק", description: "" }
+    ]
+  },
+  {
+    id: "sides",
+    name: "תוספות חמות",
+    limit: 3,
+    options: [
+      { id: "r_s1", name: "טנזיה – תבשיל פירות יבשים", description: "חובה לחג מתוק" },
+      { id: "r_s2", name: "אורז לבן קלאסי", description: "" },
+      { id: "r_s3", name: "אורז עם אטריות דקות", description: "" },
+      { id: "r_s4", name: "תפוחי אדמה אפויים בשמן זית ורוזמרין", description: "" },
+      { id: "r_s5", name: "קינואה בוטנים וחמוציות", description: "" },
+      { id: "r_s6", name: "ארטישוק אפונה ופטריות", description: "" },
+      { id: "r_s7", name: "ירקות קלויים בטאבון", description: "" },
+      { id: "r_s8", name: "קוביות בטטה בצ'ילי", description: "" }
+    ]
+  },
+  {
+    id: "intermediates",
+    name: "מנות ביניים / דגים",
+    limit: 2,
+    options: [
+      { id: "r_in1", name: "סלמון נורבגי בקראנץ' פיצוחים", description: "" },
+      { id: "r_in2", name: "סלמון נורווגי בעשבי תיבול", description: "" },
+      { id: "r_in3", name: "פילה מושט מרוקאי פיקנטי", description: "" },
+      { id: "r_in4", name: "קציצות דג לברק ברוטב מזרחי", description: "" },
+      { id: "r_in5", name: "מעטפת פילו פרגית ופירות יבשים", description: "" },
+      { id: "r_in6", name: "טורטיה רול ממולאת בשר", description: "" }
+    ]
+  },
+  {
+    id: "mains",
+    name: "מנות עיקריות",
+    limit: 2,
+    options: [
+      { id: "r_m1", name: "צלי כתף בקר ברוטב פטריות", description: "" },
+      { id: "r_m2", name: "אסאדו ברוטב יין וטריאקי", description: "" },
+      { id: "r_m3", name: "בשר ראש ברוטב חומוס פיקנטי", description: "" },
+      { id: "r_m4", name: "פרגית צלויה על האש", description: "" },
+      { id: "r_m5", name: "פרגית ממולאת", description: "" },
+      { id: "r_m6", name: "כרעיים עוף ברוטב הדרים", description: "" },
+      { id: "r_m7", name: "כרעיים עוף בשמן זית שום וטימין", description: "" }
+    ]
+  }
+];
