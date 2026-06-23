@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import MainLayout from "../../components/MainLayout";
 
 export const metadata = {
   title: "קייטרינג לחגים וחול המועד | טעם מהודר",
@@ -12,11 +11,11 @@ export const metadata = {
 
 export default function HolidaysIndexPage() {
   return (
-    <MainLayout>
+    <div style={{ backgroundColor: "var(--bg-warm-sand)", paddingBottom: "40px" }}>
       <section className="section-padding bg-light">
         <div className="container">
           <div className="section-title text-center">
-            <h1 className="color-primary" style={{ fontSize: "2.5rem", marginBottom: "15px" }}>קייטרינג לחגים וחול המועד</h1>
+            <h1 className="color-primary" style={{ fontSize: "2.5rem", marginBottom: "15px", paddingTop: "40px" }}>קייטרינג לחגים וחול המועד</h1>
             <div className="title-underline"></div>
             <p style={{ maxWidth: "800px", margin: "0 auto", fontSize: "1.1rem", lineHeight: "1.6" }}>
               בחגים כולנו רוצים לארח ולהנות בחיק המשפחה בלי לעמוד שעות במטבח. בקייטרינג טעם מהודר אנו מכינים עבורכם תפריטי חג עשירים, מסורתיים וכשרים למהדרין, כך שתוכלו לקבל את החג ברוגע ובשמחה.
@@ -58,6 +57,6 @@ export default function HolidaysIndexPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </div>
   );
 }

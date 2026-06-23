@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import MainLayout from "../../../components/MainLayout";
 
 export const metadata = {
   title: "אוכל מוכן לראש השנה - קייטרינג לראש השנה | טעם מהודר",
@@ -12,11 +11,11 @@ export const metadata = {
 
 export default function RoshHashanahPage() {
   return (
-    <MainLayout>
+    <div style={{ backgroundColor: "var(--bg-warm-sand)", paddingBottom: "40px" }}>
       <section className="section-padding bg-light">
         <div className="container">
           <div className="section-title text-center">
-            <h1 className="color-primary" style={{ fontSize: "2.5rem", marginBottom: "15px" }}>אוכל מוכן לראש השנה - תפריט קייטרינג</h1>
+            <h1 className="color-primary" style={{ fontSize: "2.5rem", marginBottom: "15px", paddingTop: "40px" }}>אוכל מוכן לראש השנה - תפריט קייטרינג</h1>
             <div className="title-underline"></div>
             <p style={{ maxWidth: "800px", margin: "0 auto", fontSize: "1.1rem", lineHeight: "1.6" }}>
               שנה טובה מקייטרינג טעם מהודר! גם בראש השנה הזה, אנו מזמינים אתכם לחגיגה של טעם, ריח וצבע. מי שכבר ניסה יודע, "טעם מהודר" מכין אוכל מוכן לראש השנה וזוכה מחדש לתשבחות מהאורחים סביב שולחן החג.
@@ -73,6 +72,6 @@ export default function RoshHashanahPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </div>
   );
 }

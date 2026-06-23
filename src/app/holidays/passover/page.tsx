@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import MainLayout from "../../../components/MainLayout";
 
 export const metadata = {
   title: "אוכל מוכן לפסח - תפריט קייטרינג כשר לפסח | טעם מהודר",
@@ -12,11 +11,11 @@ export const metadata = {
 
 export default function PassoverPage() {
   return (
-    <MainLayout>
+    <div style={{ backgroundColor: "var(--bg-warm-sand)", paddingBottom: "40px" }}>
       <section className="section-padding bg-light">
         <div className="container">
           <div className="section-title text-center">
-            <h1 className="color-primary" style={{ fontSize: "2.5rem", marginBottom: "15px" }}>אוכל מוכן לפסח - קייטרינג טעם מהודר</h1>
+            <h1 className="color-primary" style={{ fontSize: "2.5rem", marginBottom: "15px", paddingTop: "40px" }}>אוכל מוכן לפסח - קייטרינג טעם מהודר</h1>
             <div className="title-underline"></div>
             <p style={{ maxWidth: "800px", margin: "0 auto", fontSize: "1.1rem", lineHeight: "1.6" }}>
               פסח שמח מקייטרינג טעם מהודר! גם בפסח הזה, אנו מזמינים אתכם לחגיגה של טעם, ריח וצבע עם קייטרינג לפסח ברמה אחרת, אצלכם, מוכן על השולחן. ללא צורך בטרחה הכרוכה בהכנה!
@@ -76,6 +75,6 @@ export default function PassoverPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </div>
   );
 }
