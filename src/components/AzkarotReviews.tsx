@@ -84,7 +84,7 @@ export default function AzkarotReviews() {
             לקוחות ממליצים על קייטרינג לאזכרה
           </h2>
           <p style={{ color: "#718096", fontSize: "0.95rem" }}>
-            ⭐⭐⭐⭐⭐ &nbsp;4.9 | 184 ביקורות בגוגל
+            ⭐⭐⭐⭐⭐ &nbsp;4.9 | 184 המלצות
           </p>
         </div>
 
