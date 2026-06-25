@@ -196,8 +196,9 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
   };
 
   return (
-    <section className="hero-section">
-      <div className="container" style={{ position: "relative", zIndex: 2 }}>
+    <>
+      <section className="hero-section">
+        <div className="container" style={{ position: "relative", zIndex: 2 }}>
         {/* SEO Breadcrumbs */}
         <div style={{
           display: "flex",
@@ -260,6 +261,16 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
                 <span style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center" }}><span>צפו בהמלצות וידאו</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
               </a>
             )}
+            {service === "azkarot" && (
+              <a href="#azkarot-reviews" className="btn btn-outline" style={{ 
+                color: "#ffffff", 
+                borderColor: "rgba(255,255,255,0.4)",
+                padding: "12px 30px",
+                fontSize: "1.1rem"
+              }}>
+                <span>צפו בהמלצות</span>
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -270,3 +281,6 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
       ) : (
         <VideoTestimonial videoId="gYsjvm6XgSQ" />
       )}
+    </>
+  );
+}

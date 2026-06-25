@@ -32,6 +32,7 @@ const reviews = [
 export default function AzkarotReviews() {
   return (
     <section
+      id="azkarot-reviews"
       dir="rtl"
       style={{
         backgroundColor: "#f8f9fa",

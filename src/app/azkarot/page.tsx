@@ -144,6 +144,18 @@ export default function AzkarotGeneralPage() {
             בשעות קשות אלו אנו מורידים מכם את דאגות המטבח והאירוח. אנו מכינים ושולחים מגשים חמים של אוכל ביתי בשרי כשר למהדרין להגשה עצמית פשוטה ומכובדת, במחיר הוגן וללא עמלות תיווך.
           </p>
 
+          <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "20px" }}>
+            <a href="#menu-section" className="btn btn-primary">
+              <span>להרכבת תפריט לאזכרה</span>
+            </a>
+            <a href="#azkarot-reviews" className="btn btn-outline" style={{
+              color: "#ffffff",
+              borderColor: "rgba(255,255,255,0.4)",
+              padding: "12px 30px",
+              fontSize: "1.1rem"
+            }}>
+              <span>צפו בהמלצות</span>
+            </a>
           </div>
         </div>
       </section>
