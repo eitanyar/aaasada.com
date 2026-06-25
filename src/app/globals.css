@@ -1405,3 +1405,73 @@ body.accessibility-high-contrast img {
     scroll-snap-align: center;
   }
 }
+
+/* ─── Azkarot Text Reviews ─────────────────────────────────────── */
+.azkarot-reviews-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 12px;
+  padding: 10px 4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.azkarot-reviews-grid::-webkit-scrollbar { display: none; }
+
+.azkarot-review-card {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #4a5568;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.azkarot-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 8px;
+}
+
+.azkarot-reviewer-name {
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 15px;
+}
+
+.azkarot-review-stars {
+  color: #d69e2e;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.azkarot-review-text {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .azkarot-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    overflow-x: visible;
+    padding: 0;
+  }
+  .azkarot-review-card {
+    flex: none;
+    scroll-snap-align: unset;
+  }
+}

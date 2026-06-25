@@ -4,6 +4,7 @@ import ProfessionalSupervision from "../../components/ProfessionalSupervision";
 import LocalDeliveryCard from "../../components/LocalDeliveryCard";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
 import { CheckIcon, PhoneIcon } from "../../components/icons";
+import AzkarotReviews from "../../components/AzkarotReviews";
 
 export const metadata = {
   title: "קייטרינג לאזכרה כשר למהדרין בד\"ץ הרב מחפוד | טעם מהודר",
@@ -167,6 +168,8 @@ export default function AzkarotGeneralPage() {
         </div>
       </section>
 
+      {/* Azkarot Text Reviews - replaces video (inappropriate for mourning context) */}
+      <AzkarotReviews />
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{

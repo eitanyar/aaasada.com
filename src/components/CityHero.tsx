@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { StarIcon, PhoneIcon } from "./icons";
+import AzkarotReviews from "./AzkarotReviews";
+import VideoTestimonial from "./VideoTestimonial";
 
 interface CityHeroProps {
   cityName: string;
@@ -243,21 +245,28 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
           {content.intro}
         </p>
 
-        {/* Above-The-Fold (ATF) Jump Buttons */}
-        <div style={{ display: "flex", justifyContent: "center", gap: "15px", flexWrap: "wrap", marginTop: "25px" }}>
-          <a href="#menu-section" className="btn btn-primary" style={{ padding: "12px 30px", fontSize: "1.1rem" }}>
-            <span>להרכבת תפריט ב-₪58</span>
-          </a>
-          <a href="#video-testimonials" className="btn btn-outline" style={{ 
-            color: "#ffffff", 
-            borderColor: "rgba(255,255,255,0.4)",
-            padding: "12px 30px",
-            fontSize: "1.1rem"
-          }}>
-            <span style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center" }}><span>צפו בהמלצות וידאו</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
-          </a>
+          {/* Above-The-Fold (ATF) Jump Buttons */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "15px", flexWrap: "wrap", marginTop: "25px" }}>
+            <a href="#menu-section" className="btn btn-primary" style={{ padding: "12px 30px", fontSize: "1.1rem" }}>
+              <span>להרכבת תפריט ב-₪58</span>
+            </a>
+            {service !== "azkarot" && (
+              <a href="#video-testimonials" className="btn btn-outline" style={{ 
+                color: "#ffffff", 
+                borderColor: "rgba(255,255,255,0.4)",
+                padding: "12px 30px",
+                fontSize: "1.1rem"
+              }}>
+                <span style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center" }}><span>צפו בהמלצות וידאו</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+              </a>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+
+      {/* Conditional testimonials: written reviews for azkarot, video for all other events */}
+      {service === "azkarot" ? (
+        <AzkarotReviews />
+      ) : (
+        <VideoTestimonial videoId="gYsjvm6XgSQ" />
+      )}

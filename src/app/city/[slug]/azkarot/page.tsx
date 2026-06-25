@@ -4,6 +4,7 @@ import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
 import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
 import { PhoneIcon } from "../../../../components/icons";
+import AzkarotReviews from "../../../../components/AzkarotReviews";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
 export async function generateStaticParams() {
@@ -137,6 +138,9 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
 
         </div>
       </section>
+
+      {/* Azkarot Text Reviews - replaces video (inappropriate for mourning context) */}
+      <AzkarotReviews />
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{
