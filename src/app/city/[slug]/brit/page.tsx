@@ -127,6 +127,9 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* Video Testimonial Section */}
+      <VideoTestimonial videoId="gYsjvm6XgSQ" />
+
       {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">
@@ -144,9 +147,6 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
           }>
             <LocalDeliveryCard cityName={city.name} />
           </Suspense>
-
-      {/* Video Testimonial Section */}
-      <VideoTestimonial videoId="gYsjvm6XgSQ" />
         </div>
       </section>
 

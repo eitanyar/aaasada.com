@@ -163,6 +163,9 @@ export default function ShabbatChatanGeneralPage() {
         </div>
       </section>
 
+      {/* Video Testimonial Section */}
+      <VideoTestimonial videoId="gYsjvm6XgSQ" />
+
       {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container" style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
@@ -180,9 +183,6 @@ export default function ShabbatChatanGeneralPage() {
           }>
             <LocalDeliveryCard isShabbatChatanOverride={true} priceText="₪58 למנה / ₪149 לחבילת 3 סעודות" />
           </Suspense>
-
-      {/* Video Testimonial Section */}
-      <VideoTestimonial videoId="gYsjvm6XgSQ" />
 
           {/* 149 NIS Package Callout */}
           <div style={{

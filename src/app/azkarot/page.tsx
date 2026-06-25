@@ -160,6 +160,9 @@ export default function AzkarotGeneralPage() {
         </div>
       </section>
 
+      {/* Azkarot Text Reviews - replaces video (inappropriate for mourning context) */}
+      <AzkarotReviews />
+
       {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
         <div className="container">
@@ -179,9 +182,6 @@ export default function AzkarotGeneralPage() {
           </Suspense>
         </div>
       </section>
-
-      {/* Azkarot Text Reviews - replaces video (inappropriate for mourning context) */}
-      <AzkarotReviews />
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{
