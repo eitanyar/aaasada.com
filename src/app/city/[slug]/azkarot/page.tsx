@@ -114,6 +114,14 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
           <p style={{ color: "#cbd5e1", fontSize: "1.15rem", maxWidth: "800px", margin: "10px auto 0 auto" }}>
             משלוח אוכל מוכן חם, מכובד ומנחם לבית האבל או לבית הכנסת ב{city.name}. תפריט בשרי עשיר בהשגחה מהודרת ובמחיר הגון, ללא התעסקות בימים קשים.
           </p>
+          <p style={{
+            color: "rgba(255,255,255,0.6)",
+            fontSize: "0.95rem",
+            marginTop: "10px",
+            marginBottom: "0"
+          }}>
+            הזמנות החל מ-30 מנות בלבד
+          </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "20px" }}>
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט לאזכרה</span>

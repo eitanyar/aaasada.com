@@ -144,6 +144,15 @@ export default function AzkarotGeneralPage() {
             בשעות קשות אלו אנו מורידים מכם את דאגות המטבח והאירוח. אנו מכינים ושולחים מגשים חמים של אוכל ביתי בשרי כשר למהדרין להגשה עצמית פשוטה ומכובדת, במחיר הוגן וללא עמלות תיווך.
           </p>
 
+          <p style={{
+            color: "rgba(255,255,255,0.6)",
+            fontSize: "0.95rem",
+            marginTop: "0",
+            marginBottom: "var(--spacing-md)"
+          }}>
+            הזמנות החל מ-30 מנות בלבד
+          </p>
+
           <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "20px" }}>
             <a href="#menu-section" className="btn btn-primary">
               <span>להרכבת תפריט לאזכרה</span>
