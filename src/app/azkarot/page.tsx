@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import MenuBuilder from "../../components/MenuBuilder";
 import ProfessionalSupervision from "../../components/ProfessionalSupervision";
 import LocalDeliveryCard from "../../components/LocalDeliveryCard";
-import VideoTestimonial from "../../components/VideoTestimonial";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
 import { CheckIcon, PhoneIcon } from "../../components/icons";
 
@@ -144,18 +143,6 @@ export default function AzkarotGeneralPage() {
             בשעות קשות אלו אנו מורידים מכם את דאגות המטבח והאירוח. אנו מכינים ושולחים מגשים חמים של אוכל ביתי בשרי כשר למהדרין להגשה עצמית פשוטה ומכובדת, במחיר הוגן וללא עמלות תיווך.
           </p>
 
-          <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "15px" }}>
-            <a href="#menu-section" className="btn btn-primary">
-              <span>להרכבת תפריט לאזכרה</span>
-            </a>
-            <a href="#video-testimonials" className="btn btn-outline" style={{
-              color: "#ffffff",
-              borderColor: "rgba(255,255,255,0.4)",
-              padding: "12px 30px",
-              fontSize: "1.1rem"
-            }}>
-              <span style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center" }}><span>צפו בהמלצות וידאו</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
-            </a>
           </div>
         </div>
       </section>
@@ -180,8 +167,6 @@ export default function AzkarotGeneralPage() {
         </div>
       </section>
 
-      {/* Video Testimonial Section */}
-      <VideoTestimonial videoId="gYsjvm6XgSQ" />
 
       {/* Menu Builder Section */}
       <section className="section" id="menu-section" style={{

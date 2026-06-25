@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
 import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
-import VideoTestimonial from "../../../../components/VideoTestimonial";
 import { PhoneIcon } from "../../../../components/icons";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
@@ -114,18 +113,6 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
           <p style={{ color: "#cbd5e1", fontSize: "1.15rem", maxWidth: "800px", margin: "10px auto 0 auto" }}>
             משלוח אוכל מוכן חם, מכובד ומנחם לבית האבל או לבית הכנסת ב{city.name}. תפריט בשרי עשיר בהשגחה מהודרת ובמחיר הגון, ללא התעסקות בימים קשים.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "15px" }}>
-            <a href="#menu-section" className="btn btn-primary">
-              <span>להרכבת תפריט לאזכרה</span>
-            </a>
-            <a href="#video-testimonials" className="btn btn-outline" style={{
-              color: "#ffffff",
-              borderColor: "rgba(255,255,255,0.4)",
-              padding: "12px 30px",
-              fontSize: "1.1rem"
-            }}>
-              <span style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center" }}><span>צפו בהמלצות וידאו</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
-            </a>
           </div>
         </div>
       </section>
@@ -148,8 +135,6 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
             <LocalDeliveryCard cityName={city.name} />
           </Suspense>
 
-      {/* Video Testimonial Section */}
-      <VideoTestimonial videoId="gYsjvm6XgSQ" />
         </div>
       </section>
 
