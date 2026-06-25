@@ -3,6 +3,7 @@ import MenuBuilder from "../../components/MenuBuilder";
 import ProfessionalSupervision from "../../components/ProfessionalSupervision";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
 import { PhoneIcon, StarIcon, CheckIcon } from "../../components/icons";
+import VideoTestimonial from "../../components/VideoTestimonial";
 
 export const metadata = {
   title: "קייטרינג לחינה כשר למהדרין בד\"ץ מחפוד | טעם מהודר",
@@ -161,6 +162,9 @@ export default function HinaGeneralPage() {
           </div>
         </div>
       </section>
+
+      {/* Video Testimonial Section */}
+      <VideoTestimonial videoId="gYsjvm6XgSQ" />
 
       {/* Main content explaining Hina features */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
