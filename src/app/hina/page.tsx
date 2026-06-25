@@ -206,7 +206,7 @@ export default function HinaGeneralPage() {
               }}>
                 <h3 style={{ color: "var(--secondary-green)", fontFamily: "sans-serif", margin: "0 0 15px 0" }}>הפתרון המושלם לחינה:</h3>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>בשרים משובחים:</strong> צלי בקר ברוטב, פרגיות עסיסיות בגריל, קבב ביתי ועוד.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מבחר בשרים ב-58 ש"ח — כולל בקר:</strong> צלי בקר, רוסטביף וקבב כלולים במחיר הבסיסי — מתחרים בזול מגישים בד"כ עוף.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>שפע של סלטים:</strong> חומוס אסלי, טחינה ירוקה, מטבוחה מרוקאית ועוד 7 סוגים.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>חיסכון משמעותי:</strong> תפריט מלא ב-₪58 לסועד בלבד, ללא עלויות צוות שרתים ומלצרים.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מתאים לכל מקום:</strong> קל ופשוט להגשה בבית, בחצר או במועדון הדיירים.</span></li>

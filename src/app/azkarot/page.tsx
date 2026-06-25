@@ -306,7 +306,7 @@ export default function AzkarotGeneralPage() {
                 <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מענה טלפוני מהיר ורגיש:</strong> אנו מבינים את הדחיפות ומסייעים בבחירה מהירה.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>משלוח חם ישירות אליכם:</strong> האוכל מועבר במארזים מבודדי חום מיוחדים ומגיע חם מאוד.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>תפריט עשיר במחיר 58 ש"ח:</strong> בשרים איכותיים, תוספות חמות וסלטים טריים בנדיבות רבה.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מבחר בשרים ב-58 ש"ח — כולל בקר:</strong> צלי בקר, רוסטביף וקבב כלולים במחיר. מתחרים זולים מציעים בד"כ עוף בלבד.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>ללא טרחה:</strong> אין צורך בציוד חימום מורכב או בצוות מלצרים. מניחים ומגישים.</span></li>
                 </ul>
               </div>

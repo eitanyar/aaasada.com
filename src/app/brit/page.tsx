@@ -190,8 +190,8 @@ export default function BritGeneralPage() {
               }}>
                 <h3 style={{ color: "var(--secondary-green)", fontFamily: "sans-serif", margin: "0 0 15px 0" }}>הפתרון לברית מילה:</h3>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>תפריט מלא ב-₪58 למנה:</strong> עיקריות, תוספות חמות וסלטים טריים בנדיבות רבה.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>בשרים משובחים:</strong> צלי בקר, פרגיות בגריל, עופות בתנור ועוד.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מבחר בשרים ב-₪58 — כולל בקר:</strong> צלי בקר, רוסטביף וקבב כלולים במחיר הבסיסי. מתחרים בזול מגישים בד"כ עוף בלבד.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>7 סלטים + 3 תוספות + 3 עיקריות:</strong> מפרט שלם ושקוף — בלי אותיות קטנות, בלי תוספות בתשלום על הסלטים.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>אספקה מהירה וחמה:</strong> המגשים מגיעים חמים ישירות לאירוע שלכם במועד שנקבע.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>ללא טרחה:</strong> פשוט לפתוח ולהגיש, ללא צורך בחימום מורכב או בכלי הגשה יקרים.</span></li>
                 </ul>
