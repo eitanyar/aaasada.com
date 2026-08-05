@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import AzkarotMenuTiers from "../../components/AzkarotMenuTiers";
+import MenuBuilder from "../../components/MenuBuilder";
 import ProfessionalSupervision from "../../components/ProfessionalSupervision";
 import LocalDeliveryCard from "../../components/LocalDeliveryCard";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
@@ -8,7 +8,7 @@ import AzkarotReviews from "../../components/AzkarotReviews";
 
 export const metadata = {
   title: "קייטרינג לאזכרה כשר למהדרין בד\"ץ הרב מחפוד | טעם מהודר",
-  description: "שירותי קייטרינג לאזכרות, שבעה וסעודות אבלים. אוכל בשרי חם, עשיר וכשר למהדרין (בהשגחת בד\"ץ הרב שלמה מחפוד) ישירות אליכם ללא דאגות. תפריטים החל מ-43 ₪ למנה.",
+  description: "שירותי קייטרינג לאזכרות, שבעה וסעודות אבלים. אוכל בשרי חם, עשיר וכשר למהדרין (בהשגחת בד\"ץ הרב שלמה מחפוד) ישירות אליכם ללא דאגות. תפריט ₪58.",
   alternates: {
     canonical: "https://aaasada.com/azkarot",
   },
@@ -32,7 +32,7 @@ export default function AzkarotGeneralPage() {
         "@id": "https://aaasada.com/azkarot#catering",
         "name": "קייטרינג לאזכרה וסעודות אבלים - טעם מהודר",
         "image": "https://aaasada.com/images/roastbeef_763x447_webp.webp",
-        "description": "קייטרינג לאזכרות, שבעה וסעודות אבלים. אוכל מוכן בשרי חם, עשיר וכשר למהדרין בהשגחת בד\"ץ הרב מחפוד. תפריטים החל מ-43 ש\"ח למנה.",
+        "description": "קייטרינג לאזכרות, שבעה וסעודות אבלים. אוכל מוכן בשרי חם, עשיר וכשר למהדרין בהשגחת בד\"ץ הרב מחפוד ב-58 ש\"ח בלבד למנה.",
         "telephone": "052-609-0930",
         "url": "https://aaasada.com/azkarot",
         "priceRange": "$$",
@@ -50,11 +50,10 @@ export default function AzkarotGeneralPage() {
         ],
         "hasMenu": {
           "@type": "FoodMenu",
-          "name": "תפריטים בשריים לאזכרה - החל מ-43 ש\"ח למנה",
+          "name": "תפריט בשרי לאזכרה ב-58 ש\"ח",
           "offers": {
-            "@type": "AggregateOffer",
-            "lowPrice": "43.00",
-            "highPrice": "58.00",
+            "@type": "Offer",
+            "price": "58.00",
             "priceCurrency": "ILS"
           }
         }
@@ -65,10 +64,10 @@ export default function AzkarotGeneralPage() {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "מה ההבדל בין תפריט 43 לתפריט 58?",
+            "name": "למה עדיף לשלם 58 ₪ למנה ולא פחות?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "שני התפריטים כשרים למהדרין באותה השגחת בד\"ץ הרב שלמה מחפוד ומספקים ארוחה מלאה ומכובדת. תפריט 43 ₪ כולל 5 סלטים, 2 תוספות חמות ו-3 מנות עיקריות (כולל קציצות בקר וקבב). תפריט 58 ₪ מרחיב ל-7 סלטים, 3 תוספות, ומוסיף נתחי בקר איכותיים כמו צלי בקר ורוסטביף ללא תוספת תשלום."
+              "text": "כי ההבדל הוא עצום: ב-39-45 ₪ מקבלים לרוב עוף בסיסי וקצת סלטים (4 סוגים). אצלנו ב-58 ₪ השולחן עמוס ב-7 סוגי סלטים טריים, 3 תוספות ומגוון בשרים איכותיים כולל בקר (צלי בקר ורוסטביף ללא תוספת תשלום). זו השקעה קטנה שעושה הבדל גדול בכבוד לנפטר."
             }
           },
           {
@@ -92,7 +91,7 @@ export default function AzkarotGeneralPage() {
             "name": "כמה מנות מומלץ להזמין לאזכרה? מה המינימום?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "בחישוב מנות לאזכרה, מומלץ לקחת בחשבון כ-10% יותר ממספר האנשים הצפוי למקרה שיגיעו מנחמים נוספים. המינימום להזמנה בתפריט 43 ₪ הוא 40 מנות, ובתפריט המורחב ב-58 ₪ המינימום הוא 30 מנות בלבד."
+              "text": "בחישוב מנות לאזכרה, מומלץ לקחת בחשבון כ-10% יותר ממספר האנשים הצפוי למקרה שיגיעו מנחמים נוספים. המינימום להזמנה אצלנו הוא 30 מנות בלבד, שזהו המינימום הנמוך ביותר בשוק לקייטרינג ברמת שפע כזו."
             }
           },
           {
@@ -151,7 +150,7 @@ export default function AzkarotGeneralPage() {
             marginTop: "0",
             marginBottom: "var(--spacing-md)"
           }}>
-            תפריטים במחירים הוגנים · פרטי מינימום ומחיר בבחירת התפריט למטה
+            הזמנות החל מ-30 מנות בלבד
           </p>
 
           <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "20px" }}>
@@ -188,7 +187,7 @@ export default function AzkarotGeneralPage() {
               <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
           }>
-            <LocalDeliveryCard azkarotDual={true} />
+            <LocalDeliveryCard />
           </Suspense>
         </div>
       </section>
@@ -201,14 +200,14 @@ export default function AzkarotGeneralPage() {
       }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריט אזכרה · החל מ-₪43 למנה</span>
+            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריט אזכרה ₪58 למנה</span>
             <h2>הרכיבו את התפריט לאזכרה / סעודת מצווה</h2>
             <p style={{ maxWidth: "600px", margin: "0 auto" }}>
-              בחרו את התפריט המתאים לכם, ואת המנות העיקריות, התוספות והסלטים המבוקשים. נציג יחזור אליכם להזמנה מהירה.
+              בחרו את המנות העיקריות, התוספות והסלטים המבוקשים. נציג יחזור אליכם בהקדם להזמנה מהירה.
             </p>
           </div>
-
-          <AzkarotMenuTiers />
+          
+          <MenuBuilder />
         </div>
       </section>
 
@@ -216,9 +215,9 @@ export default function AzkarotGeneralPage() {
       <section className="section" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid var(--border-color)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <h2>מה ההבדל בין התפריטים?</h2>
+            <h2>התאמה מלאה לאירוע אזכרה, שבעה וסעודות אבלים</h2>
             <p style={{ maxWidth: "700px", margin: "0 auto" }}>
-              שני התפריטים שלנו הם ארוחה בשרית מלאה ומכובדת, תחת אותה כשרות מהודרת בדיוק. הבדל המפרט נועד לתת לכם את הגמישות לבחור את מה שמתאים לכם:
+              רוצים לכבד את הנפטר עם שולחן ערוך, עשיר ומכובד באמת? בעוד שהצעות זולות בבסיסן בשוק (39-45 ₪) מסתפקות לרוב במנת עוף פשוטה ומעט סלטים, ב"טעם מהודר" אנו מציעים סטנדרט גבוה ומפרט נדיב במיוחד במחיר קבוע ושקוף של 58 ₪ בלבד למנה:
             </p>
           </div>
 
@@ -227,40 +226,40 @@ export default function AzkarotGeneralPage() {
               <thead>
                 <tr>
                   <th>הפרמטר</th>
-                  <th>תפריט 43 ₪</th>
-                  <th className="highlight-col">תפריט 58 ₪ (מורחב)</th>
+                  <th>הצעות בסיסיות (כ-40 ₪)</th>
+                  <th className="highlight-col">טעם מהודר (58 ₪)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>מנות עיקריות</strong></td>
-                  <td>3 מנות לבחירה: עוף, פרגית, קציצות בקר או קבב</td>
-                  <td className="highlight-col">3 מנות לבחירה, <strong>כולל גם צלי בקר ורוסטביף</strong></td>
+                  <td><strong>מנה עיקרית</strong></td>
+                  <td>בעיקר עוף או שניצל פשוט</td>
+                  <td className="highlight-col">כולל צלי בקר, רוסטביף, קבב ועוף!</td>
                 </tr>
                 <tr>
                   <td><strong>בשר בקר</strong></td>
-                  <td>קציצות בקר / קבב בתפריט הבסיס</td>
-                  <td className="highlight-col"><strong>נתחי בקר איכותיים</strong> - צלי בקר ורוסטביף כלולים</td>
+                  <td>דורש תוספת תשלום משמעותית</td>
+                  <td className="highlight-col"><strong>כלול במחיר!</strong> צלי בקר ורוסטביף כחלק מהתפריט לבחירה</td>
                 </tr>
                 <tr>
                   <td><strong>מגוון סלטים</strong></td>
-                  <td>5 סוגי סלטים טריים לבחירה</td>
+                  <td>4 סלטים בסיסיים בלבד</td>
                   <td className="highlight-col"><strong>7 סוגי סלטים</strong> טריים ועשירים לבחירה מהמגוון</td>
                 </tr>
                 <tr>
                   <td><strong>תוספות חמות</strong></td>
-                  <td>2 תוספות לבחירה</td>
-                  <td className="highlight-col"><strong>3 תוספות חמות</strong> לבחירה</td>
+                  <td>2 תוספות</td>
+                  <td className="highlight-col"><strong>3 תוספות חמות</strong> לבחירה בנדיבות רבה</td>
                 </tr>
                 <tr>
-                  <td><strong>מינימום הזמנה</strong></td>
-                  <td>40 מנות</td>
-                  <td className="highlight-col">30 מנות</td>
+                  <td><strong>מגוון לבחירה</strong></td>
+                  <td>2 מנות לבחירה מראש</td>
+                  <td className="highlight-col"><strong>3 מנות עיקריות לבחירה חופשית</strong> (שליש מכל סוג)</td>
                 </tr>
                 <tr>
                   <td><strong>רמת כשרות</strong></td>
-                  <td>בד"ץ הרב שלמה מחפוד (יורה דעה)</td>
-                  <td className="highlight-col"><strong>בד"ץ הרב שלמה מחפוד (יורה דעה) - זהה</strong></td>
+                  <td>משתנה / מקומית</td>
+                  <td className="highlight-col"><strong>בד"ץ הרב שלמה מחפוד (יורה דעה)</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -268,7 +267,7 @@ export default function AzkarotGeneralPage() {
 
           <div style={{ textAlign: "center", marginTop: "20px" }}>
             <p style={{ fontWeight: "700", color: "var(--secondary-green)" }}>
-              גם תפריט 43 הוא מלא, מכובד ומספק - עם אותה כשרות מהודרת בדיוק. תפריט 58 מוסיף בשר בקר איכותי ומגוון רחב יותר, למי שמעוניין. בשני המקרים - המנה הגדולה שתבחרו היא המנה שתקבלו, בלי אותיות קטנות.
+              לקוחות יקרים לתשומת לבכם! בטעם מהודר, המנה הגדולה שתבחרו היא המנה שתקבלו. בלי תוספות בתשלום על סלטים, בלי אותיות קטנות. ההצעה שלנו היא הנדיבה ביותר ובמחיר הכי טוב למפרט. התחייבות לשפע אמיתי לעילוי נשמת יקירכם.
             </p>
           </div>
         </div>
@@ -316,8 +315,8 @@ export default function AzkarotGeneralPage() {
                 <ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מענה טלפוני מהיר ורגיש:</strong> אנו מבינים את הדחיפות ומסייעים בבחירה מהירה.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>משלוח חם ישירות אליכם:</strong> האוכל מועבר במארזים מבודדי חום מיוחדים ומגיע חם מאוד.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>שני תפריטים לבחירה:</strong> תפריט 43 ₪ קומפקטי ומכובד, או תפריט 58 ₪ מורחב הכולל גם צלי בקר ורוסטביף.</span></li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>שפע אמיתי בכל תפריט:</strong> עד 7 סלטים ו-3 תוספות חמות במחיר קבוע ושקוף, ללא אותיות קטנות.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>מבחר בשרים ב-58 ש"ח — כולל בקר:</strong> צלי בקר, רוסטביף וקבב כלולים במחיר. מתחרים זולים מציעים בד"כ עוף בלבד.</span></li>
+                  <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>7 סלטים + 3 תוספות חמות:</strong> מתחרים בזול מסתפקים בד"כ 4 סלטים ו-2 תוספות בלבד — אצלנו שניים יותר מכל במחיר קבוע ושקוף.</span></li>
                   <li style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}><CheckIcon size={16} style={{ color: "var(--primary-gold)", marginTop: "4px" }} /> <span><strong>ללא טרחה:</strong> אין צורך בציוד חימום מורכב או בצוות מלצרים. מניחים ומגישים.</span></li>
                 </ul>
               </div>
@@ -369,9 +368,9 @@ export default function AzkarotGeneralPage() {
 
           <div className="faq-accordion">
             <details className="faq-item">
-              <summary className="faq-summary">מה ההבדל בין תפריט 43 לתפריט 58?</summary>
+              <summary className="faq-summary">למה עדיף לשלם 58 ₪ למנה ולא פחות?</summary>
               <div className="faq-content">
-                שני התפריטים כשרים למהדרין תחת אותה השגחת בד"ץ הרב שלמה מחפוד, ומספקים ארוחה מלאה ומכובדת. תפריט 43 ₪ כולל 5 סלטים, 2 תוספות חמות ו-3 מנות עיקריות (עוף, פרגית, קציצות בקר או קבב). תפריט 58 ₪ מרחיב ל-7 סלטים ו-3 תוספות, ומוסיף נתחי בקר איכותיים כמו צלי בקר ורוסטביף ללא תוספת תשלום.
+                כי ההבדל בשולחן הוא עצום: ב-39-45 ₪ מקבלים לרוב מנת עוף בסיסית ורק 4 סלטים. אצלנו ב-58 ₪ השולחן עמוס ב-7 סוגי סלטים טריים, 3 תוספות ומגוון בשרים איכותיים כולל בקר (צלי בקר ורוסטביף ללא תוספת תשלום). זו השקעה קטנה שעושה הבדל גדול בכבוד לנפטר ובשובע של המנחמים.
               </div>
             </details>
 
@@ -392,7 +391,7 @@ export default function AzkarotGeneralPage() {
             <details className="faq-item">
               <summary className="faq-summary">כמה מנות מומלץ להזמין לאזכרה? מה המינימום?</summary>
               <div className="faq-content">
-                בחישוב מנות קייטרינג לאזכרה, מומלץ תמיד לקחת בחשבון כ-10% יותר ממספר האנשים הצפוי למקרה שיגיעו מנחמים נוספים. מינימום ההזמנה בתפריט 43 ₪ הוא 40 מנות, ובתפריט המורחב ב-58 ₪ המינימום הוא 30 מנות בלבד.
+                בחישוב מנות קייטרינג לאזכרה, מומלץ תמיד לקחת בחשבון כ-10% יותר ממספר האנשים הצפוי למקרה שיגיעו מנחמים נוספים. מינימום ההזמנה אצלנו הוא 30 מנות בלבד, שזהו מינימום נמוך במיוחד המאפשר גם למשפחות קטנות ליהנות מקייטרינג איכותי ושופע.
               </div>
             </details>
 
