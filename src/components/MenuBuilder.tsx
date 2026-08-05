@@ -9,6 +9,14 @@ interface MenuBuilderProps {
   initialGuests?: number;
   minGuests?: number;
   eventTypesPlaceholder?: string;
+  showWhatsApp?: boolean;
+  showEventTypeField?: boolean;
+  combinedTimingField?: boolean;
+  formIntroText?: string;
+  ctaText?: string;
+  trustText?: string;
+  contactPhoneDisplay?: string;
+  contactPhoneHref?: string;
 }
 
 const getCategoryImageUrl = (categoryId: string): string => {
@@ -30,12 +38,20 @@ const getCategoryImageUrl = (categoryId: string): string => {
   }
 };
 
-export default function MenuBuilder({ 
-  menuData = CATERING_MENU, 
-  initialBasePrice = 58, 
+export default function MenuBuilder({
+  menuData = CATERING_MENU,
+  initialBasePrice = 58,
   initialGuests = 30,
   minGuests = 30,
-  eventTypesPlaceholder = "סוג האירוע (שבת חתן, ברית, חינה...)"
+  eventTypesPlaceholder = "סוג האירוע (שבת חתן, ברית, חינה...)",
+  showWhatsApp = false,
+  showEventTypeField = true,
+  combinedTimingField = false,
+  formIntroText = "💡 לאחר בחירת המנות, מלאו את פרטיכם בטופס ובקשותיכם יישלחו אלינו מיידית. נציג טלפוני יחזור אליכם בהקדם לתיאום וסגירת ההזמנה, לרבות פרטי המשלוח.",
+  ctaText = "📞 שלח פרטים ונציג יחזור אליך",
+  trustText,
+  contactPhoneDisplay = "052-6090930",
+  contactPhoneHref = "tel:0526090930"
 }: MenuBuilderProps) {
   const [guests, setGuests] = useState<number>(initialGuests);
   const [selections, setSelections] = useState<Record<string, string[]>>({
@@ -166,7 +182,7 @@ export default function MenuBuilder({
   const generateWhatsAppMessage = () => {
     let text = "שלום! רציתי לקבל הצעת מחיר לקייטרינג בשרי טעם מהודר.\n";
     text += `כמות אורחים: ${guests} איש\n`;
-    text += "סוג תפריט: תפריט בסיס ₪58 למנה\n\n";
+    text += `סוג תפריט: תפריט ₪${basePricePerGuest} למנה\n\n`;
 
     menuData.forEach((category) => {
       const chosenIds = selections[category.id] || [];
@@ -463,6 +479,15 @@ ${selectionsText}
                           disabled={isDisable}
                           onChange={() => {}} // handled by parent onClick
                         />
+                        {dish.image && (
+                          <img
+                            src={dish.image}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            className="dish-thumb"
+                          />
+                        )}
                         <div className="dish-details">
                           <span className="dish-title">
                             {dish.name}
@@ -587,102 +612,105 @@ ${selectionsText}
             </div>
           ) : (
             <div style={{ marginTop: "15px" }}>
-              {/* Method tab switcher */}
-              <div style={{
-                display: "flex",
-                background: "rgba(255,255,255,0.08)",
-                borderRadius: "var(--border-radius-sm)",
-                padding: "4px",
-                marginBottom: "15px",
-                border: "1px solid rgba(255,255,255,0.15)"
-              }}>
-                <button
-                  type="button"
-                  onClick={() => setCheckoutMethod("whatsapp")}
-                  style={{
-                    flex: 1,
-                    padding: "10px",
-                    background: checkoutMethod === "whatsapp" ? "#25D366" : "transparent",
-                    color: checkoutMethod === "whatsapp" ? "#fff" : "#25D366",
-                    border: checkoutMethod === "whatsapp" ? "none" : "1.5px solid #25D366",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    fontSize: "0.95rem",
-                    transition: "all 0.2s ease",
-                    marginLeft: "8px",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "6px"
-                  }}
-                >
-                  💬 וואטסאפ <span style={{ fontSize: "0.7rem", backgroundColor: checkoutMethod === "whatsapp" ? "rgba(255, 255, 255, 0.2)" : "rgba(37, 211, 102, 0.15)", padding: "2px 6px", borderRadius: "10px", fontWeight: "bold" }}>מהיר בקליק!</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCheckoutMethod("form")}
-                  style={{
-                    flex: 1,
-                    padding: "10px",
-                    background: checkoutMethod === "form" ? "var(--primary-gold)" : "transparent",
-                    color: checkoutMethod === "form" ? "#1e392a" : "#fff",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    fontSize: "0.95rem",
-                    transition: "all 0.2s ease"
-                  }}
-                >
-                  📞 טלפון חוזר
-                </button>
-              </div>
-
-              <div 
-                style={{ 
-                  display: checkoutMethod === "whatsapp" ? "flex" : "none", 
-                  flexDirection: "column", 
-                  gap: "10px" 
-                }}
-              >
-                {/* How it works for WhatsApp */}
-                <p style={{
-                  fontSize: "0.85rem",
-                  color: "#cbd5e1",
-                  margin: "0 0 10px 0",
-                  lineHeight: "1.5",
-                  backgroundColor: "rgba(255, 255, 255, 0.05)",
-                  padding: "10px 12px",
-                  borderRadius: "4px",
-                  borderRight: "3px solid #25D366",
-                  textAlign: "right"
+              {showWhatsApp && (
+                <div style={{
+                  display: "flex",
+                  background: "rgba(255,255,255,0.08)",
+                  borderRadius: "var(--border-radius-sm)",
+                  padding: "4px",
+                  marginBottom: "15px",
+                  border: "1px solid rgba(255,255,255,0.15)"
                 }}>
-                  💡 <strong>איך זה עובד?</strong> כל המנות והבחירות שלכם יישלחו אלינו בקליק אחד לנייד מיד עם המעבר לאפליקציית וואטסאפ (ללא צורך בהקלדה ידנית של התפריט).
-                </p>
-                <button
-                  onClick={handleWhatsAppSubmit}
-                  disabled={!canSubmit}
-                  className="btn btn-whatsapp"
+                  <button
+                    type="button"
+                    onClick={() => setCheckoutMethod("whatsapp")}
+                    style={{
+                      flex: 1,
+                      padding: "10px",
+                      background: checkoutMethod === "whatsapp" ? "#25D366" : "transparent",
+                      color: checkoutMethod === "whatsapp" ? "#fff" : "#25D366",
+                      border: checkoutMethod === "whatsapp" ? "none" : "1.5px solid #25D366",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      fontWeight: "bold",
+                      fontSize: "0.95rem",
+                      transition: "all 0.2s ease",
+                      marginLeft: "8px",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "6px"
+                    }}
+                  >
+                    💬 וואטסאפ <span style={{ fontSize: "0.7rem", backgroundColor: checkoutMethod === "whatsapp" ? "rgba(255, 255, 255, 0.2)" : "rgba(37, 211, 102, 0.15)", padding: "2px 6px", borderRadius: "10px", fontWeight: "bold" }}>מהיר בקליק!</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCheckoutMethod("form")}
+                    style={{
+                      flex: 1,
+                      padding: "10px",
+                      background: checkoutMethod === "form" ? "var(--primary-gold)" : "transparent",
+                      color: checkoutMethod === "form" ? "#1e392a" : "#fff",
+                      border: "none",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      fontWeight: "bold",
+                      fontSize: "0.95rem",
+                      transition: "all 0.2s ease"
+                    }}
+                  >
+                    📞 טלפון חוזר
+                  </button>
+                </div>
+              )}
+
+              {showWhatsApp && (
+                <div
                   style={{
-                    width: "100%",
-                    padding: "14px",
-                    fontSize: "1.15rem",
-                    opacity: !canSubmit ? 0.6 : 1,
-                    cursor: !canSubmit ? "not-allowed" : "pointer"
+                    display: checkoutMethod === "whatsapp" ? "flex" : "none",
+                    flexDirection: "column",
+                    gap: "10px"
                   }}
                 >
-                  💬 שלחו תפריט בוואטסאפ לתיאום
-                </button>
-              </div>
+                  {/* How it works for WhatsApp */}
+                  <p style={{
+                    fontSize: "0.85rem",
+                    color: "#cbd5e1",
+                    margin: "0 0 10px 0",
+                    lineHeight: "1.5",
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    padding: "10px 12px",
+                    borderRadius: "4px",
+                    borderRight: "3px solid #25D366",
+                    textAlign: "right"
+                  }}>
+                    💡 <strong>איך זה עובד?</strong> כל המנות והבחירות שלכם יישלחו אלינו בקליק אחד לנייד מיד עם המעבר לאפליקציית וואטסאפ (ללא צורך בהקלדה ידנית של התפריט).
+                  </p>
+                  <button
+                    onClick={handleWhatsAppSubmit}
+                    disabled={!canSubmit}
+                    className="btn btn-whatsapp"
+                    style={{
+                      width: "100%",
+                      padding: "14px",
+                      fontSize: "1.15rem",
+                      opacity: !canSubmit ? 0.6 : 1,
+                      cursor: !canSubmit ? "not-allowed" : "pointer"
+                    }}
+                  >
+                    💬 שלחו תפריט בוואטסאפ לתיאום
+                  </button>
+                </div>
+              )}
 
-              <form 
+              <form
                 id="menu-lead-form"
-                onSubmit={handleFormSubmit} 
-                style={{ 
-                  display: checkoutMethod === "form" ? "flex" : "none", 
-                  flexDirection: "column", 
-                  gap: "12px" 
+                onSubmit={handleFormSubmit}
+                style={{
+                  display: (!showWhatsApp || checkoutMethod === "form") ? "flex" : "none",
+                  flexDirection: "column",
+                  gap: "12px"
                 }}
               >
                 {/* How it works for Form */}
@@ -697,7 +725,7 @@ ${selectionsText}
                   borderRight: "3px solid var(--primary-gold)",
                   textAlign: "right"
                 }}>
-                  💡 <strong>איך זה עובד?</strong> לאחר בחירת המנות, מלאו את פרטיכם בטופס ובקשותיכם יישלחו אלינו מיידית. נציג טלפוני יחזור אליכם בהקדם לתיאום וסגירת ההזמנה, לרבות פרטי המשלוח.
+                  💡 <strong>איך זה עובד?</strong> {formIntroText}
                 </p>
                 {/* Honeypot field - invisible to users, autocomplete off, tabIndex -1 */}
                 <div style={{ display: "none" }} aria-hidden="true">
@@ -735,39 +763,55 @@ ${selectionsText}
                     className="builder-form-input"
                   />
                 </div>
-                <div>
-                  <input
-                    type="text"
-                    name="eventType"
-                    value={formData.eventType}
-                    onChange={handleInputChange}
-                    placeholder={eventTypesPlaceholder}
-                    aria-label="סוג האירוע"
-                    className="builder-form-input"
-                  />
-                </div>
-                <div style={{ display: "flex", gap: "8px" }}>
-                  <input
-                    type="text"
-                    name="eventDate"
-                    value={formData.eventDate}
-                    onChange={handleInputChange}
-                    placeholder="תאריך האירוע"
-                    aria-label="תאריך האירוע"
-                    style={{ flex: 1 }}
-                    className="builder-form-input"
-                  />
-                  <input
-                    type="text"
-                    name="eventTime"
-                    value={formData.eventTime}
-                    onChange={handleInputChange}
-                    placeholder="זמן / שעה"
-                    aria-label="זמן או שעת האירוע"
-                    style={{ flex: 1 }}
-                    className="builder-form-input"
-                  />
-                </div>
+                {showEventTypeField && (
+                  <div>
+                    <input
+                      type="text"
+                      name="eventType"
+                      value={formData.eventType}
+                      onChange={handleInputChange}
+                      placeholder={eventTypesPlaceholder}
+                      aria-label="סוג האירוע"
+                      className="builder-form-input"
+                    />
+                  </div>
+                )}
+                {combinedTimingField ? (
+                  <div>
+                    <input
+                      type="text"
+                      name="eventDate"
+                      value={formData.eventDate}
+                      onChange={handleInputChange}
+                      placeholder="מתי דרוש האוכל? (תאריך ושעה)"
+                      aria-label="מתי דרוש האוכל"
+                      className="builder-form-input"
+                    />
+                  </div>
+                ) : (
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <input
+                      type="text"
+                      name="eventDate"
+                      value={formData.eventDate}
+                      onChange={handleInputChange}
+                      placeholder="תאריך האירוע"
+                      aria-label="תאריך האירוע"
+                      style={{ flex: 1 }}
+                      className="builder-form-input"
+                    />
+                    <input
+                      type="text"
+                      name="eventTime"
+                      value={formData.eventTime}
+                      onChange={handleInputChange}
+                      placeholder="זמן / שעה"
+                      aria-label="זמן או שעת האירוע"
+                      style={{ flex: 1 }}
+                      className="builder-form-input"
+                    />
+                  </div>
+                )}
                 {/* Privacy Consent Checkbox */}
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginTop: "4px", textAlign: "right" }}>
                   <input
@@ -808,8 +852,33 @@ ${selectionsText}
                     cursor: (!canSubmit || !formData.name || !formData.phone || !privacyAccepted || isSubmitting) ? "not-allowed" : "pointer"
                   }}
                 >
-                  {isSubmitting ? "⌛ שולח פרטים..." : "📞 שלח פרטים ונציג יחזור אליך"}
+                  {isSubmitting ? "⌛ שולח פרטים..." : ctaText}
                 </button>
+
+                {!showWhatsApp && (
+                  <a
+                    href={contactPhoneHref}
+                    style={{
+                      textAlign: "center",
+                      fontSize: "0.85rem",
+                      color: "#cbd5e1",
+                      textDecoration: "underline"
+                    }}
+                  >
+                    מעדיפים לדבר עכשיו? חייגו {contactPhoneDisplay}
+                  </a>
+                )}
+
+                {trustText && (
+                  <p style={{
+                    textAlign: "center",
+                    fontSize: "0.78rem",
+                    color: "#94a3b8",
+                    margin: "0"
+                  }}>
+                    {trustText}
+                  </p>
+                )}
               </form>
 
               <button

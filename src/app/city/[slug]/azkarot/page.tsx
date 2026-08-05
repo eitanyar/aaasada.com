@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
-import MenuBuilder from "../../../../components/MenuBuilder";
+import AzkarotMenuTiers from "../../../../components/AzkarotMenuTiers";
 import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
 import { PhoneIcon } from "../../../../components/icons";
 import AzkarotReviews from "../../../../components/AzkarotReviews";
@@ -64,10 +64,11 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
     },
     "hasMenu": {
       "@type": "FoodMenu",
-      "name": "תפריט אזכרות בשרי כשר למהדרין ב-58 ש\"ח",
+      "name": "תפריטי אזכרות בשריים כשר למהדרין - החל מ-43 ש\"ח",
       "offers": {
-        "@type": "Offer",
-        "price": "58.00",
+        "@type": "AggregateOffer",
+        "lowPrice": "43.00",
+        "highPrice": "58.00",
         "priceCurrency": "ILS"
       }
     }
@@ -120,7 +121,7 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
             marginTop: "10px",
             marginBottom: "0"
           }}>
-            הזמנות החל מ-30 מנות בלבד
+            תפריטים במחירים הוגנים · פרטי מינימום ומחיר בבחירת התפריט למטה
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "20px" }}>
             <a href="#menu-section" className="btn btn-primary">
@@ -156,7 +157,7 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
               <p>משלוח מבוקר לכל שכונות העיר. פרטי אספקה ומחיר יימסרו בתיאום טלפוני.</p>
             </div>
           }>
-            <LocalDeliveryCard cityName={city.name} />
+            <LocalDeliveryCard cityName={city.name} azkarotDual={true} />
           </Suspense>
 
         </div>
@@ -170,14 +171,14 @@ export default async function AzkarotCityPage({ params }: { params: Promise<{ sl
       }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "var(--spacing-lg)" }}>
-            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריט אזכרות ₪58 למנה</span>
+            <span className="badge-kosher" style={{ marginBottom: "10px" }}>תפריטי אזכרות · החל מ-₪43 למנה</span>
             <h2>הרכיבו את התפריט שלכם לאזכרה ב{city.name}</h2>
             <p style={{ maxWidth: "600px", margin: "0 auto" }}>
-              בחרו את המנות העיקריות, התוספות והסלטים המועדפים. נציגנו יחזור אליכם בוואטסאפ או בטלפון עם אישור הזמנה מהיר.
+              בחרו את התפריט המתאים לכם, ואת המנות העיקריות, התוספות והסלטים המועדפים. נציגנו יחזור אליכם בטלפון עם אישור הזמנה מהיר.
             </p>
           </div>
 
-          <MenuBuilder />
+          <AzkarotMenuTiers />
         </div>
       </section>
 

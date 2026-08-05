@@ -5,6 +5,7 @@ export interface Dish {
   isPremium?: boolean;
   premiumPrice?: number;
   pricePerGuest?: boolean;
+  image?: string; // optional dish thumbnail (e.g. "/images/dishes/sl1.png")
 }
 
 export interface MenuCategory {
@@ -35,29 +36,29 @@ export const CATERING_MENU: MenuCategory[] = [
     name: "סלטים טריים (בחירה של 7 סלטים)",
     limit: 7,
     options: [
-      { id: "sl1", name: "חומוס הבית", description: "חומוס יפואי אורגינל עשיר עם שמן זית ופטרוזיליה" },
-      { id: "sl2", name: "טחינה", description: "טחינה עבודת יד עם לימון, שום ופטרוזיליה טרייה" },
-      { id: "sl3", name: "מסייר", description: "ירקות מוחמצים בסגנון ביתי אותנטי" },
-      { id: "sl4", name: "טבולה", description: "סלט בורגול עשיר עם ירק קצוץ, לימון ושמן זית" },
-      { id: "sl5", name: "הום פרייז", description: "קוביות בטטה אפויות ברוטב צ'ילי מתוק ושומשום קלוי" },
-      { id: "sl6", name: "סלט ישראלי", description: "מלפפון, עגבניות ובצל קצוצים דק בתיבול קלאסי" },
+      { id: "sl1", name: "חומוס הבית", description: "חומוס יפואי אורגינל עשיר עם שמן זית ופטרוזיליה", image: "/images/dishes/sl1.png" },
+      { id: "sl2", name: "טחינה", description: "טחינה עבודת יד עם לימון, שום ופטרוזיליה טרייה", image: "/images/dishes/sl2.png" },
+      { id: "sl3", name: "מסייר", description: "ירקות מוחמצים בסגנון ביתי אותנטי", image: "/images/dishes/sl3.png" },
+      { id: "sl4", name: "טבולה", description: "סלט בורגול עשיר עם ירק קצוץ, לימון ושמן זית", image: "/images/dishes/sl4.png" },
+      { id: "sl5", name: "הום פרייז", description: "קוביות בטטה אפויות ברוטב צ'ילי מתוק ושומשום קלוי", image: "/images/dishes/sl5.png" },
+      { id: "sl6", name: "סלט ישראלי", description: "מלפפון, עגבניות ובצל קצוצים דק בתיבול קלאסי", image: "/images/dishes/sl6.png" },
       { id: "sl7", name: "טריקולור פלפלים", description: "רצועות פלפלים בשלושה צבעים עם בצל סגול ותחמיץ" },
-      { id: "sl8", name: "גזר חי בלימון", description: "סלט גזר פריך ורענן עם מיץ לימון טבעי ושום" },
-      { id: "sl9", name: "גזר מרוקאי", description: "גזר מבושל בתיבול כמון, פפריקה חריפה וכוסברה" },
-      { id: "sl10", name: "סלק אדום", description: "סלק מבושל בתיבול ביתי של חומץ, כמון ושום" },
-      { id: "sl11", name: "מטבוחה מרוקאית", description: "סלט עגבניות ופלפלים חריפים מבושל שעות בבישול ארוך" },
-      { id: "sl12", name: "חציל מטוגן", description: "פרוסות חציל קלויות ושחומות בטעם של פעם" },
+      { id: "sl8", name: "גזר חי בלימון", description: "סלט גזר פריך ורענן עם מיץ לימון טבעי ושום", image: "/images/dishes/sl8.png" },
+      { id: "sl9", name: "גזר מרוקאי", description: "גזר מבושל בתיבול כמון, פפריקה חריפה וכוסברה", image: "/images/dishes/sl9.png" },
+      { id: "sl10", name: "סלק אדום", description: "סלק מבושל בתיבול ביתי של חומץ, כמון ושום", image: "/images/dishes/sl10.png" },
+      { id: "sl11", name: "מטבוחה מרוקאית", description: "סלט עגבניות ופלפלים חריפים מבושל שעות בבישול ארוך", image: "/images/dishes/sl11.png" },
+      { id: "sl12", name: "חציל מטוגן", description: "פרוסות חציל קלויות ושחומות בטעם של פעם", image: "/images/dishes/sl12.png" },
       { id: "sl13", name: "חציל מיונז", description: "סלט חציל קלוי במיונז עשיר ושום כתוש" },
-      { id: "sl14", name: "חציל בטחינה", description: "חציל קלוי על האש בשילוב טחינה ביתית איכותית" },
-      { id: "sl15", name: "זעלוק חציל", description: "סלט חציל מרוקאי מבושל עם עגבניות, שום ותבלינים" },
+      { id: "sl14", name: "חציל בטחינה", description: "חציל קלוי על האש בשילוב טחינה ביתית איכותית", image: "/images/dishes/sl14.png" },
+      { id: "sl15", name: "זעלוק חציל", description: "סלט חציל מרוקאי מבושל עם עגבניות, שום ותבלינים", image: "/images/dishes/sl15.png" },
       { id: "sl16", name: "סלט השוק", description: "לקט ירקות העונה טריים ופריכים בתיבול שמן זית ולימון" },
-      { id: "sl17", name: "קולסלאו", description: "סלט כרוב וגזר קצוצים ברוטב מיונז וחרדל עדין" },
-      { id: "sl18", name: "כרוב חמוציות", description: "סלט כרוב לבן פריך עם חמוציות מתוקות ברוטב חמוץ-מתוק" },
+      { id: "sl17", name: "קולסלאו", description: "סלט כרוב וגזר קצוצים ברוטב מיונז וחרדל עדין", image: "/images/dishes/sl17.png" },
+      { id: "sl18", name: "כרוב חמוציות", description: "סלט כרוב לבן פריך עם חמוציות מתוקות ברוטב חמוץ-מתוק", image: "/images/dishes/sl18.png" },
       { id: "sl19", name: "כרוב אדום במיונז", description: "כרוב אדום קצוץ דק ברוטב מיונז עשיר ולימון" },
-      { id: "sl20", name: "תפו\"א במיונז", description: "סלט תפוחי אדמה מבושלים עם אפונה, גזר ומלפפון חמוץ במיונז" },
-      { id: "sl21", name: "פלפל חריף מטוגן", description: "פלפלים חריפים מטוגנים בשמן עמוק ומומלצים לפתיחת התיאבון" },
-      { id: "sl22", name: "תירס צ'יליאני", description: "סלט גרגירי תירס מתוקים עם פלפלים צבעוניים ורוטב צ'ילי" },
-      { id: "sl23", name: "נלסון", description: "סלט כרוב צבעוני עם אגוזים וחמוציות בתיבול מיוחד" }
+      { id: "sl20", name: "תפו\"א במיונז", description: "סלט תפוחי אדמה מבושלים עם אפונה, גזר ומלפפון חמוץ במיונז", image: "/images/dishes/sl20.png" },
+      { id: "sl21", name: "פלפל חריף מטוגן", description: "פלפלים חריפים מטוגנים בשמן עמוק ומומלצים לפתיחת התיאבון", image: "/images/dishes/sl21.png" },
+      { id: "sl22", name: "תירס צ'יליאני", description: "סלט גרגירי תירס מתוקים עם פלפלים צבעוניים ורוטב צ'ילי", image: "/images/dishes/sl22.png" },
+      { id: "sl23", name: "נלסון", description: "סלט כרוב צבעוני עם אגוזים וחמוציות בתיבול מיוחד", image: "/images/dishes/sl23.png" },
     ]
   },
   {
@@ -65,19 +66,19 @@ export const CATERING_MENU: MenuCategory[] = [
     name: "תוספות חמות (בחירה של 3 תתוספות)",
     limit: 3,
     options: [
-      { id: "s1", name: "אורז לבן / מג'דרה / אורז אדום", description: "מגוון סגנונות של אורז בסמטי חגיגי ואוורירי" },
-      { id: "s2", name: "אורז לנטריה", description: "אורז בסמטי מבושל עם אטריות שחומות בתיבול ביתי" },
-      { id: "s3", name: "תפודים", description: "תפוחי אדמה זעירים אפויים בגריל עם שמן זית ורוזמרין" },
-      { id: "s4", name: "תפו\"א אפוי", description: "פלחי תפוחי אדמה זהובים ופריכים בתיבול פפריקה ועשבי תיבול" },
-      { id: "s5", name: "קוסקוס מרוקאי אוורירי", description: "קוסקוס סולת מסורתי המוכן בעבודת יד" },
-      { id: "s6", name: "מרק ירקות עשיר לקוסקוס", description: "מרק עם דלעת, קישואים, גזר וגרגירי חומוס מבושלים" },
-      { id: "s7", name: "זיתים מבושלים ברוטב", description: "תבשיל זיתים ירוקים ברוטב עגבניות פיקנטי וכמון" },
-      { id: "s8", name: "ארטישוק ופטריות", description: "תבשיל לבבות ארטישוק ופטריות יער בתיבול עדין" },
-      { id: "s9", name: "אפונה וסלרי", description: "אפונה ירוקה עדינה מבושלת עם גבעולי סלרי ריחניים" },
-      { id: "s10", name: "שעועית ברוטב עגבניות", description: "שעועית ירוקה או צהובה מבושלת ברוטב עגבניות ביתי" },
-      { id: "s11", name: "אפונה וגזר", description: "תבשיל אפונה וקוביות גזר בתיבול עדין וטעים" },
-      { id: "s12", name: "ירקות מוקפצים תאילנדי", description: "לקט ירקות העונה מוקפצים בווק עם שומשום ורוטב סויה" },
-      { id: "s13", name: "שעועית מוקפצת בסויה", description: "שעועית ירוקה מוקפצת קלות עם שום, סויה ושומשום קלוי" }
+      { id: "s1", name: "אורז לבן / מג'דרה / אורז אדום", description: "מגוון סגנונות של אורז בסמטי חגיגי ואוורירי", image: "/images/dishes/s1.png" },
+      { id: "s2", name: "אורז לנטריה", description: "אורז בסמטי מבושל עם אטריות שחומות בתיבול ביתי", image: "/images/dishes/s2.png" },
+      { id: "s3", name: "תפודים", description: "תפוחי אדמה זעירים אפויים בגריל עם שמן זית ורוזמרין", image: "/images/dishes/s3.png" },
+      { id: "s4", name: "תפו\"א אפוי", description: "פלחי תפוחי אדמה זהובים ופריכים בתיבול פפריקה ועשבי תיבול", image: "/images/dishes/s4.png" },
+      { id: "s5", name: "קוסקוס מרוקאי אוורירי", description: "קוסקוס סולת מסורתי המוכן בעבודת יד", image: "/images/dishes/s5.png" },
+      { id: "s6", name: "מרק ירקות עשיר לקוסקוס", description: "מרק עם דלעת, קישואים, גזר וגרגירי חומוס מבושלים", image: "/images/dishes/s6.png" },
+      { id: "s7", name: "זיתים מבושלים ברוטב", description: "תבשיל זיתים ירוקים ברוטב עגבניות פיקנטי וכמון", image: "/images/dishes/s7.png" },
+      { id: "s8", name: "ארטישוק ופטריות", description: "תבשיל לבבות ארטישוק ופטריות יער בתיבול עדין", image: "/images/dishes/s8.png" },
+      { id: "s9", name: "אפונה וסלרי", description: "אפונה ירוקה עדינה מבושלת עם גבעולי סלרי ריחניים", image: "/images/dishes/s9.png" },
+      { id: "s10", name: "שעועית ברוטב עגבניות", description: "שעועית ירוקה או צהובה מבושלת ברוטב עגבניות ביתי", image: "/images/dishes/s10.png" },
+      { id: "s11", name: "אפונה וגזר", description: "תבשיל אפונה וקוביות גזר בתיבול עדין וטעים", image: "/images/dishes/s11.png" },
+      { id: "s12", name: "ירקות מוקפצים תאילנדי", description: "לקט ירקות העונה מוקפצים בווק עם שומשום ורוטב סויה", image: "/images/dishes/s12.png" },
+      { id: "s13", name: "שעועית מוקפצת בסויה", description: "שעועית ירוקה מוקפצת קלות עם שום, סויה ושומשום קלוי", image: "/images/dishes/s13.png" },
     ]
   },
   {
@@ -85,18 +86,18 @@ export const CATERING_MENU: MenuCategory[] = [
     name: "מנות עיקריות (בחירה של 3 מנות)",
     limit: 3,
     options: [
-      { id: "m1", name: "צלי בקר ברוטב פטריות", description: "פרוסות בקר רכות בבישול ארוך עם רוטב פטריות עשיר" },
-      { id: "m2", name: "רוסטביף", description: "נתח בקר מובחר צלוי בתיבול חרדל, פלפל שחור גרוס ועשבי תיבול" },
-      { id: "m3", name: "סטייק פרגית על האש", description: "נתחי פרגית עסיסיים במרינדת תבלינים ים-תיכונית" },
-      { id: "m4", name: "קבב הבית", description: "קציצות בקר משובחות עם בצל ופטרוזיליה, צלויות על הגריל" },
-      { id: "m5", name: "חזה עוף בגריל", description: "נתחי חזה עוף טריים עשויים על הגריל בתיבול עדין" },
-      { id: "m6", name: "עוף בגריל - כרעיים", description: "כרעי עוף עסיסיים אפויים בתנור עם שום, דבש ורוזמרין" },
-      { id: "m7", name: "שניצל ביתי", description: "חזה עוף טרי בציפוי פירורי לחם מוזהבים ושומשום פריך" },
+      { id: "m1", name: "צלי בקר ברוטב פטריות", description: "פרוסות בקר רכות בבישול ארוך עם רוטב פטריות עשיר", image: "/images/dishes/m1.png" },
+      { id: "m2", name: "רוסטביף", description: "נתח בקר מובחר צלוי בתיבול חרדל, פלפל שחור גרוס ועשבי תיבול", image: "/images/dishes/m2.png" },
+      { id: "m3", name: "סטייק פרגית על האש", description: "נתחי פרגית עסיסיים במרינדת תבלינים ים-תיכונית", image: "/images/dishes/m3.png" },
+      { id: "m4", name: "קבב הבית", description: "קציצות בקר משובחות עם בצל ופטרוזיליה, צלויות על הגריל", image: "/images/dishes/m4.png" },
+      { id: "m5", name: "חזה עוף בגריל", description: "נתחי חזה עוף טריים עשויים על הגריל בתיבול עדין", image: "/images/dishes/m5.png" },
+      { id: "m6", name: "עוף בגריל - כרעיים", description: "כרעי עוף עסיסיים אפויים בתנור עם שום, דבש ורוזמרין", image: "/images/dishes/m6.png" },
+      { id: "m7", name: "שניצל ביתי", description: "חזה עוף טרי בציפוי פירורי לחם מוזהבים ושומשום פריך", image: "/images/dishes/m7.png" },
       { id: "m8", name: "מוקפץ סיני עם ירקות", description: "נתחי עוף מוקפצים עם ירקות העונה ברוטב אסייתי עשיר" },
-      { id: "m9", name: "קציצות בשר ברוטב", description: "קציצות בקר נימוחות בבישול ביתי עם רוטב עגבניות עשיר" },
-      { id: "m10", name: "פלפל ממולא טבעוני", description: "פלפל אדום ממולא באורז, ירקות ועשבי תיבול ברוטב עגבניות" },
-      { id: "m11", name: "אסאדו ביין", description: "בשר אסאדו שמן ועסיסי בצלייה ארוכה עם יין אדום ודבש", isPremium: true, premiumPrice: 7, pricePerGuest: true },
-      { id: "m12", name: "צלי בקר מס' 5", description: "נתח בקר מובחר בבישול ביתי איטי עם ירקות שורש", isPremium: true, premiumPrice: 7, pricePerGuest: true }
+      { id: "m9", name: "קציצות בשר ברוטב", description: "קציצות בקר נימוחות בבישול ביתי עם רוטב עגבניות עשיר", image: "/images/dishes/m9.png" },
+      { id: "m10", name: "פלפל ממולא טבעוני", description: "פלפל אדום ממולא באורז, ירקות ועשבי תיבול ברוטב עגבניות", image: "/images/dishes/m10.png" },
+      { id: "m11", name: "אסאדו ביין", description: "בשר אסאדו שמן ועסיסי בצלייה ארוכה עם יין אדום ודבש", isPremium: true, premiumPrice: 7, pricePerGuest: true, image: "/images/dishes/m11.png" },
+      { id: "m12", name: "צלי בקר מס' 5", description: "נתח בקר מובחר בבישול ביתי איטי עם ירקות שורש", isPremium: true, premiumPrice: 7, pricePerGuest: true, image: "/images/dishes/m12.png" },
     ]
   },
   {
@@ -104,16 +105,16 @@ export const CATERING_MENU: MenuCategory[] = [
     name: "מנות ביניים (+₪15 | ניתן לפצל)",
     limit: 99,
     options: [
-      { id: "i1", name: "פילה מושט מרוקאי", description: "פילה דג מושט מבושל ברוטב פיקנטי עשיר עם גזר, שום וכוסברה", isPremium: true, premiumPrice: 15, pricePerGuest: true },
+      { id: "i1", name: "פילה מושט מרוקאי", description: "פילה דג מושט מבושל ברוטב פיקנטי עשיר עם גזר, שום וכוסברה", isPremium: true, premiumPrice: 15, pricePerGuest: true, image: "/images/dishes/i1.png" },
       { id: "i2", name: "נסיכת הנילוס בחריימה", description: "נתחי דג נסיכת הנילוס ברוטב חריימה פיקנטי מסורתי", isPremium: true, premiumPrice: 15, pricePerGuest: true },
-      { id: "i3", name: "טונה מבושל בנוסח מרוקאי", description: "נתחי דג טונה עסיסיים מבושלים ברוטב עגבניות חריף עם פלפלים", isPremium: true, premiumPrice: 15, pricePerGuest: true },
-      { id: "i4", name: "דג סול מטוגן", description: "פילה דג סול בציפוי פריך וזהוב לצד לימון סחוט", isPremium: true, premiumPrice: 15, pricePerGuest: true },
+      { id: "i3", name: "טונה מבושל בנוסח מרוקאי", description: "נתחי דג טונה עסיסיים מבושלים ברוטב עגבניות חריף עם פלפלים", isPremium: true, premiumPrice: 15, pricePerGuest: true, image: "/images/dishes/i3.png" },
+      { id: "i4", name: "דג סול מטוגן", description: "פילה דג סול בציפוי פריך וזהוב לצד לימון סחוט", isPremium: true, premiumPrice: 15, pricePerGuest: true, image: "/images/dishes/i4.png" },
       { id: "i5", name: "מפרום - תפוד ממולא", description: "תפוח אדמה ממולא בבשר בקר טחון ותבלינים בבישול ארוך", isPremium: true, premiumPrice: 15, pricePerGuest: true },
       { id: "i6", name: "מוסקה - חציל ממולא", description: "שכבות חציל קלוי ממולא בשר בקר ברוטב עגבניות סמיך", isPremium: true, premiumPrice: 15, pricePerGuest: true },
-      { id: "i7", name: "רול טלה", description: "מאפה בצק עלים פריך במילוי בשר טלה מובחר ותבלינים", isPremium: true, premiumPrice: 15, pricePerGuest: true },
+      { id: "i7", name: "רול טלה", description: "מאפה בצק עלים פריך במילוי בשר טלה מובחר ותבלינים", isPremium: true, premiumPrice: 15, pricePerGuest: true, image: "/images/dishes/i7.png" },
       { id: "i8", name: "רול צ'יקן", description: "טורטייה מגולגלת וממולאת בבשר עוף קצוץ וירקות", isPremium: true, premiumPrice: 15, pricePerGuest: true },
       { id: "i9", name: "רול טבעוני", description: "טורטייה מגולגלת עם מילוי ירקות שורש מוקפצים ופטריות", isPremium: true, premiumPrice: 15, pricePerGuest: true },
-      { id: "i10", name: "בורקס ברוטב פטריות", description: "בורקס תפוחי אדמה פריך מוגש עם רוטב פטריות חם ועשיר", isPremium: true, premiumPrice: 15, pricePerGuest: true }
+      { id: "i10", name: "בורקס ברוטב פטריות", description: "בורקס תפוחי אדמה פריך מוגש עם רוטב פטריות חם ועשיר", isPremium: true, premiumPrice: 15, pricePerGuest: true, image: "/images/dishes/i10.png" },
     ]
   },
   {
@@ -121,9 +122,9 @@ export const CATERING_MENU: MenuCategory[] = [
     name: "מנות ביניים פרימיום (+₪25 | ניתן לפצל)",
     limit: 99,
     options: [
-      { id: "pi1", name: "פילה סלמון נורבגי", description: "פילה סלמון אפוי בתנור בתיבול עשבי תיבול, שמן זית ולימון", isPremium: true, premiumPrice: 25, pricePerGuest: true },
-      { id: "pi2", name: "פילה סלמון מרוקאי", description: "פילה סלמון עסיסי מבושל ברוטב מרוקאי עשיר עם כוסברה וגרגירי חומוס", isPremium: true, premiumPrice: 25, pricePerGuest: true },
-      { id: "pi3", name: "פאסטיה עוף ופירות יבשים", description: "מאפה מרוקאי פריך במילוי עוף מפורק, שקדים, צימוקים וקינמון", isPremium: true, premiumPrice: 25, pricePerGuest: true }
+      { id: "pi1", name: "פילה סלמון נורבגי", description: "פילה סלמון אפוי בתנור בתיבול עשבי תיבול, שמן זית ולימון", isPremium: true, premiumPrice: 25, pricePerGuest: true, image: "/images/dishes/pi1.png" },
+      { id: "pi2", name: "פילה סלמון מרוקאי", description: "פילה סלמון עסיסי מבושל ברוטב מרוקאי עשיר עם כוסברה וגרגירי חומוס", isPremium: true, premiumPrice: 25, pricePerGuest: true, image: "/images/dishes/pi2.png" },
+      { id: "pi3", name: "פאסטיה עוף ופירות יבשים", description: "מאפה מרוקאי פריך במילוי עוף מפורק, שקדים, צימוקים וקינמון", isPremium: true, premiumPrice: 25, pricePerGuest: true, image: "/images/dishes/pi3.png" },
     ]
   },
   {
@@ -136,8 +137,55 @@ export const CATERING_MENU: MenuCategory[] = [
       { id: "d3", name: "לחמניות פרנה", description: "לחם פרנה מרוקאי מסורתי ואפוי באבן", isPremium: true, premiumPrice: 3.5, pricePerGuest: true },
       { id: "d4", name: "כלים חד-פעמיים רויאל", description: "סט כלים חד פעמיים מהודרים ואיכותיים ביותר להגשה", isPremium: true, premiumPrice: 10, pricePerGuest: true },
       { id: "d5", name: "שתייה קלה", description: "מגוון בקבוקי שתייה קלה קרים ואיכותיים לאירוע", isPremium: true, premiumPrice: 10, pricePerGuest: true },
-      { id: "d6", name: "מגש קינוחים (60 יחידות)", description: "מגש עשיר ומגוון של קינוחי פרווה איכותיים ואישיים", isPremium: true, premiumPrice: 180, pricePerGuest: false },
-      { id: "d7", name: "מוס שוקולד / טרימיסו / קינוח הבית", description: "מוס אישי מפנק לקינוח האירוח", isPremium: true, premiumPrice: 12, pricePerGuest: true }
+      { id: "d6", name: "מגש קינוחים (60 יחידות)", description: "מגש עשיר ומגוון של קינוחי פרווה איכותיים ואישיים", isPremium: true, premiumPrice: 180, pricePerGuest: false, image: "/images/dishes/d6.png" },
+      { id: "d7", name: "מוס שוקולד / טרימיסו / קינוח הבית", description: "מוס אישי מפנק לקינוח האירוח", isPremium: true, premiumPrice: 12, pricePerGuest: true, image: "/images/dishes/d7.png" },
+    ]
+  }
+];
+
+// Leaner, entry-level azkarot menu (₪43/portion, min 40 guests).
+// No premium beef cuts, fish or dessert add-ons — a compact, dignified spread
+// under the same bד"ץ מחפוד kashrut as the full CATERING_MENU.
+export const AZKAROT_MENU_43: MenuCategory[] = [
+  {
+    id: "salads",
+    name: "סלטים טריים (בחירה של 5 סלטים)",
+    limit: 5,
+    options: [
+      { id: "sl1", name: "חומוס הבית", description: "חומוס יפואי אורגינל עשיר עם שמן זית ופטרוזיליה", image: "/images/dishes/sl1.png" },
+      { id: "sl2", name: "טחינה", description: "טחינה עבודת יד עם לימון, שום ופטרוזיליה טרייה", image: "/images/dishes/sl2.png" },
+      { id: "sl3", name: "מסייר", description: "ירקות מוחמצים בסגנון ביתי אותנטי", image: "/images/dishes/sl3.png" },
+      { id: "sl6", name: "סלט ישראלי", description: "מלפפון, עגבניות ובצל קצוצים דק בתיבול קלאסי", image: "/images/dishes/sl6.png" },
+      { id: "sl9", name: "גזר מרוקאי", description: "גזר מבושל בתיבול כמון, פפריקה חריפה וכוסברה", image: "/images/dishes/sl9.png" },
+      { id: "sl17", name: "קולסלאו", description: "סלט כרוב וגזר קצוצים ברוטב מיונז וחרדל עדין", image: "/images/dishes/sl17.png" },
+      { id: "sl20", name: "תפו\"א במיונז", description: "סלט תפוחי אדמה מבושלים עם אפונה, גזר ומלפפון חמוץ במיונז", image: "/images/dishes/sl20.png" },
+      { id: "sl12", name: "חציל מטוגן", description: "פרוסות חציל קלויות ושחומות בטעם של פעם", image: "/images/dishes/sl12.png" },
+      { id: "sl22", name: "תירס צ'יליאני", description: "סלט גרגירי תירס מתוקים עם פלפלים צבעוניים ורוטב צ'ילי", image: "/images/dishes/sl22.png" },
+    ]
+  },
+  {
+    id: "sides",
+    name: "תוספות חמות (בחירה של 2 תוספות)",
+    limit: 2,
+    options: [
+      { id: "s1", name: "אורז לבן / מג'דרה / אורז אדום", description: "מגוון סגנונות של אורז בסמטי חגיגי ואוורירי", image: "/images/dishes/s1.png" },
+      { id: "s5", name: "קוסקוס מרוקאי אוורירי", description: "קוסקוס סולת מסורתי המוכן בעבודת יד", image: "/images/dishes/s5.png" },
+      { id: "s3", name: "תפודים", description: "תפוחי אדמה זעירים אפויים בגריל עם שמן זית ורוזמרין", image: "/images/dishes/s3.png" },
+      { id: "s10", name: "שעועית ברוטב עגבניות", description: "שעועית ירוקה או צהובה מבושלת ברוטב עגבניות ביתי", image: "/images/dishes/s10.png" },
+      { id: "s12", name: "ירקות מוקפצים תאילנדי", description: "לקט ירקות העונה מוקפצים בווק עם שומשום ורוטב סויה", image: "/images/dishes/s12.png" },
+    ]
+  },
+  {
+    id: "mains",
+    name: "מנות עיקריות (בחירה של 3 מנות)",
+    limit: 3,
+    options: [
+      { id: "m9", name: "קציצות בשר ברוטב", description: "קציצות בקר נימוחות בבישול ביתי עם רוטב עגבניות עשיר", image: "/images/dishes/m9.png" },
+      { id: "m4", name: "קבב הבית", description: "קציצות בקר משובחות עם בצל ופטרוזיליה, צלויות על הגריל", image: "/images/dishes/m4.png" },
+      { id: "m3", name: "סטייק פרגית על האש", description: "נתחי פרגית עסיסיים במרינדת תבלינים ים-תיכונית", image: "/images/dishes/m3.png" },
+      { id: "m5", name: "חזה עוף בגריל", description: "נתחי חזה עוף טריים עשויים על הגריל בתיבול עדין", image: "/images/dishes/m5.png" },
+      { id: "m6", name: "עוף בגריל - כרעיים", description: "כרעי עוף עסיסיים אפויים בתנור עם שום, דבש ורוזמרין", image: "/images/dishes/m6.png" },
+      { id: "m7", name: "שניצל ביתי", description: "חזה עוף טרי בציפוי פירורי לחם מוזהבים ושומשום פריך", image: "/images/dishes/m7.png" },
     ]
   }
 ];
@@ -667,7 +715,7 @@ export const PASSOVER_MENU: MenuCategory[] = [
       { id: "p_sl7", name: "קולסלאו", description: "" },
       { id: "p_sl8", name: "כרוב חמוציות", description: "" },
       { id: "p_sl9", name: "פלפל חריף מטוגן", description: "" },
-      { id: "p_sl10", name: "תירס צ'יליאני", description: "" }
+      { id: "p_sl10", name: "תירס צ'יליאני", description: "" },
     ]
   },
   {
@@ -679,7 +727,7 @@ export const PASSOVER_MENU: MenuCategory[] = [
       { id: "p_s2", name: "ארטישוק בפטריות", description: "" },
       { id: "p_s3", name: "אפונה וגזר", description: "" },
       { id: "p_s4", name: "שעועית ירוקה", description: "" },
-      { id: "p_s5", name: "ירקות מוקפצים", description: "" }
+      { id: "p_s5", name: "ירקות מוקפצים", description: "" },
     ]
   },
   {
@@ -691,7 +739,7 @@ export const PASSOVER_MENU: MenuCategory[] = [
       { id: "p_in2", name: "נסיכת הנילוס מרוקאי", description: "" },
       { id: "p_in3", name: "טונה בנוסח מרוקאי", description: "" },
       { id: "p_in4", name: "דג סול מטוגן מרוקאי", description: "" },
-      { id: "p_in5", name: "קציצות דגים ברוטב", description: "" }
+      { id: "p_in5", name: "קציצות דגים ברוטב", description: "" },
     ]
   },
   {
@@ -706,7 +754,7 @@ export const PASSOVER_MENU: MenuCategory[] = [
       { id: "p_m5", name: "חזה עוף על האש", description: "" },
       { id: "p_m6", name: "שניצל עוף פריך", description: "" },
       { id: "p_m7", name: "שוקיים עוף ברוטב / אפוי", description: "" },
-      { id: "p_m8", name: "עוף בגריל אפוי (כרעיים)", description: "" }
+      { id: "p_m8", name: "עוף בגריל אפוי (כרעיים)", description: "" },
     ]
   }
 ];
@@ -726,7 +774,7 @@ export const ROSH_HASHANAH_MENU: MenuCategory[] = [
       { id: "r_sl7", name: "טחינה לבנונית", description: "" },
       { id: "r_sl8", name: "חומוס הבית", description: "" },
       { id: "r_sl9", name: "קולסלאו", description: "" },
-      { id: "r_sl10", name: "סלט השוק", description: "" }
+      { id: "r_sl10", name: "סלט השוק", description: "" },
     ]
   },
   {
@@ -741,7 +789,7 @@ export const ROSH_HASHANAH_MENU: MenuCategory[] = [
       { id: "r_s5", name: "קינואה בוטנים וחמוציות", description: "" },
       { id: "r_s6", name: "ארטישוק אפונה ופטריות", description: "" },
       { id: "r_s7", name: "ירקות קלויים בטאבון", description: "" },
-      { id: "r_s8", name: "קוביות בטטה בצ'ילי", description: "" }
+      { id: "r_s8", name: "קוביות בטטה בצ'ילי", description: "" },
     ]
   },
   {
@@ -754,7 +802,7 @@ export const ROSH_HASHANAH_MENU: MenuCategory[] = [
       { id: "r_in3", name: "פילה מושט מרוקאי פיקנטי", description: "" },
       { id: "r_in4", name: "קציצות דג לברק ברוטב מזרחי", description: "" },
       { id: "r_in5", name: "מעטפת פילו פרגית ופירות יבשים", description: "" },
-      { id: "r_in6", name: "טורטיה רול ממולאת בשר", description: "" }
+      { id: "r_in6", name: "טורטיה רול ממולאת בשר", description: "" },
     ]
   },
   {
@@ -768,7 +816,7 @@ export const ROSH_HASHANAH_MENU: MenuCategory[] = [
       { id: "r_m4", name: "פרגית צלויה על האש", description: "" },
       { id: "r_m5", name: "פרגית ממולאת", description: "" },
       { id: "r_m6", name: "כרעיים עוף ברוטב הדרים", description: "" },
-      { id: "r_m7", name: "כרעיים עוף בשמן זית שום וטימין", description: "" }
+      { id: "r_m7", name: "כרעיים עוף בשמן זית שום וטימין", description: "" },
     ]
   }
 ];

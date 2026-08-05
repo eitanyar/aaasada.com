@@ -336,6 +336,16 @@ a:hover {
   cursor: pointer;
 }
 
+.dish-thumb {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: var(--border-radius-sm);
+  object-fit: cover;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+}
+
 .dish-details {
   display: flex;
   flex-direction: column;
