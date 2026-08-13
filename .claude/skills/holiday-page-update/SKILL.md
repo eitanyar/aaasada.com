@@ -33,8 +33,9 @@ Read, in this order:
   Hebrew dish names AND the "choose N" count (that N becomes the category `limit`).
 - **Base price** per portion (₪) and **minimum portions**.
 - **Order rules**: e.g. "בכפולות של 5 בלבד" (multiples of N), minimum.
-- **A-la-carte items**: any category priced separately per portion with its own min/step
-  (Rosh Hashanah: מנות ביניים ₪35, min 5, ×5) — these are NOT part of the base price.
+- **Add-on items**: any category priced separately per portion (Rosh Hashanah: מנות ביניים ₪35) —
+  NOT part of the base price. Each selected add-on is supplied in the SAME quantity as the base
+  order (guest count); cost = (# add-ons selected) × price × guests. No separate quantity input.
 - **Dates**: order deadline (Gregorian + Hebrew date), delivery windows, delivery-fee note.
 - **Kashrut**: supervising body (e.g. בד"ץ יורה דעה / בד"ץ הרב מחפוד).
 
@@ -42,12 +43,13 @@ Read, in this order:
 Replace the holiday's `<HOLIDAY>_MENU` options + `limit` per the brochure. Keep the ID
 convention (prefix per holiday, e.g. `r_sl*`/`r_s*`/`r_m*`/`r_in*`). Descriptions may be "".
 
-## Step 2 — MenuBuilder (only if an a-la-carte category exists)
-MenuBuilder already supports **opt-in** a-la-carte via props:
-`alaCarteCategoryId`, `alaCartePricePerPortion`, `alaCarteMinPortions`, `alaCartePortionStep`.
+## Step 2 — MenuBuilder (only if an add-on category exists)
+MenuBuilder already supports an **opt-in add-on category** via props:
+`alaCarteCategoryId` (the category id) + `alaCartePricePerPortion`. The add-on category renders
+as normal checkboxes (no limit, no separate quantity input); each selected add-on is billed at
+`price × guests` and folded into the total. Place the add-on category LAST in the menu array.
 It also snaps the guest count to multiples of 5. **Do not change default behavior** — these
-props must stay optional/off so the other ~13 pages are unaffected. Only add new mechanics
-if the brochure needs something the props don't cover.
+props must stay optional/off so the other ~13 pages are unaffected.
 
 ## Step 3 — Page (`src/app/holidays/<slug>/page.tsx`)
 - **Hero = the unified green `hero-section`** (same as homepage & event pages). Structure:
@@ -78,7 +80,9 @@ Add/refresh **one** seasonal strip as the **first `<section>` after the hero** i
 - Keep it to ONE primary equity link on the homepage (don't repeat the exact anchor elsewhere).
 
 ## Client-locked conventions (do NOT violate)
-- **No English in user-facing labels.** e.g. never "(a-la-carte)" — write "(תוספת של 35 ₪ למנה)".
+- **No English in user-facing labels.** e.g. never "(a-la-carte)" — write "(בתוספת של 35 ₪ למנה)".
+- **Use "בתוספת" (not "תוספת")** in add-on price labels/copy.
+- **Add-on category goes LAST** in the menu, after mains; it has no "choose N" limit.
 - **Shekel format is number-first**: "110 ₪ למנה", never "₪110", in body/label copy.
 - **Hero must match the homepage/event pages** (prominent green, CTA inside it).
 - **Anchor text = the target page's title keyword** ("אוכל מוכן ל<חג>").

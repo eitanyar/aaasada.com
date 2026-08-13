@@ -796,8 +796,23 @@ export const ROSH_HASHANAH_MENU: MenuCategory[] = [
     ]
   },
   {
+    id: "mains",
+    name: "מנות עיקריות (2)",
+    limit: 2,
+    options: [
+      { id: "r_m1", name: "פרגית על האש", description: "" },
+      { id: "r_m2", name: "קבב ביתי אמיתי", description: "" },
+      { id: "r_m3", name: "קציצות בשר ברוטב עגבניות", description: "" },
+      { id: "r_m4", name: "אסאדו ברוטב הבית", description: "" },
+      { id: "r_m5", name: "צלי בקר ברוטב פטריות", description: "" },
+      { id: "r_m6", name: "בשר ראש ברוטב פיקנטי", description: "" },
+      { id: "r_m7", name: "שניצל עוף", description: "" },
+      { id: "r_m8", name: "שניצלונים", description: "" },
+    ]
+  },
+  {
     id: "intermediates",
-    name: "מנות ביניים (תוספת של 35 ₪ למנה)",
+    name: "מנות ביניים (בתוספת של 35 ₪ למנה)",
     limit: 99,
     options: [
       { id: "r_in1", name: "כבדי עוף ברוטב יין", description: "" },
@@ -812,21 +827,6 @@ export const ROSH_HASHANAH_MENU: MenuCategory[] = [
       { id: "r_in10", name: "דג טונה ברוטב מרוקאי", description: "" },
       { id: "r_in11", name: "ברבוניות מטוגנות", description: "" },
       { id: "r_in12", name: "פילה אמנון מטוגן", description: "" },
-    ]
-  },
-  {
-    id: "mains",
-    name: "מנות עיקריות (2)",
-    limit: 2,
-    options: [
-      { id: "r_m1", name: "פרגית על האש", description: "" },
-      { id: "r_m2", name: "קבב ביתי אמיתי", description: "" },
-      { id: "r_m3", name: "קציצות בשר ברוטב עגבניות", description: "" },
-      { id: "r_m4", name: "אסאדו ברוטב הבית", description: "" },
-      { id: "r_m5", name: "צלי בקר ברוטב פטריות", description: "" },
-      { id: "r_m6", name: "בשר ראש ברוטב פיקנטי", description: "" },
-      { id: "r_m7", name: "שניצל עוף", description: "" },
-      { id: "r_m8", name: "שניצלונים", description: "" },
     ]
   }
 ];

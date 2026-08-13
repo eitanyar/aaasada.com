@@ -103,8 +103,6 @@ export default function RoshHashanahPage() {
             eventTypesPlaceholder="לאיזה חג (ערב חג, חג שני...)"
             alaCarteCategoryId="intermediates"
             alaCartePricePerPortion={35}
-            alaCarteMinPortions={5}
-            alaCartePortionStep={5}
             showMultipleNote={true}
           />
 
