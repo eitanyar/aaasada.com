@@ -19,8 +19,8 @@ export const metadata = {
 export default function RoshHashanahPage() {
   return (
     <div style={{ backgroundColor: "var(--bg-warm-sand)", paddingBottom: "40px" }}>
-      {/* Hero — unified green hero, matching the homepage and event pages */}
-      <section className="hero-section">
+      {/* Hero — local Rosh Hashanah image with an overlay for copy contrast */}
+      <section className="hero-section rosh-hashanah-hero">
         <div className="container">
           <div className="badge-kosher" style={{
             backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -52,7 +52,9 @@ export default function RoshHashanahPage() {
           }}>
             חגיגה של טעם, ריח וצבע לשולחן החג — מגשי אוכל מוכן חמים ונדיבים, מבושלים באהבה ומגיעים ישירות אליכם.
             <br />
-            מחיר 110 ₪ למנה · מינימום 10 מנות (בכפולות של 5 בלבד).
+            <strong>שבוע אחרון למבצע — מ-10 מנות בלבד!</strong>
+            <br />
+            <span style={{ fontSize: "1.1rem" }}>110 ₪ למנה</span>
           </p>
 
           <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap", marginTop: "15px" }}>

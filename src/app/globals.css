@@ -1318,6 +1318,23 @@ body.accessibility-high-contrast img {
 .hero-section.azkarot-hero {
   background: linear-gradient(135deg, #373a36 0%, #1f211e 100%) !important;
 }
+.hero-section.rosh-hashanah-hero {
+  background-image: url("/images/rosh-hashanah-hero.webp");
+  background-position: center 55%;
+  background-size: cover;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero-section.rosh-hashanah-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(18, 31, 12, 0.88) 0%, rgba(24, 38, 15, 0.72) 52%, rgba(18, 31, 12, 0.84) 100%);
+}
+.hero-section.rosh-hashanah-hero .container {
+  position: relative;
+}
 
 /* Hero buttons default padding/font size on desktop */
 .hero-section .btn {
@@ -1351,6 +1368,9 @@ body.accessibility-high-contrast img {
     font-size: 0.8rem !important;
     padding: 4px 8px !important;
     margin-bottom: 6px !important;
+  }
+  .hero-section.rosh-hashanah-hero {
+    background-position: center 52%;
   }
   .hero-section .btn {
     padding: 10px 20px !important; /* Shrunk padding on mobile */
