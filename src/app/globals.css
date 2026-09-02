@@ -337,9 +337,9 @@ a:hover {
 }
 
 .dish-thumb {
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
   border-radius: var(--border-radius-sm);
   object-fit: cover;
   background-color: #ffffff;
