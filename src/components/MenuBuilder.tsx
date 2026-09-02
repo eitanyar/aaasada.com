@@ -19,9 +19,10 @@ interface MenuBuilderProps {
   contactPhoneHref?: string;
   // Add-on category opt-in (e.g. Rosh Hashanah "intermediates" dishes sold as add-ons).
   // Off by default — pass alaCarteCategoryId to activate for a specific menuData category id.
-  // Each selected add-on is supplied in the base order quantity (guests) at the price per portion.
   alaCarteCategoryId?: string;
   alaCartePricePerPortion?: number;
+  alaCarteMinPortions?: number;
+  alaCartePortionStep?: number;
   // Show the "(בכפולות של 5 בלבד)" note on the guest counter. Off by default so other
   // pages keep their existing copy; enable per page (e.g. Rosh Hashanah) where it applies.
   showMultipleNote?: boolean;
@@ -62,6 +63,8 @@ export default function MenuBuilder({
   contactPhoneHref = "tel:0526090930",
   alaCarteCategoryId,
   alaCartePricePerPortion = 35,
+  alaCarteMinPortions = 5,
+  alaCartePortionStep = 5,
   showMultipleNote = false
 }: MenuBuilderProps) {
   const [guests, setGuests] = useState<number>(initialGuests);
@@ -73,6 +76,7 @@ export default function MenuBuilder({
     premiumIntermediates: [],
     desserts: [],
   });
+  const [alaCarteQuantities, setAlaCarteQuantities] = useState<Record<string, number>>({});
 
   // Checkout Form States - Defaulting to "form" for kosher phone support
   const [checkoutMethod, setCheckoutMethod] = useState<"whatsapp" | "form">("form");
@@ -137,12 +141,25 @@ export default function MenuBuilder({
       const current = prev[categoryId] || [];
       const isChecked = current.includes(dishId);
       if (isChecked) {
+        if (categoryId === alaCarteCategoryId) {
+          setAlaCarteQuantities((quantities) => {
+            const remainingQuantities = { ...quantities };
+            delete remainingQuantities[dishId];
+            return remainingQuantities;
+          });
+        }
         return {
           ...prev,
           [categoryId]: current.filter((id) => id !== dishId),
         };
       } else {
         if (current.length < limit) {
+          if (categoryId === alaCarteCategoryId) {
+            setAlaCarteQuantities((quantities) => ({
+              ...quantities,
+              [dishId]: alaCarteMinPortions,
+            }));
+          }
           return {
             ...prev,
             [categoryId]: [...current, dishId],
@@ -151,6 +168,26 @@ export default function MenuBuilder({
       }
       return prev;
     });
+  };
+
+  const snapAlaCarteQuantity = (value: number) => {
+    if (value <= 0) return 0;
+    return Math.max(
+      alaCarteMinPortions,
+      Math.round(value / alaCartePortionStep) * alaCartePortionStep,
+    );
+  };
+
+  const updateAlaCarteQuantity = (dishId: string, quantity: number) => {
+    setAlaCarteQuantities((quantities) => ({ ...quantities, [dishId]: quantity }));
+  };
+
+  const commitAlaCarteQuantity = (dishId: string, quantity: number) => {
+    if (quantity <= 0 && alaCarteCategoryId) {
+      handleToggle(alaCarteCategoryId, dishId);
+      return;
+    }
+    updateAlaCarteQuantity(dishId, snapAlaCarteQuantity(quantity));
   };
 
   // Calculations
@@ -162,6 +199,7 @@ export default function MenuBuilder({
   let maxMainPrice = 0;
 
   Object.entries(selections).forEach(([catId, ids]) => {
+    if (catId === alaCarteCategoryId) return;
     ids.forEach((id) => {
       const dish = findDish(id);
       if (dish && dish.premiumPrice) {
@@ -185,17 +223,31 @@ export default function MenuBuilder({
   extraPrice += maxIntermediatePrice * guests;
   extraPrice += maxMainPrice * guests;
 
-  // Add-on category (opt-in): each selected add-on is supplied in the same quantity as the
-  // base order (guests) at a flat price per portion. Cost = (# add-ons) × price × guests.
   const isAlaCarteActive = Boolean(alaCarteCategoryId);
   const alaCarteSelection = alaCarteCategoryId ? (selections[alaCarteCategoryId] || []) : [];
-  const alaCarteTotal = isAlaCarteActive
-    ? alaCarteSelection.length * alaCartePricePerPortion * guests
-    : 0;
+  const isAlaCarteQuantityValid = (quantity: number) => (
+    quantity >= alaCarteMinPortions && quantity % alaCartePortionStep === 0
+  );
+  const hasInvalidAlaCarteQuantity = isAlaCarteActive && alaCarteSelection.some(
+    (dishId) => !isAlaCarteQuantityValid(alaCarteQuantities[dishId] ?? 0),
+  );
+  const alaCarteTotalPortions = alaCarteSelection.reduce(
+    (total, dishId) => total + (alaCarteQuantities[dishId] || 0),
+    0,
+  );
+  const alaCarteTotal = alaCarteTotalPortions * alaCartePricePerPortion;
+  const alaCarteDetails = alaCarteSelection.map((dishId) => {
+    const quantity = alaCarteQuantities[dishId] || 0;
+    return {
+      dish: findDish(dishId),
+      quantity,
+      total: quantity * alaCartePricePerPortion,
+    };
+  }).filter((detail): detail is { dish: Dish; quantity: number; total: number } => Boolean(detail.dish));
 
   const totalPrice = basePrice + extraPrice + alaCarteTotal;
   const hasSelectedMains = (selections.mains || []).length > 0;
-  const canSubmit = isGuestCountValid && hasSelectedMains;
+  const canSubmit = isGuestCountValid && hasSelectedMains && !hasInvalidAlaCarteQuantity;
 
   // Build the WhatsApp message content
   const generateWhatsAppMessage = () => {
@@ -204,6 +256,7 @@ export default function MenuBuilder({
     text += `סוג תפריט: תפריט ₪${basePricePerGuest} למנה\n\n`;
 
     menuData.forEach((category) => {
+      if (category.id === alaCarteCategoryId) return;
       const chosenIds = selections[category.id] || [];
       const chosenDishes = chosenIds.map(id => findDish(id)).filter(Boolean) as Dish[];
       if (chosenDishes.length > 0) {
@@ -219,8 +272,12 @@ export default function MenuBuilder({
       }
     });
 
-    if (isAlaCarteActive && alaCarteSelection.length > 0) {
-      text += `תוספת מנות ביניים: ${alaCarteSelection.length} סוגים × ₪${alaCartePricePerPortion} למנה × ${guests} מנות = ₪${alaCarteTotal.toLocaleString()}\n\n`;
+    if (isAlaCarteActive && alaCarteDetails.length > 0) {
+      text += "מנות ביניים:\n";
+      alaCarteDetails.forEach(({ dish, quantity, total }) => {
+        text += `- ${dish.name}: ${quantity} מנות × ₪${alaCartePricePerPortion} = ₪${total.toLocaleString()}\n`;
+      });
+      text += `סה\"כ מנות ביניים: ${alaCarteTotalPortions} מנות = ₪${alaCarteTotal.toLocaleString()}\n\n`;
     }
 
     text += `💰 סה"כ משוער להזמנה: ₪${totalPrice.toLocaleString()} (לא כולל דמי משלוח שיחושבו בנפרד).\n`;
@@ -258,6 +315,7 @@ export default function MenuBuilder({
     // Build human readable list of selections for email message body
     let selectionsText = "";
     menuData.forEach((category) => {
+      if (category.id === alaCarteCategoryId) return;
       const chosenIds = selections[category.id] || [];
       const chosenDishes = chosenIds.map(id => findDish(id)).filter(Boolean) as Dish[];
       if (chosenDishes.length > 0) {
@@ -273,8 +331,12 @@ export default function MenuBuilder({
       }
     });
 
-    if (isAlaCarteActive && alaCarteSelection.length > 0) {
-      selectionsText += `תוספת מנות ביניים: ${alaCarteSelection.length} סוגים × ₪${alaCartePricePerPortion} למנה × ${guests} מנות = ₪${alaCarteTotal.toLocaleString()}\n\n`;
+    if (isAlaCarteActive && alaCarteDetails.length > 0) {
+      selectionsText += "מנות ביניים:\n";
+      alaCarteDetails.forEach(({ dish, quantity, total }) => {
+        selectionsText += `- ${dish.name}: ${quantity} מנות × ₪${alaCartePricePerPortion} = ₪${total.toLocaleString()}\n`;
+      });
+      selectionsText += `סה\"כ מנות ביניים: ${alaCarteTotalPortions} מנות = ₪${alaCarteTotal.toLocaleString()}\n\n`;
     }
 
     const fullMessage = `
@@ -411,6 +473,7 @@ ${selectionsText}
         {/* Step 2: Food Categories Selection */}
         {menuData.map((category) => {
           const isUnlimited = LIMITS[category.id] === 99;
+          const isAlaCarteCategory = category.id === alaCarteCategoryId;
           const currentSelection = selections[category.id] || [];
           const reachedLimit = !isUnlimited && currentSelection.length >= LIMITS[category.id];
           const bannerImg = getCategoryImageUrl(category.id);
@@ -470,6 +533,11 @@ ${selectionsText}
                 <h3 style={{ margin: 0, fontFamily: "sans-serif", fontWeight: "700", color: "#ffffff", fontSize: "1.2rem", textShadow: "1px 1px 3px rgba(0,0,0,0.5)", position: "relative", zIndex: 2 }}>
                   {renderCategoryName(category.name)}
                 </h3>
+                {isAlaCarteCategory && (
+                  <span style={{ fontSize: "0.85rem", fontWeight: "bold", color: "var(--primary-gold)", position: "relative", zIndex: 2 }}>
+                    ₪{alaCartePricePerPortion} למנה · מינימום {alaCarteMinPortions} · בכפולות של {alaCartePortionStep}
+                  </span>
+                )}
                 {!isUnlimited && (
                   <span style={{
                     fontSize: "0.85rem",
@@ -487,7 +555,7 @@ ${selectionsText}
                 )}
               </div>
 
-              {/* Add-on note (opt-in): each selected add-on is supplied in the order quantity */}
+              {/* Add-on note (opt-in): each selected add-on has its own portion quantity. */}
               {category.id === alaCarteCategoryId && (
                 <div style={{ padding: "0 var(--spacing-md)", marginBottom: "var(--spacing-md)" }}>
                   <div style={{
@@ -500,7 +568,7 @@ ${selectionsText}
                     padding: "10px 14px",
                     lineHeight: "1.5"
                   }}>
-                    ℹ️ כל תוספת שתבחרו מסופקת בכמות ההזמנה שלכם ({guests} מנות) בתוספת של {alaCartePricePerPortion} ₪ למנה.
+                    ℹ️ {alaCartePricePerPortion} ₪ למנה · מינימום {alaCarteMinPortions} מנות · בכפולות של {alaCartePortionStep}. בחרו כמות נפרדת לכל מנה.
                   </div>
                 </div>
               )}
@@ -549,6 +617,43 @@ ${selectionsText}
                             )}
                           </span>
                           <span className="dish-desc">{dish.description}</span>
+                          {category.id === alaCarteCategoryId && isChecked && (
+                            <label
+                              onClick={(event) => event.stopPropagation()}
+                              style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "10px", fontWeight: "600" }}
+                            >
+                              כמות מנות:
+                              <button
+                                type="button"
+                                className="btn btn-outline"
+                                aria-label={`הפחתת כמות עבור ${dish.name}`}
+                                style={{ width: "32px", height: "32px", padding: 0 }}
+                                onClick={() => commitAlaCarteQuantity(dish.id, (alaCarteQuantities[dish.id] || 0) - alaCartePortionStep)}
+                              >
+                                -
+                              </button>
+                              <input
+                                type="number"
+                                min={0}
+                                step={alaCartePortionStep}
+                                value={alaCarteQuantities[dish.id] || 0}
+                                aria-label={`כמות מנות עבור ${dish.name}`}
+                                onChange={(event) => updateAlaCarteQuantity(dish.id, parseInt(event.target.value) || 0)}
+                                onBlur={(event) => commitAlaCarteQuantity(dish.id, parseInt(event.target.value) || 0)}
+                                style={{ width: "60px", height: "32px", textAlign: "center" }}
+                              />
+                              <button
+                                type="button"
+                                className="btn btn-outline"
+                                aria-label={`הוספת כמות עבור ${dish.name}`}
+                                style={{ width: "32px", height: "32px", padding: 0 }}
+                                onClick={() => commitAlaCarteQuantity(dish.id, (alaCarteQuantities[dish.id] || 0) + alaCartePortionStep)}
+                              >
+                                +
+                              </button>
+                              <span>₪{((alaCarteQuantities[dish.id] || 0) * alaCartePricePerPortion).toLocaleString()}</span>
+                            </label>
+                          )}
                         </div>
                       </div>
                     );
@@ -586,16 +691,24 @@ ${selectionsText}
               </div>
             )}
 
-            {isAlaCarteActive && alaCarteSelection.length > 0 && (
-              <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "10px" }}>
-                <span>תוספת מנות ביניים: {alaCarteSelection.length} × {guests} מנות</span>
-                <strong>₪{alaCarteTotal.toLocaleString()}</strong>
+            {isAlaCarteActive && alaCarteDetails.length > 0 && (
+              <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                  <span>מנות ביניים: {alaCarteTotalPortions} מנות × ₪{alaCartePricePerPortion}</span>
+                  <strong>₪{alaCarteTotal.toLocaleString()}</strong>
+                </div>
+                {alaCarteDetails.map(({ dish, quantity, total }) => (
+                  <div key={dish.id} style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem" }}>
+                    <span>{dish.name}: {quantity} מנות × ₪{alaCartePricePerPortion}</span>
+                    <span>₪{total.toLocaleString()}</span>
+                  </div>
+                ))}
               </div>
             )}
 
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "1.3rem", padding: "10px 0", color: "var(--primary-gold)" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                <span>סה"כ משוער להזמנה:</span>
+                <span>סה&quot;כ משוער להזמנה:</span>
                 <span style={{
                   fontSize: "0.72rem",
                   fontWeight: "600",
@@ -644,6 +757,21 @@ ${selectionsText}
             </div>
           )}
 
+          {hasInvalidAlaCarteQuantity && (
+            <div style={{
+              backgroundColor: "rgba(252, 165, 165, 0.15)",
+              border: "1px solid #fca5a5",
+              color: "#fca5a5",
+              padding: "10px",
+              borderRadius: "var(--border-radius-sm)",
+              fontSize: "0.9rem",
+              marginBottom: "15px",
+              textAlign: "center"
+            }}>
+              ⚠️ לכל מנת ביניים שנבחרה יש להזין לפחות {alaCarteMinPortions} מנות ובכפולות של {alaCartePortionStep}.
+            </div>
+          )}
+
           {isSubmitted ? (
             <div className="lead-success-card" style={{
               backgroundColor: "var(--secondary-green-light)",
@@ -657,7 +785,7 @@ ${selectionsText}
               <div style={{ fontSize: "2rem", marginBottom: "8px" }}>✅</div>
               <h4 style={{ margin: "0 0 10px 0", color: "var(--secondary-green)", fontWeight: "bold" }}>הבקשה נשלחה בהצלחה!</h4>
               <p style={{ fontSize: "0.9rem", margin: "0 0 12px 0", lineHeight: "1.5" }}>
-                תודה, <strong>{formData.name}</strong>. פרטי ההזמנה שלך נקלטו במערכת. נציג טלפוני מטעם "טעם מהודר" יחזור אליך בהקדם למספר <strong>{formData.phone}</strong> לצורך תיאום וסגירת האירוע.
+                תודה, <strong>{formData.name}</strong>. פרטי ההזמנה שלך נקלטו במערכת. נציג טלפוני מטעם &quot;טעם מהודר&quot; יחזור אליך בהקדם למספר <strong>{formData.phone}</strong> לצורך תיאום וסגירת האירוע.
               </p>
               <button
                 type="button"
@@ -965,6 +1093,7 @@ ${selectionsText}
           <p>מחיר מתוכנן: ₪{totalPrice.toLocaleString()}</p>
           <hr />
           {menuData.map((category) => {
+            if (category.id === alaCarteCategoryId) return null;
             const chosenIds = selections[category.id] || [];
             if (chosenIds.length === 0) return null;
             return (
@@ -978,8 +1107,16 @@ ${selectionsText}
               </div>
             );
           })}
-          {isAlaCarteActive && alaCarteSelection.length > 0 && (
-            <p>תוספת מנות ביניים: {alaCarteSelection.length} סוגים × ₪{alaCartePricePerPortion} למנה × {guests} מנות = ₪{alaCarteTotal.toLocaleString()}</p>
+          {isAlaCarteActive && alaCarteDetails.length > 0 && (
+            <div>
+              <h3>מנות ביניים:</h3>
+              <ul>
+                {alaCarteDetails.map(({ dish, quantity, total }) => (
+                  <li key={dish.id}>- {dish.name}: {quantity} מנות × ₪{alaCartePricePerPortion} = ₪{total.toLocaleString()}</li>
+                ))}
+              </ul>
+              <p>סה&quot;כ מנות ביניים: {alaCarteTotalPortions} מנות = ₪{alaCarteTotal.toLocaleString()}</p>
+            </div>
           )}
         </div>
       </div>
