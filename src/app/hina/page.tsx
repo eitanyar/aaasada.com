@@ -114,7 +114,7 @@ export default function HinaGeneralPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section hina-hero">
         <div className="container">
           <div className="badge-kosher" style={{
             backgroundColor: "rgba(255, 255, 255, 0.1)",

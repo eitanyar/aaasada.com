@@ -1294,64 +1294,89 @@ body.accessibility-high-contrast img {
    Hero Section Layout (ATF Optimized)
    ========================================================================== */
 .hero-section {
-  background: linear-gradient(135deg, var(--secondary-green) 0%, #202c11 100%);
+  background-image: url("/images/home-hero.webp");
+  background-position: center 50%;
+  background-size: cover;
   color: var(--text-light);
   padding: var(--spacing-xl) 0;
   text-align: center;
   border-bottom: 6px solid var(--primary-gold);
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(18, 38, 26, 0.88) 0%, rgba(28, 55, 38, 0.72) 52%, rgba(14, 30, 20, 0.86) 100%);
+}
+
+.hero-section .container {
+  position: relative;
+}
+
+.hero-section h1 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Event-specific backgrounds for unified hero class */
 .hero-section.shabbat-hero {
-  background: linear-gradient(135deg, #2c4c38 0%, #153012 100%) !important;
-}
-.hero-section.brit-hero {
-  background: linear-gradient(135deg, #1e3a5f 0%, #0f1d30 100%) !important;
-}
-.hero-section.barmitzvah-hero {
-  background: linear-gradient(135deg, #164e63 0%, #083344 100%) !important;
-}
-.hero-section.hina-hero {
-  background: linear-gradient(135deg, #7c2d12 0%, #431407 100%) !important;
-}
-.hero-section.azkarot-hero {
-  background: linear-gradient(135deg, #373a36 0%, #1f211e 100%) !important;
-}
-.hero-section.rosh-hashanah-hero {
-  background-image: url("/images/rosh-hashanah-hero.webp");
-  background-position: center 55%;
-  background-size: cover;
-  isolation: isolate;
-  overflow: hidden;
-}
-.hero-section.rosh-hashanah-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, rgba(18, 31, 12, 0.88) 0%, rgba(24, 38, 15, 0.72) 52%, rgba(18, 31, 12, 0.84) 100%);
-}
-.hero-section.rosh-hashanah-hero .container {
-  position: relative;
-}
-
-.hero-section.bar-mitzvah-hero {
-  background-image: url("/images/bar-mitzvah-hero.webp");
+  background-image: url("/images/shabbat-chatan-hero.webp") !important;
   background-position: center 50%;
   background-size: cover;
-  isolation: isolate;
-  overflow: hidden;
 }
+.hero-section.shabbat-hero::before {
+  background: linear-gradient(135deg, rgba(16, 38, 28, 0.88) 0%, rgba(24, 52, 38, 0.72) 52%, rgba(12, 28, 20, 0.86) 100%) !important;
+}
+
+.hero-section.brit-hero {
+  background-image: url("/images/brit-hero.webp") !important;
+  background-position: center 50%;
+  background-size: cover;
+}
+.hero-section.brit-hero::before {
+  background: linear-gradient(135deg, rgba(12, 30, 52, 0.88) 0%, rgba(18, 44, 74, 0.72) 52%, rgba(8, 22, 40, 0.86) 100%) !important;
+}
+
+.hero-section.barmitzvah-hero,
+.hero-section.bar-mitzvah-hero {
+  background-image: url("/images/bar-mitzvah-hero.webp") !important;
+  background-position: center 50%;
+  background-size: cover;
+}
+.hero-section.barmitzvah-hero::before,
 .hero-section.bar-mitzvah-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, rgba(10, 32, 48, 0.88) 0%, rgba(15, 43, 62, 0.72) 52%, rgba(8, 25, 38, 0.86) 100%);
+  background: linear-gradient(135deg, rgba(10, 32, 48, 0.88) 0%, rgba(15, 43, 62, 0.72) 52%, rgba(8, 25, 38, 0.86) 100%) !important;
 }
-.hero-section.bar-mitzvah-hero .container {
-  position: relative;
+
+.hero-section.hina-hero {
+  background-image: url("/images/hina-hero.webp") !important;
+  background-position: center 50%;
+  background-size: cover;
+}
+.hero-section.hina-hero::before {
+  background: linear-gradient(135deg, rgba(58, 18, 8, 0.88) 0%, rgba(78, 25, 12, 0.72) 52%, rgba(40, 12, 5, 0.86) 100%) !important;
+}
+
+.hero-section.azkarot-hero {
+  background-image: url("/images/azkarot-hero.webp") !important;
+  background-position: center 50%;
+  background-size: cover;
+}
+.hero-section.azkarot-hero::before {
+  background: linear-gradient(135deg, rgba(28, 30, 26, 0.88) 0%, rgba(42, 44, 38, 0.72) 52%, rgba(20, 22, 18, 0.88) 100%) !important;
+}
+
+.hero-section.rosh-hashanah-hero {
+  background-image: url("/images/rosh-hashanah-hero.webp") !important;
+  background-position: center 55%;
+  background-size: cover;
+}
+.hero-section.rosh-hashanah-hero::before {
+  background: linear-gradient(135deg, rgba(18, 31, 12, 0.88) 0%, rgba(24, 38, 15, 0.72) 52%, rgba(18, 31, 12, 0.84) 100%) !important;
 }
 
 /* Hero buttons default padding/font size on desktop */
