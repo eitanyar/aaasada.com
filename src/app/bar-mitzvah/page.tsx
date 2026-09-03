@@ -114,7 +114,7 @@ export default function BarMitzvahGeneralPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section bar-mitzvah-hero">
         <div className="container">
           <div className="badge-kosher" style={{
             backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -131,7 +131,7 @@ export default function BarMitzvahGeneralPage() {
             <span>כשרות למהדרין מן המהדרין - בד"ץ יורה דעה (הרב שלמה מחפוד)</span>
           </div>
           
-          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
+          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
             קייטרינג לבר מצווה ואירועים משפחתיים
             <br />
             <span style={{ color: "var(--primary-gold)" }}>מנה עשירה ומפנקת במיוחד ב-₪58 בלבד!</span>
