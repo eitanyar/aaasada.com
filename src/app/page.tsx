@@ -149,30 +149,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Seasonal Section - Rosh Hashanah */}
-      <section className="section" style={{ background: "linear-gradient(135deg, var(--secondary-green), #14251a)", textAlign: "center" }}>
-        <div className="container">
-          <span className="badge-kosher" style={{ marginBottom: "var(--spacing-sm)" }}>🍎🍯 חדש לחג</span>
-
-          <h2 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)" }}>
-            שנה טובה ומתוקה — תפריט ראש השנה
-          </h2>
-
-          <p style={{
-            color: "#e2e8f0",
-            fontSize: "1.1rem",
-            maxWidth: "700px",
-            margin: "0 auto var(--spacing-lg) auto",
-            lineHeight: "1.7"
-          }}>
-            מגשי חג חמים ונדיבים בהשגחת בד&quot;ץ יורה דעה. 110 ₪ למנה · מזמינים עד 7.9
-          </p>
-
-          <a href="/holidays/rosh-hashanah" className="btn btn-primary">
-            <span>להזמנת אוכל מוכן לראש השנה ←</span>
-          </a>
-        </div>
-      </section>
 
       {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
