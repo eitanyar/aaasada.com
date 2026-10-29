@@ -109,7 +109,7 @@ export default function LocalDeliveryCard({
         </li>
         <li style={{ display: "flex", justifyContent: "space-between", paddingBottom: "2px" }}>
           <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>אופן אספקה:</span>
-          <strong style={{ color: "var(--accent-terracotta)", textAlign: "left", maxWidth: "70%" }}>
+          <strong style={{ color: "var(--accent-terracotta)", textAlign: "right", maxWidth: "70%" }}>
             {isShabbatChatan
               ? "מגיע בקירור מבוקר בשישי בצהריים (לחימום על הפלטה)"
               : isSpecificEvent
