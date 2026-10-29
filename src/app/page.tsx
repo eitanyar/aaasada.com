@@ -117,7 +117,7 @@ export default function Home() {
             <span>כשר למהדרין מן המהדרין - בד"ץ יורה דעה בהשגחת שלמה מחפוד</span>
           </div>
           
-          <h1 style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
+          <h1 className="home-hero-heading" style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
             הקייטרינג שלכם לאירועי מצווה ושמחות -{" "}
             <span style={{ color: "var(--primary-gold)" }}>תמורה ללא תחרות .</span>
           </h1>

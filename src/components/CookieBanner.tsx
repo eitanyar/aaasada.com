@@ -26,18 +26,15 @@ export default function CookieBanner() {
 
   return (
     <div className="cookie-consent-banner">
-      <div style={{ lineHeight: "1.5" }}>
-        אתר זה משתמש בעוגיות (Cookies) ובכלים של Google Analytics לצורך ניתוח סטטיסטי, שיפור ביצועים והתאמת חוויית הגלישה. 
-        בלחיצה על "מאשר/ת" אתם מסכימים למדיניות העוגיות ותנאי השימוש שלנו. 
-        <a href="/privacy" style={{ marginRight: "6px" }}>
+      <div>
+        אנחנו משתמשים בעוגיות כדי להתאים עבורך את החוויה הטובה ביותר.
+        <a href="/privacy">
           קראו עוד במדיניות הפרטיות
         </a>
       </div>
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <button onClick={handleAccept}>
-          מאשר/ת
-        </button>
-      </div>
+      <button onClick={handleAccept}>
+        מאשר/ת
+      </button>
     </div>
   );
 }
