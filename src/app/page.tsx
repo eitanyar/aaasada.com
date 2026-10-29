@@ -122,8 +122,8 @@ export default function Home() {
             <span style={{ color: "var(--primary-gold)" }}>במחירים ללא תחרות</span>
           </h1>
 
-          <p style={{ color: "#ffffff", fontSize: "1.25rem", margin: "0 auto var(--spacing-sm) auto", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
-            לאזכרות, שבת חתן וכל אירוע מצווה
+          <p style={{ color: "#ffffff", fontSize: "1.25rem", fontWeight: 700, margin: "0 auto var(--spacing-sm) auto", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
+            ההצעה הטובה ביותר לשבתות חתן, אזכרות ואירועים בבית ובבית כנסת!
           </p>
           
           <p style={{
