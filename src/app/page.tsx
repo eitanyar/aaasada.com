@@ -118,8 +118,8 @@ export default function Home() {
           </div>
           
           <h1 className="home-hero-heading" style={{ color: "#ffffff", fontFamily: "var(--font-frank-ruhl)", marginBottom: "var(--spacing-sm)", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
-            קייטרינג שמגיע עד אליך עם אוכל ביתי, מסורתי{" "}
-            <span style={{ color: "var(--primary-gold)" }}>במחירים ללא תחרות</span>
+            קייטרינג ביתי, מסורתי, טעים וטרי{" "}
+            <span style={{ color: "var(--primary-gold)" }}>שהאורחים שלך יאהבו</span>
           </h1>
 
           <p style={{ color: "#ffffff", fontSize: "1.25rem", fontWeight: 700, margin: "0 auto var(--spacing-sm) auto", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
