@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams, usePathname } from "next/navigation";
 import { PhoneIcon } from "./icons";
+import styles from "./DeliveryDetails.module.css";
 
 interface LocalDeliveryCardProps {
   cityName?: string;
@@ -88,28 +89,28 @@ export default function LocalDeliveryCard({
         </div>
       )}
 
-      <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", padding: 0, margin: 0 }}>
-        <li style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
+      <ul className={styles.details}>
+        <li style={{ borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
           <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>כשרות מהודרת:</span>
           <strong style={{ color: "var(--secondary-green)" }}>בד"ץ יורה דעה (הרב שלמה מחפוד)</strong>
         </li>
-        <li style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
+        <li style={{ borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
           <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>מחיר המנה:</span>
           <strong style={{ color: "var(--secondary-green)" }}>{azkarotDual ? "₪43 (מבצע) / ₪58 (מורחב)" : priceText}</strong>
         </li>
         {!azkarotDual && (
-          <li style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
+          <li style={{ borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
             <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>מינימום הזמנה:</span>
             <strong style={{ color: "var(--secondary-green)" }}>30 מנות (אורחים)</strong>
           </li>
         )}
-        <li style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
+        <li style={{ borderBottom: "1px dashed var(--border-color)", paddingBottom: "8px" }}>
           <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>אזור אספקה:</span>
           <strong style={{ color: "var(--secondary-green)" }}>{cityName} וסביבתה</strong>
         </li>
-        <li style={{ display: "flex", justifyContent: "space-between", paddingBottom: "2px" }}>
+        <li style={{ paddingBottom: "2px" }}>
           <span style={{ color: "var(--text-muted)", fontWeight: "500" }}>אופן אספקה:</span>
-          <strong style={{ color: "var(--accent-terracotta)", textAlign: "right", maxWidth: "70%" }}>
+          <strong style={{ color: "var(--accent-terracotta)" }}>
             {isShabbatChatan
               ? "מגיע בקירור מבוקר בשישי בצהריים (לחימום על הפלטה)"
               : isSpecificEvent

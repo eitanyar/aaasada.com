@@ -4,6 +4,7 @@ import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
 import { PhoneIcon } from "../../../../components/icons";
 import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
+import styles from "../../../../components/DeliveryDetails.module.css";
 import VideoTestimonial from "../../../../components/VideoTestimonial";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
@@ -239,24 +240,24 @@ export default async function BritCityPage({ params }: { params: Promise<{ slug:
               <h3 style={{ fontFamily: "sans-serif", fontWeight: "700", color: "var(--secondary-green)", margin: 0 }}>
                 פרטי אספקה לבריתות ב{city.name}
               </h3>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
+              <ul className={styles.details}>
+                <li>
                   <span>📦 סוג המנות:</span>
                   <strong>תבשילים בשריים חמים וסלטים טריים</strong>
                 </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
+                <li>
                   <span>🚚 עלות משלוח ל{city.name}:</span>
                   <strong>ימסר על ידי הנציג בהתאם למיקום וזמן המסירה</strong>
                 </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
+                <li>
                   <span>👥 מינימום הזמנה:</span>
                   <strong>30 מנות (אורחים)</strong>
                 </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
+                <li>
                   <span>🔥 אספקה:</span>
                   <strong>משלוח מגיע חם ומוכן במארזים מבודדי חום</strong>
                 </li>
-                <li style={{ display: "flex", justifyContent: "space-between" }}>
+                <li>
                   <span>🍽️ אפשרויות הגשה:</span>
                   <strong>הגשה עצמית חסכונית או שירות מלצרים ל-100+ איש</strong>
                 </li>
