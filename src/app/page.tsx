@@ -22,6 +22,15 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://aaasada.com/#website",
+        "url": "https://aaasada.com/",
+        "name": "קייטרינג טעם מהודר",
+        "alternateName": ["טעם מהודר", "Taam Mehudar Catering"],
+        "inLanguage": "he-IL",
+        "publisher": { "@id": "https://aaasada.com/#catering" }
+      },
+      {
         "@type": "CateringService",
         "@id": "https://aaasada.com/#catering",
         "name": "קייטרינג טעם מהודר",

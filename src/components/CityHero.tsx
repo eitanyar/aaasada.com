@@ -120,7 +120,7 @@ export default function CityHero({ cityName, regionTitle, defaultIntro }: CityHe
         };
       default:
         return {
-          title: `קייטרינג בשרי ואוכל מוכן ב${cityName}`,
+          title: `קייטרינג בשרי ומגשי אוכל מוכן לאירועים ב${cityName}`,
           intro: defaultIntro,
           badge: `בד"ץ יורה דעה הרב מחפוד`
         };

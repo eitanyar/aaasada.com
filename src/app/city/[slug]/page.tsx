@@ -158,7 +158,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         }}>
           <div className="container">
             <h1 style={{ color: "#ffffff", fontSize: "clamp(1.8rem, 5vw, 3.2rem)", fontFamily: "var(--font-frank-ruhl)", fontWeight: 900 }}>
-              קייטרינג בשרי ואוכל מוכן ב{city.name}
+              קייטרינג בשרי ומגשי אוכל מוכן לאירועים ב{city.name}
             </h1>
             <p style={{ color: "#e2e8f0", fontSize: "1.2rem", maxWidth: "800px", margin: "15px auto 0 auto", lineHeight: "1.7" }}>
               {city.customIntro}
