@@ -1329,7 +1329,7 @@ body.accessibility-high-contrast img {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(135deg, rgba(18, 38, 26, 0.88) 0%, rgba(28, 55, 38, 0.72) 52%, rgba(14, 30, 20, 0.86) 100%);
+  background: linear-gradient(135deg, rgba(18, 38, 26, 0.80) 0%, rgba(28, 55, 38, 0.60) 52%, rgba(14, 30, 20, 0.78) 100%);
 }
 
 .hero-section .container {
