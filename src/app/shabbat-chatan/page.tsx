@@ -3,6 +3,7 @@ import MenuBuilder from "../../components/MenuBuilder";
 import ProfessionalSupervision from "../../components/ProfessionalSupervision";
 import LocalDeliveryCard from "../../components/LocalDeliveryCard";
 import VideoTestimonial from "../../components/VideoTestimonial";
+import ShabbatChatanReviews from "../../components/ShabbatChatanReviews";
 import { CITY_DATA, CATERING_REGIONS } from "../../data/catering-content";
 import { CheckIcon, PhoneIcon } from "../../components/icons";
 
@@ -165,6 +166,9 @@ export default function ShabbatChatanGeneralPage() {
 
       {/* Video Testimonial Section */}
       <VideoTestimonial videoId="gYsjvm6XgSQ" />
+
+      {/* Google Reviews Gallery */}
+      <ShabbatChatanReviews />
 
       {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>

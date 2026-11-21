@@ -4,6 +4,7 @@ import { CITY_DATA, CATERING_REGIONS } from "../../../../data/catering-content";
 import MenuBuilder from "../../../../components/MenuBuilder";
 import LocalDeliveryCard from "../../../../components/LocalDeliveryCard";
 import VideoTestimonial from "../../../../components/VideoTestimonial";
+import ShabbatChatanReviews from "../../../../components/ShabbatChatanReviews";
 import { PhoneIcon } from "../../../../components/icons";
 
 // Define the static slugs to pre-render during build time (Focus Cities only)
@@ -133,6 +134,9 @@ export default async function ShabbatChatanCityPage({ params }: { params: Promis
 
       {/* Video Testimonial Section */}
       <VideoTestimonial videoId="gYsjvm6XgSQ" />
+
+      {/* Google Reviews Gallery */}
+      <ShabbatChatanReviews />
 
       {/* Key Details Section */}
       <section className="section" style={{ backgroundColor: "#ffffff" }}>
